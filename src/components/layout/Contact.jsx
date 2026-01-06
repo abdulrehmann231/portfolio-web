@@ -15,14 +15,17 @@ const Contact = () => {
         e.preventDefault();
         setStatus('sending');
 
-        // Replace these with actual EmailJS keys
-        // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_USER_ID')
+        const { name, email, message } = formData;
+        const mailtoLink = `mailto:mabdulrehman951@gmail.com?subject=Contact from Portfolio - ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
         
-        // Simulating success for now
+        window.location.href = mailtoLink;
+        
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        
         setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
-        }, 1500);
+            setStatus('');
+        }, 2000);
     };
 
     const handleChange = (e) => {
