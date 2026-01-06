@@ -1,0 +1,137 @@
+Abdul Rehman M. Nasir
+Pakistani Citizen | mabdulrehman951@gmail.com | LinkedIn: Abdulrehman Nasir | GitHub: abdulrehmann231
+
+EDUCATION
+A levels
+Computer Science
+o Related Coursework: Data Structures & Algorithms, Object-Oriented Programming.
+
+Pakistan Karachi
+Completed, 2023
+
+FAST NUCES
+Pakistan Karachi
+B.S. in Computer Science
+Expected Graduation, 2027
+o CGPA: 3.58/4.00,
+o
+Related Coursework: Programming, Fundamentals, Object-Oriented Programming, and Data-Structures.
+Certifications:
+ Full Stack web development: NodeJS, ExpressJS, Rest APIS , SQL databases, PassportJS.
+
+SKILLS
+Languages: JavaScript, C#, Java, C++, C.
+Frameworks: NodeJS, ExpressJS, ReactJS, NextJS, Dot Net Framework, SpringBoot.
+Libraries: Bootstrap, Tailwind, PassportJS.
+Tools: Git, GitHub.
+
+EXPERIENCE
+Software Engineer
+Gitwit
+ Developing and maintaining GitHub integrations to enable seamless AI-driven code
+modifications in repositories.
+ Designing and optimizing E2B templates to automate workflows and improve
+developer productivity.
+ Collaborating on AI-powered developer tools, connecting natural language prompts
+with real-world coding tasks.
+
+Remote
+Jun 2025 – Ongoing
+
+Full-Stack Developer
+Softject
+● Responsible for creating Responsive frontends using ReactJs with Tailwind.
+● Worked with REST APIs and NodeJS + ExpressJS for backend.
+
+Onsite
+Jan 2025 – Ongoing
+
+Full-Stack Developer
+Head-starter AI
+● Developed Full Stack Projects using NextJS and Firebase.
+● Integrated different AI models in websites.
+● Implemented RAG techniques using langchain and different AI models.
+
+Remote
+July 2024 – Sept 2024
+
+Remote
+C# .net Developer
+Sept 2022 – Aug 2023
+Fiverr.com
+● Created Desktop Application / Windows Form Application using C# .net
+● Implemented OOP and integrated databases such as Access, MySQL and Microsoft SQL Server.
+Backend Intern
+Central Depository Company of Pakistan
+● Developing REST-APIS and Micro - Services using Spring-boot.
+
+Onsite
+July 2024 – Sept 2024
+
+●
+
+Implemented SQL databases and JWT auth.
+
+PROJECTS
+Eeko-AI
+● Nextjs AI based website based on NASA agricultural data.
+● LLaMA 3.2(1.1 billion parameters) for insect and diseases detection.
+● YOLO v5 for weed detection
+● Accessible tech to reduce crop issues.
+● Used FAST API to integrate YOLO model into our website.
+Eevi
+●
+●
+●
+●
+
+Oct 2024
+
+July 2024
+Created a centralized web app designed to provides users a streamlined experience to effortlessly discover and
+manage events and meetings for HeadStarter AI fellowship.
+Developed with a focus on individuals who want to keep track of their events and meetings.
+Deployed on vercel and used Azure deployment for database.
+Used NodeJS, ExpressJS, ReactJS and PostgreSQL.
+
+Summarize-AI
+ Developed an AI based web app that allows users to get summary of a pdf or a website.
+ Implemented RAG technique that allowed users to ask questions related to their content using chatbot.
+ Implemented Web scraping and pdf parsing to get data from websites.
+ Used NextJs, Firebase.
+
+Oct 2024
+
+HearMe-AI
+ Developed an Desktop application using Java script electron.
+ Allows recording of audios and uploading of audios.
+ Transcribes the audio and provides an summary of the audio for the user.
+ Can be used to summarize meeting and long converstaions.
+ Used NextJs, Firebase, Groq API.
+
+Nov 2024
+
+MicroServices
+ Developed multiple microservices using SpringBoot.
+ Integrated microservices with each other using Eureka Service Registry.
+ Integrated MySQL to store data about the microservices.
+
+Nov 2024
+
+Pantry Tracker App
+ Developed an AI based web app that allows users to keep track of their pantry items.
+ Trained an AI model using kaggle dataset that identifies the product and add it to the pantry.
+ Performed CRUD opeartions on the pantry items.
+ Used NextJs, Firebase, Tensorflow.
+
+Nov 2024
+
+Real Time Chat Application
+ Implemented a real time chat system that allows users for text messages and voice messages.
+ Used Nodejs, ExpressJS for backend and Web sockets for real time updates.
+ EJS templates were used for frontend.
+ PostgreSQl for Database.
+
+Dec 2023
+
+
