@@ -8,6 +8,7 @@ import rainosFrontendImg from '../../assets/rainos-frontend.png';
 import hearmeAiImg from '../../assets/hearme-ai.png';
 import makerspaceImg from '../../assets/makerspace.png';
 import gitwitImg from '../../assets/gitwit.png';
+import microservicesImg from '../../assets/microservices.png';
 
 const projects = [
     {
@@ -19,7 +20,7 @@ const projects = [
     },
     {
         title: "RainOS App",
-        description: "The core application for RainOS. A private repository focused on the main platform functionality.",
+        description: "The central dashboard for managing RainOS plugin connections, handling subscriptions, and generating API keys.",
         tags: ["React", "Private Repo"],
         links: { github: "#", demo: "https://app.getrainos.com/" },
         image: rainosAppImg
@@ -71,7 +72,8 @@ const projects = [
         title: "MicroServices System",
         description: "Multiple microservices interconnected via Eureka Service Registry with MySQL data storage.",
         tags: ["Spring Boot", "Java", "MySQL", "Eureka", "Private Repo"],
-        links: { github: "#", demo: "#" }
+        links: { github: "#", demo: "#" },
+        image: microservicesImg
     },
 ];
 
@@ -111,7 +113,10 @@ const Projects = () => {
                                         </div>
                                     )}
                                     <div className="p-8 flex flex-col flex-grow relative z-20">
-                                        <div className="flex justify-end items-start mb-6">
+                                        <div className="flex justify-between items-start mb-4">
+                                            <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                                                {project.title}
+                                            </h3>
                                             <div className="flex gap-3">
                                                 <a href={project.links.github} className="text-gray-400 hover:text-white transition-colors">
                                                     <Github size={20} />
@@ -122,9 +127,6 @@ const Projects = () => {
                                             </div>
                                         </div>
 
-                                        <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
-                                            {project.title}
-                                        </h3>
                                         <p className="text-gray-400 mb-6 text-sm leading-relaxed flex-grow">
                                             {project.description}
                                         </p>

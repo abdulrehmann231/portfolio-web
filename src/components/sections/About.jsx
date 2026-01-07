@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-  { category: "Languages", items: ["JavaScript", "C#", "Java", "C++", "C"] },
-  { category: "Frameworks", items: ["NodeJS", "ExpressJS", "ReactJS", "NextJS", ".NET", "SpringBoot"] },
-  { category: "Tools", items: ["Git", "GitHub", "SQL Databases", "MongoDB"] },
+  { category: "Languages", items: ["TypeScript", "JavaScript", "Python", "Java", "C++", "C#", "SQL"] },
+  { category: "Frameworks", items: ["React", "Next.js", "Node.js", "Express", "Spring Boot", ".NET", "Electron", "FastAPI", "TailwindCSS"] },
+  { category: "AI & Databases", items: ["RAG", "YOLO v5", "Firebase", "MongoDB", "PostgreSQL", "MySQL", "Groq API", "HuggingFace"] },
+  { category: "Tools", items: ["Git", "GitHub", "Docker", "Linux", "Postman", "Eureka"] },
 ];
 
 const About = () => {
@@ -22,15 +23,21 @@ const About = () => {
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <p className="text-gray-300 leading-relaxed text-lg">
-                            I am a passionate Computer Science student at <span className="text-blue-400 font-semibold">FAST NUCES</span> (Expected Grad. 2027) with a CGPA of 3.58. 
-                            My journey is defined by a strong foundation in Data Structures, OOP, and Full Stack Development.
+                    <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            Hi, I’m <span className="text-white font-semibold">Abdulrehman</span> 👋
+                            <br />
+                            A full-stack developer who loves building smart, scalable, and user-focused applications. 
+                            I am currently a third-year Computer Science student at <span className="text-blue-400 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
                         </p>
-                        <p className="text-gray-300 leading-relaxed text-lg">
-                            Currently working as a <span className="text-cyan-400 font-semibold">Software Engineer at Gitwit</span>, I specialize in building AI-driven integrations 
-                            and optimizing developer workflows. I love solving complex problems and turning ideas into 
-                            functional, scalable software.
+                        <p>
+                            I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I’ve been deeply involved in Generative AI, building RAG-based applications, AI chat systems, and SaaS products with Stripe-powered subscriptions.
+                        </p>
+                        <p>
+                            I enjoy working across the full stack — from designing APIs and databases to creating smooth frontend experiences. My projects focus on solving real problems, whether it’s automating workflows, enhancing search with AI, or building production-ready SaaS platforms.
+                        </p>
+                        <p>
+                            I’m always exploring new tools, improving my skills, and pushing ideas from concept to deployment.
                         </p>
                     </div>
 

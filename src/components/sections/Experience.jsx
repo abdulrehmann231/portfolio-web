@@ -19,7 +19,7 @@ const experiences = [
         period: "Jan 2025 – Ongoing",
         type: "Onsite",
         description: [
-            "Creating Responsive frontends using ReactJs with Tailwind.",
+            "Creating Responsive frontends using Next.js, React.js and TailwindCSS.",
             "Building backend services with REST APIs, NodeJS, and ExpressJS."
         ]
     },
