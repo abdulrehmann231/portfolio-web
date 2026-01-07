@@ -3,9 +3,27 @@ import { Github, ExternalLink, Code, Layers } from 'lucide-react';
 
 const projects = [
     {
+        title: "Gitwit",
+        description: "AI-powered developer tool connecting natural language to code. Accelerating software development workflows.",
+        tags: ["React", "AI", "DevTools"],
+        links: { github: "https://github.com/jamesmurdza/gitwit/", demo: "https://gitwit.dev/" }
+    },
+    {
+        title: "RainOS App",
+        description: "The core application for RainOS. A private repository focused on the main platform functionality.",
+        tags: ["React", "Private Repo"],
+        links: { github: "#", demo: "https://app.getrainos.com/" }
+    },
+    {
+        title: "RainOS Front-End",
+        description: "The public-facing frontend for RainOS. Showcase website and user interface.",
+        tags: ["React", "Open Source"],
+        links: { github: "https://github.com/getRainOS/Rain-OS-Front-End", demo: "https://www.getrainos.com/" }
+    },
+    {
         title: "Matt Brown Fine Art",
         description: "Official website for Matt Brown Fine Art. Features an online gallery shop for woodblock prints and local craftsmanship.",
-        tags: ["Web Design", "E-commerce"],
+        tags: ["Private Repo", "E-commerce"],
         links: { github: "#", demo: "http://mbrownfa.com/" }
     },
     {
@@ -20,17 +38,12 @@ const projects = [
         tags: ["Next.js", "Python", "FastAPI", "YOLO v5"],
         links: { github: "#", demo: "#" }
     },
-    {
-        title: "Eevi",
-        description: "Centralized web app for managing events and meetings. Streamlined experience for HeadStarter AI fellowship.",
-        tags: ["React", "Node.js", "PostgreSQL", "Azure"],
-        links: { github: "#", demo: "#" }
-    },
+
     {
         title: "Summarize-AI",
-        description: "RAG-based web app that summarizes PDFs and websites. Includes chatbot functionality for content interaction.",
+        description: "RAG-based web app that summarizes PDFs and websites. Includes chatbot functionality. Backend Repo available on GitHub.",
         tags: ["Next.js", "Firebase", "Web Scraping", "RAG"],
-        links: { github: "#", demo: "#" }
+        links: { github: "https://github.com/abdulrehmann231/Summarize-AI", demo: "https://summarize-ai-three-blue.vercel.app/" }
     },
     {
         title: "HearMe-AI",
@@ -41,15 +54,9 @@ const projects = [
     {
         title: "MicroServices System",
         description: "Multiple microservices interconnected via Eureka Service Registry with MySQL data storage.",
-        tags: ["Spring Boot", "Java", "MySQL", "Eureka"],
+        tags: ["Spring Boot", "Java", "MySQL", "Eureka", "Private Repo"],
         links: { github: "#", demo: "#" }
     },
-    {
-        title: "Real Time Chat",
-        description: "Real-time messaging application supporting text and voice messages using WebSockets.",
-        tags: ["Node.js", "Socket.io", "PostgreSQL", "EJS"],
-        links: { github: "#", demo: "#" }
-    }
 ];
 
 const Projects = () => {
