@@ -1,55 +1,71 @@
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code, Layers } from 'lucide-react';
+import researchCoreImg from '../../assets/research-core.png';
+import mattBrownImg from '../../assets/matt-brown.png';
+import eekoAiImg from '../../assets/eeko-ai.png';
+import rainosAppImg from '../../assets/rainos-app.png';
+import rainosFrontendImg from '../../assets/rainos-frontend.png';
+import hearmeAiImg from '../../assets/hearme-ai.png';
+import makerspaceImg from '../../assets/makerspace.png';
+import gitwitImg from '../../assets/gitwit.png';
 
 const projects = [
     {
         title: "Gitwit",
         description: "AI-powered developer tool connecting natural language to code. Accelerating software development workflows.",
         tags: ["React", "AI", "DevTools"],
-        links: { github: "https://github.com/jamesmurdza/gitwit/", demo: "https://gitwit.dev/" }
+        links: { github: "https://github.com/jamesmurdza/gitwit/", demo: "https://gitwit.dev/" },
+        image: gitwitImg
     },
     {
         title: "RainOS App",
         description: "The core application for RainOS. A private repository focused on the main platform functionality.",
         tags: ["React", "Private Repo"],
-        links: { github: "#", demo: "https://app.getrainos.com/" }
+        links: { github: "#", demo: "https://app.getrainos.com/" },
+        image: rainosAppImg
     },
     {
         title: "RainOS Front-End",
         description: "The public-facing frontend for RainOS. Showcase website and user interface.",
         tags: ["React", "Open Source"],
-        links: { github: "https://github.com/getRainOS/Rain-OS-Front-End", demo: "https://www.getrainos.com/" }
+        links: { github: "https://github.com/getRainOS/Rain-OS-Front-End", demo: "https://www.getrainos.com/" },
+        image: rainosFrontendImg
     },
     {
         title: "Matt Brown Fine Art",
         description: "Official website for Matt Brown Fine Art. Features an online gallery shop for woodblock prints and local craftsmanship.",
         tags: ["Private Repo", "E-commerce"],
-        links: { github: "#", demo: "http://mbrownfa.com/" }
+        links: { github: "#", demo: "http://mbrownfa.com/" },
+        image: mattBrownImg
     },
     {
         title: "MakerSpaceApp",
         description: "Official web app for MakerSpace Delft. Facilitates equipment booking, project management, and community collaboration.",
         tags: ["React", "Node.js", "Express", "MongoDB"],
-        links: { github: "https://github.com/abdulrehmann231/MakerSpaceApp", demo: "https://app.makerspacedelft.nl/" }
+        links: { github: "https://github.com/abdulrehmann231/MakerSpaceApp", demo: "https://app.makerspacedelft.nl/" },
+        image: makerspaceImg
     },
     {
         title: "Eeko-AI",
         description: "AI-based agricultural website using NASA data. Features LLaMA 3.2 for disease detection and YOLO v5 for weed detection.",
         tags: ["Next.js", "Python", "FastAPI", "YOLO v5"],
-        links: { github: "https://github.com/saim-x/eeko-ai-webapp", demo: "https://eeko-ai.vercel.app/" }
+        links: { github: "https://github.com/saim-x/eeko-ai-webapp", demo: "https://eeko-ai.vercel.app/" },
+        image: eekoAiImg
     },
 
     {
-        title: "Summarize-AI",
-        description: "RAG-based web app that summarizes PDFs and websites. Includes chatbot functionality. Backend Repo available on GitHub.",
+        title: "ResearchCore",
+        description: "Upload a paper or paste a URL to instantly extract insights, summaries, and answers strictly grounded in the text.",
         tags: ["Next.js", "Firebase", "Web Scraping", "RAG"],
-        links: { github: "https://github.com/abdulrehmann231/Summarize-AI", demo: "https://summarize-ai-three-blue.vercel.app/" }
+        links: { github: "https://github.com/abdulrehmann231/Summarize-AI", demo: "https://summarize-ai-three-blue.vercel.app/" },
+        image: researchCoreImg
     },
     {
         title: "HearMe-AI",
         description: "Desktop application for recording and transcribing audio. Provides summaries of meetings and long conversations.",
         tags: ["Electron", "Next.js", "Groq API", "Firebase"],
-        links: { github: "https://github.com/BurhanCantCode/HearMe-AI", demo: "https://hear-me-ai-jvxh.vercel.app/" }
+        links: { github: "https://github.com/BurhanCantCode/HearMe-AI", demo: "https://hear-me-ai-jvxh.vercel.app/" },
+        image: hearmeAiImg
     },
     {
         title: "MicroServices System",
@@ -83,34 +99,43 @@ const Projects = () => {
                                 transition={{ delay: index * 0.1 }}
                                 className="glass rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 group hover:-translate-y-2"
                             >
-                                <div className="p-8 flex flex-col h-full">
-                                    <div className="flex justify-between items-start mb-6">
-                                        <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:text-blue-300 transition-colors">
-                                            <Layers size={24} />
+                                <div className="h-full flex flex-col">
+                                    {project.image && (
+                                        <div className="w-full h-48 overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60 z-10" />
+                                            <img 
+                                                src={project.image} 
+                                                alt={project.title} 
+                                                className="w-full h-full object-cover object-top"
+                                            />
                                         </div>
-                                        <div className="flex gap-3">
-                                            <a href={project.links.github} className="text-gray-400 hover:text-white transition-colors">
-                                                <Github size={20} />
-                                            </a>
-                                            <a href={project.links.demo} className="text-gray-400 hover:text-white transition-colors">
-                                                <ExternalLink size={20} />
-                                            </a>
+                                    )}
+                                    <div className="p-8 flex flex-col flex-grow relative z-20">
+                                        <div className="flex justify-end items-start mb-6">
+                                            <div className="flex gap-3">
+                                                <a href={project.links.github} className="text-gray-400 hover:text-white transition-colors">
+                                                    <Github size={20} />
+                                                </a>
+                                                <a href={project.links.demo} className="text-gray-400 hover:text-white transition-colors">
+                                                    <ExternalLink size={20} />
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-gray-400 mb-6 text-sm leading-relaxed flex-grow">
-                                        {project.description}
-                                    </p>
+                                        <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-gray-400 mb-6 text-sm leading-relaxed flex-grow">
+                                            {project.description}
+                                        </p>
 
-                                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-                                        {project.tags.map((tag, i) => (
-                                            <span key={i} className="text-xs font-medium px-2 py-1 bg-white/5 text-gray-300 rounded hover:bg-white/10 transition-colors">
-                                                {tag}
-                                            </span>
-                                        ))}
+                                        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5 mt-auto">
+                                            {project.tags.map((tag, i) => (
+                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-white/5 text-gray-300 rounded hover:bg-white/10 transition-colors">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
