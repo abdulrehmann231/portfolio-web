@@ -36,7 +36,7 @@ const projects = [
         title: "Eeko-AI",
         description: "AI-based agricultural website using NASA data. Features LLaMA 3.2 for disease detection and YOLO v5 for weed detection.",
         tags: ["Next.js", "Python", "FastAPI", "YOLO v5"],
-        links: { github: "#", demo: "#" }
+        links: { github: "https://github.com/saim-x/eeko-ai-webapp", demo: "https://eeko-ai.vercel.app/" }
     },
 
     {
