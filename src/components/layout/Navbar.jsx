@@ -23,19 +23,17 @@ const Navbar = () => {
     return (
         <nav 
             className={`fixed w-full z-50 transition-all duration-300 ${
-                isScrolled ? 'py-4' : 'py-6'
+                isScrolled ? 'py-3' : 'py-5'
             }`}
         >
-            <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300">
                 <div 
-                    className={`flex items-center justify-between h-16 rounded-2xl transition-all duration-300 px-6 ${
-                        isScrolled 
-                        ? 'glass shadow-lg shadow-blue-500/5 bg-primary/80' 
-                        : 'bg-transparent'
+                    className={`flex items-center justify-between h-16 rounded-full transition-all duration-300 px-5 md:px-6 ${
+                        isScrolled ? 'surface' : 'bg-transparent'
                     }`}
                 >
-                    <div className="flex-shrink-0 font-bold text-2xl tracking-tighter">
-                        Abdul<span className="text-blue-400">Rehman</span>
+                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900">
+                        Abdul<span className="text-teal-700">Rehman</span>
                     </div>
 
                     <div className="hidden md:block">
@@ -44,7 +42,7 @@ const Navbar = () => {
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md transition-all duration-300 hover:scale-105 font-medium"
+                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-white/70 font-medium"
                                 >
                                     {item.name}
                                 </a>
@@ -53,10 +51,10 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 glass rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-teal-200 transition-colors">
                             <Github size={18} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 glass rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-teal-200 transition-colors">
                             <Linkedin size={18} />
                         </a>
                     </div>
@@ -64,7 +62,7 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-400 hover:text-white p-2"
+                            className="text-slate-500 hover:text-slate-900 p-2"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -74,14 +72,14 @@ const Navbar = () => {
 
             {/* Mobile menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-20 left-4 right-4 glass rounded-2xl p-4 animate-in slide-in-from-top-4 fade-in duration-200">
+                <div className="md:hidden absolute top-20 left-4 right-4 surface rounded-3xl p-4 animate-in slide-in-from-top-4 fade-in duration-200">
                     <div className="space-y-2">
                         {navItems.map((item) => (
                             <a
                                 key={item.name}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
                             >
                                 {item.name}
                             </a>

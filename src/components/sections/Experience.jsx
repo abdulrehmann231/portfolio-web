@@ -58,7 +58,7 @@ const experiences = [
 const Experience = () => {
     return (
         <section id="experience" className="py-20 relative">
-             <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
@@ -68,8 +68,9 @@ const Experience = () => {
                     viewport={{ once: true }}
                 >
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Work Experience</h2>
-                        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full" />
+                        <div className="section-kicker mx-auto mb-4">Timeline</div>
+                        <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">Work Experience</h2>
+                        <div className="section-rule mx-auto" />
                     </div>
 
                     <div className="max-w-3xl mx-auto space-y-8">
@@ -79,29 +80,29 @@ const Experience = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="glass p-8 rounded-2xl hover:border-blue-500/30 transition-all duration-300 group"
+                                className="surface p-8 rounded-3xl hover:translate-y-[-2px] transition-all duration-300 group"
                             >
                                 <div className="flex flex-col md:flex-row justify-between mb-6 gap-4">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{exp.title}</h3>
-                                        <div className="text-lg text-gray-400 font-medium flex items-center gap-2 mt-2">
-                                            <Briefcase size={18} className="text-blue-500" />
+                                        <h3 className="text-2xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">{exp.title}</h3>
+                                        <div className="text-lg text-slate-500 font-medium flex items-center gap-2 mt-2 flex-wrap">
+                                            <Briefcase size={18} className="text-teal-700" />
                                             {exp.company}
-                                            <span className="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-full text-gray-400">
+                                            <span className="text-xs bg-teal-50 border border-teal-100 px-2 py-1 rounded-full text-teal-700">
                                                 {exp.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="text-gray-400 font-medium flex items-center gap-2 bg-white/5 self-start px-4 py-2 rounded-full border border-white/5">
-                                        <Calendar size={16} className="text-blue-500" />
+                                    <div className="text-slate-500 font-medium flex items-center gap-2 bg-white/70 self-start px-4 py-2 rounded-full border border-slate-200">
+                                        <Calendar size={16} className="text-teal-700" />
                                         {exp.period}
                                     </div>
                                 </div>
                                 
                                 <ul className="space-y-3">
                                     {exp.description.map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-gray-300">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                                        <li key={i} className="flex gap-3 text-slate-600">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 mt-2.5 flex-shrink-0" />
                                             <span className="leading-relaxed">{item}</span>
                                         </li>
                                     ))}

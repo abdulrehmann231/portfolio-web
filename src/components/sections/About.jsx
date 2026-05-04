@@ -18,20 +18,20 @@ const About = () => {
                 viewport={{ once: true }}
             >
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">About Me</h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full" />
+                    <div className="section-kicker mx-auto mb-4">Profile</div>
+                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">About Me</h2>
+                    <div className="section-rule mx-auto" />
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                         <p>
-                            Hi, I’m <span className="text-white font-semibold">Abdulrehman</span> 👋
+                            Hi, I’m <span className="text-slate-900 font-semibold">Abdulrehman</span>.
                             <br />
-                            A full-stack developer who loves building smart, scalable, and user-focused applications. 
-                            I am currently a third-year Computer Science student at <span className="text-blue-400 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
+                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-teal-700 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
                         </p>
                         <p>
-                            I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I’ve been deeply involved in Generative AI, building RAG-based applications, AI chat systems, and SaaS products with Stripe-powered subscriptions.
+                            I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I’ve been building RAG-based applications, AI chat systems, and subscription products.
                         </p>
                         <p>
                             I enjoy working across the full stack — from designing APIs and databases to creating smooth frontend experiences. My projects focus on solving real problems, whether it’s automating workflows, enhancing search with AI, or building production-ready SaaS platforms.
@@ -48,12 +48,12 @@ const About = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="glass p-6 rounded-2xl hover:bg-white/5 transition-colors border-l-4 border-l-blue-500"
+                                className="surface p-6 rounded-3xl hover:translate-y-[-2px] transition-all duration-300 border-l-4 border-l-teal-600"
                             >
-                                <h3 className="text-xl font-semibold text-white mb-4">{skillGroup.category}</h3>
+                                <h3 className="text-xl font-semibold text-slate-900 mb-4">{skillGroup.category}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {skillGroup.items.map((item) => (
-                                        <span key={item} className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                                        <span key={item} className="px-3 py-1 rounded-full text-sm bg-teal-50 text-teal-800 border border-teal-100">
                                             {item}
                                         </span>
                                     ))}

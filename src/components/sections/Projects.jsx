@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Code, Layers } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
 import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
@@ -104,8 +104,9 @@ const Projects = () => {
                     viewport={{ once: true }}
                 >
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Projects</h2>
-                        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full" />
+                        <div className="section-kicker mx-auto mb-4">Selected Work</div>
+                        <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">Featured Projects</h2>
+                        <div className="section-rule mx-auto" />
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,12 +116,12 @@ const Projects = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="glass rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 group hover:-translate-y-2"
+                                className="surface rounded-[2rem] overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group"
                             >
                                 <div className="h-full flex flex-col">
                                     {project.image && (
                                         <div className="w-full h-48 overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60 z-10" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-900/10 to-transparent opacity-80 z-10" />
                                             <img 
                                                 src={project.image} 
                                                 alt={project.title} 
@@ -130,26 +131,26 @@ const Projects = () => {
                                     )}
                                     <div className="p-8 flex flex-col flex-grow relative z-20">
                                         <div className="flex justify-between items-start mb-4">
-                                            <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
                                                 {project.title}
                                             </h3>
                                             <div className="flex gap-3">
-                                                <a href={project.links.github} className="text-gray-400 hover:text-white transition-colors">
+                                                <a href={project.links.github} className="text-slate-400 hover:text-slate-900 transition-colors">
                                                     <Github size={20} />
                                                 </a>
-                                                <a href={project.links.demo} className="text-gray-400 hover:text-white transition-colors">
+                                                <a href={project.links.demo} className="text-slate-400 hover:text-slate-900 transition-colors">
                                                     <ExternalLink size={20} />
                                                 </a>
                                             </div>
                                         </div>
 
-                                        <p className="text-gray-400 mb-6 text-sm leading-relaxed flex-grow">
+                                        <p className="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">
                                             {project.description}
                                         </p>
 
-                                        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5 mt-auto">
+                                        <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 mt-auto">
                                             {project.tags.map((tag, i) => (
-                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-white/5 text-gray-300 rounded hover:bg-white/10 transition-colors">
+                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-teal-50 text-teal-800 rounded-full hover:bg-teal-100 transition-colors">
                                                     {tag}
                                                 </span>
                                             ))}
