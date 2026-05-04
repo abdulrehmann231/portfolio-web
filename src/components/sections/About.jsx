@@ -28,7 +28,7 @@ const About = () => {
                         <p>
                             Hi, I’m <span className="text-slate-900 font-semibold">Abdulrehman</span>.
                             <br />
-                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-teal-700 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
+                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-slate-900 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
                         </p>
                         <p>
                             I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I’ve been building RAG-based applications, AI chat systems, and subscription products.
@@ -48,12 +48,12 @@ const About = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="surface p-6 rounded-3xl hover:translate-y-[-2px] transition-all duration-300 border-l-4 border-l-teal-600"
+                                className="surface p-6 rounded-2xl hover:translate-y-[-2px] transition-all duration-300 border-l-2 border-l-slate-900"
                             >
                                 <h3 className="text-xl font-semibold text-slate-900 mb-4">{skillGroup.category}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {skillGroup.items.map((item) => (
-                                        <span key={item} className="px-3 py-1 rounded-full text-sm bg-teal-50 text-teal-800 border border-teal-100">
+                                        <span key={item} className="px-3 py-1 rounded-full text-sm bg-slate-50 text-slate-700 border border-slate-200">
                                             {item}
                                         </span>
                                     ))}

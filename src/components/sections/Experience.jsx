@@ -73,36 +73,36 @@ const Experience = () => {
                         <div className="section-rule mx-auto" />
                     </div>
 
-                    <div className="max-w-3xl mx-auto space-y-8">
+                    <div className="max-w-4xl mx-auto divide-y divide-slate-200 border-y border-slate-200">
                         {experiences.map((exp, index) => (
                             <motion.div 
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="surface p-8 rounded-3xl hover:translate-y-[-2px] transition-all duration-300 group"
+                                className="py-8 group"
                             >
-                                <div className="flex flex-col md:flex-row justify-between mb-6 gap-4">
+                                <div className="flex flex-col md:flex-row md:items-start justify-between mb-5 gap-4">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">{exp.title}</h3>
+                                        <h3 className="text-2xl font-bold text-slate-950 group-hover:text-slate-600 transition-colors">{exp.title}</h3>
                                         <div className="text-lg text-slate-500 font-medium flex items-center gap-2 mt-2 flex-wrap">
-                                            <Briefcase size={18} className="text-teal-700" />
+                                            <Briefcase size={18} className="text-slate-700" />
                                             {exp.company}
-                                            <span className="text-xs bg-teal-50 border border-teal-100 px-2 py-1 rounded-full text-teal-700">
+                                            <span className="text-xs bg-slate-50 border border-slate-200 px-2 py-1 rounded-full text-slate-700">
                                                 {exp.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="text-slate-500 font-medium flex items-center gap-2 bg-white/70 self-start px-4 py-2 rounded-full border border-slate-200">
-                                        <Calendar size={16} className="text-teal-700" />
+                                    <div className="text-slate-500 font-medium flex items-center gap-2 bg-white self-start px-4 py-2 rounded-full border border-slate-200">
+                                        <Calendar size={16} className="text-slate-700" />
                                         {exp.period}
                                     </div>
                                 </div>
                                 
-                                <ul className="space-y-3">
+                                <ul className="space-y-3 pl-0 md:pl-1">
                                     {exp.description.map((item, i) => (
                                         <li key={i} className="flex gap-3 text-slate-600">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 mt-2.5 flex-shrink-0" />
+                                            <span className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-2.5 flex-shrink-0" />
                                             <span className="leading-relaxed">{item}</span>
                                         </li>
                                     ))}

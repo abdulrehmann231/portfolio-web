@@ -1,15 +1,15 @@
 const Footer = () => {
     return (
         <footer className="border-t border-slate-200/80 py-12 relative overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-full bg-teal-950/5 -z-10" />
+             <div className="absolute top-0 left-0 w-full h-full bg-slate-950/[0.02] -z-10" />
              
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="text-center md:text-left">
                     <div className="font-extrabold text-xl tracking-tight mb-2 text-slate-900">
-                        Abdul<span className="text-teal-700">Rehman</span>
+                        Abdul<span className="text-slate-500">Rehman</span>
                     </div>
                     <p className="text-slate-500 text-sm">
-                        Building the future, one line of code at a time.
+                        Building useful software with clear structure and disciplined execution.
                     </p>
                 </div>
 

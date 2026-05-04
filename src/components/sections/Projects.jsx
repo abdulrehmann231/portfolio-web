@@ -109,48 +109,55 @@ const Projects = () => {
                         <div className="section-rule mx-auto" />
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="max-w-5xl mx-auto divide-y divide-slate-200 border-y border-slate-200">
                         {projects.map((project, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="surface rounded-[2rem] overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group"
+                                className="py-8 group"
                             >
-                                <div className="h-full flex flex-col">
+                                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                                     {project.image && (
-                                        <div className="w-full h-48 overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
-                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-900/10 to-transparent opacity-80 z-10" />
-                                            <img 
-                                                src={project.image} 
-                                                alt={project.title} 
-                                                className="w-full h-full object-cover object-top"
-                                            />
+                                        <div className="w-full lg:w-48 h-36 overflow-hidden rounded-md flex-shrink-0 mb-4 lg:mb-0">
+                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                                         </div>
                                     )}
-                                    <div className="p-8 flex flex-col flex-grow relative z-20">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+
+                                    <div className="flex-1 max-w-3xl">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <h3 className="text-xl font-bold text-slate-950 group-hover:text-slate-600 transition-colors">
                                                 {project.title}
                                             </h3>
-                                            <div className="flex gap-3">
+                                            <div className="flex gap-3 lg:hidden">
                                                 <a href={project.links.github} className="text-slate-400 hover:text-slate-900 transition-colors">
-                                                    <Github size={20} />
+                                                    <Github size={18} />
                                                 </a>
                                                 <a href={project.links.demo} className="text-slate-400 hover:text-slate-900 transition-colors">
-                                                    <ExternalLink size={20} />
+                                                    <ExternalLink size={18} />
                                                 </a>
                                             </div>
                                         </div>
 
-                                        <p className="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">
+                                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                                             {project.description}
                                         </p>
+                                    </div>
 
-                                        <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 mt-auto">
+                                    <div className="flex flex-col items-start gap-4 lg:items-end">
+                                        <div className="hidden lg:flex gap-3">
+                                            <a href={project.links.github} className="text-slate-400 hover:text-slate-900 transition-colors">
+                                                <Github size={20} />
+                                            </a>
+                                            <a href={project.links.demo} className="text-slate-400 hover:text-slate-900 transition-colors">
+                                                <ExternalLink size={20} />
+                                            </a>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
                                             {project.tags.map((tag, i) => (
-                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-teal-50 text-teal-800 rounded-full hover:bg-teal-100 transition-colors">
+                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-slate-50 text-slate-700 rounded-full border border-slate-200">
                                                     {tag}
                                                 </span>
                                             ))}

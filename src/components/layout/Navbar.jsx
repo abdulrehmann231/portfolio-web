@@ -33,7 +33,7 @@ const Navbar = () => {
                     }`}
                 >
                     <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900">
-                        Abdul<span className="text-teal-700">Rehman</span>
+                        Abdul<span className="text-slate-500">Rehman</span>
                     </div>
 
                     <div className="hidden md:block">
@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-white/70 font-medium"
+                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
                                 >
                                     {item.name}
                                 </a>
@@ -51,10 +51,10 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-teal-200 transition-colors">
+                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
                             <Github size={18} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-teal-200 transition-colors">
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
                             <Linkedin size={18} />
                         </a>
                     </div>
