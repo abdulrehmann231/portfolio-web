@@ -14,82 +14,91 @@ import ligmaImg from '../../assets/ligma.png';
 
 const projects = [
     {
-        title: "EarthLink AI",
-        description: "An AI-powered environmental intelligence platform. Chat in plain language to instantly perform real-time map comparisons, analyze regions, and extract satellite insights without any code.",
-        tags: ["Next.js", "Python", "Tambo AI", "Mapbox"],
-        links: { github: "https://github.com/abdulrehmann231/EarthLink-AI/", demo: "https://earth-link-ai.vercel.app/" },
-        image: earthlinkAiImg
+        title: 'EarthLink AI',
+        description:
+            'Satellite-grade environmental intelligence — ask in plain language and get map-based insights (NDVI, heat, region comparisons). Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend using Sentinel-2 data.',
+        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox'],
+        links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
+        image: earthlinkAiImg,
     },
     {
-        title: "LIGMA",
-        description: "A real-time collaborative canvas where AI automatically converts brainstorms into assignable tasks. Features include full event replays for missed sessions and instant summary exports designed to kickstart coding tools.",
-        tags: ["Next.js", "Fastify", "Yjs", "WebSockets", "Groq AI"],
-        links: { github: "https://github.com/mustafahk27/LIGMA", demo: "https://hopeful-curiosity-production-1c1a.up.railway.app/" },
-        image: ligmaImg
+        title: 'LIGMA',
+        description:
+            'Real-time collaborative meeting whiteboard with sub-50ms Yjs sync, AI intent classification, and PDF export. Frontend (Next.js) + Fastify backend, Postgres and Groq/LLM-driven summaries.',
+        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
+        links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
+        image: ligmaImg,
     },
     {
-        title: "Gitwit",
-        description: "AI-powered developer tool connecting natural language to code. Accelerating software development workflows.",
-        tags: ["React", "AI", "DevTools"],
-        links: { github: "https://github.com/jamesmurdza/gitwit/", demo: "https://gitwit.dev/" },
-        image: gitwitImg
+        title: 'Gitwit',
+        description:
+            'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
+        tags: ['React', 'AI', 'DevTools'],
+        links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
+        image: gitwitImg,
     },
     {
-        title: "RainOS App",
-        description: "The central dashboard for managing RainOS plugin connections, handling subscriptions, and generating API keys.",
-        tags: ["React", "Private Repo"],
-        links: { github: "#", demo: "https://app.getrainos.com/" },
-        image: rainosAppImg
+        title: 'RainOS App',
+        description:
+            'Dashboard for managing RainOS plugins, API keys and subscription workflows — the production admin interface for the RainOS platform.',
+        tags: ['React', 'Private Repo'],
+        links: { github: '#', demo: 'https://app.getrainos.com/' },
+        image: rainosAppImg,
     },
     {
-        title: "RainOS Front-End",
-        description: "The public-facing frontend for RainOS. Showcase website and user interface.",
-        tags: ["React", "Open Source"],
-        links: { github: "https://github.com/getRainOS/Rain-OS-Front-End", demo: "https://www.getrainos.com/" },
-        image: rainosFrontendImg
+        title: 'RainOS Front-End',
+        description: 'Public marketing and product site for RainOS — the front-facing experience that showcases features, pricing and docs.',
+        tags: ['React', 'Open Source'],
+        links: { github: 'https://github.com/getRainOS/Rain-OS-Front-End', demo: 'https://www.getrainos.com/' },
+        image: rainosFrontendImg,
     },
     {
-        title: "Matt Brown Fine Art",
-        description: "Official website for Matt Brown Fine Art. Features an online gallery shop for woodblock prints and local craftsmanship.",
-        tags: ["Private Repo", "E-commerce"],
-        links: { github: "#", demo: "http://mbrownfa.com/" },
-        image: mattBrownImg
+        title: 'Matt Brown Fine Art',
+        description:
+            'Official gallery site and shop for Matt Brown Fine Art — showcases collections, prints and purchase options with a clean, visual layout.',
+        tags: ['Private Repo', 'E-commerce'],
+        links: { github: '#', demo: 'http://mbrownfa.com/' },
+        image: mattBrownImg,
     },
     {
-        title: "MakerSpaceApp",
-        description: "Official web app for MakerSpace Delft. Facilitates equipment booking, project management, and community collaboration.",
-        tags: ["React", "Node.js", "Express", "MongoDB"],
-        links: { github: "https://github.com/abdulrehmann231/MakerSpaceApp", demo: "https://app.makerspacedelft.nl/" },
-        image: makerspaceImg
+        title: 'MakerSpaceApp',
+        description:
+            'Booking and management app for MakerSpace Delft — schedule equipment, manage projects and users. Built with Node.js, Express and MongoDB.',
+        tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+        links: { github: 'https://github.com/abdulrehmann231/MakerSpaceApp', demo: 'https://app.makerspacedelft.nl/' },
+        image: makerspaceImg,
     },
     {
-        title: "Eeko-AI",
-        description: "AI-based agricultural website using NASA data. Features LLaMA 3.2 for disease detection and YOLO v5 for weed detection.",
-        tags: ["Next.js", "Python", "FastAPI", "YOLO v5"],
-        links: { github: "https://github.com/saim-x/eeko-ai-webapp", demo: "https://eeko-ai.vercel.app/" },
-        image: eekoAiImg
-    },
-
-    {
-        title: "ResearchCore",
-        description: "Upload a paper or paste a URL to instantly extract insights, summaries, and answers strictly grounded in the text.",
-        tags: ["Next.js", "Firebase", "Web Scraping", "RAG"],
-        links: { github: "https://github.com/abdulrehmann231/Summarize-AI", demo: "https://summarize-ai-three-blue.vercel.app/" },
-        image: researchCoreImg
+        title: 'Eeko-AI',
+        description:
+            'AI-powered agricultural webapp using NASA data and object-detection models (YOLOv5); includes disease and insect detection and LLaMA-based analysis — Next.js frontend with ML backends.',
+        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5'],
+        links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
+        image: eekoAiImg,
     },
     {
-        title: "HearMe-AI",
-        description: "Desktop application for recording and transcribing audio. Provides summaries of meetings and long conversations.",
-        tags: ["Electron", "Next.js", "Groq API", "Firebase"],
-        links: { github: "https://github.com/BurhanCantCode/HearMe-AI", demo: "https://hear-me-ai-jvxh.vercel.app/" },
-        image: hearmeAiImg
+        title: 'ResearchCore',
+        description:
+            'Document QA and summarization platform — upload papers or URLs and get RAG-grounded answers and concise summaries for research workflows.',
+        tags: ['Next.js', 'Firebase', 'Web Scraping', 'RAG'],
+        links: { github: 'https://github.com/abdulrehmann231/Summarize-AI', demo: 'https://summarize-ai-three-blue.vercel.app/' },
+        image: researchCoreImg,
     },
     {
-        title: "MicroServices System",
-        description: "Multiple microservices interconnected via Eureka Service Registry with MySQL data storage.",
-        tags: ["Spring Boot", "Java", "MySQL", "Eureka", "Private Repo"],
-        links: { github: "#", demo: "#" },
-        image: microservicesImg
+        title: 'HearMe-AI',
+        description:
+            'Meeting summarization prototype — record or upload audio, transcribe with Deepgram/HuggingFace and generate concise summaries and email exports.',
+        tags: ['Electron', 'Next.js', 'Groq API', 'Firebase'],
+        links: { github: 'https://github.com/BurhanCantCode/HearMe-AI', demo: 'https://hear-me-ai-jvxh.vercel.app/' },
+        image: hearmeAiImg,
+    },
+    {
+        title: 'MicroServices System',
+        description:
+            'A set of Java microservices with Eureka service registry and MySQL storage, demonstrating service discovery and inter-service communication patterns.',
+        tags: ['Spring Boot', 'Java', 'MySQL', 'Eureka', 'Private Repo'],
+        links: { github: '#', demo: '#' },
+        image: microservicesImg,
     },
 ];
 
@@ -140,9 +149,7 @@ const Projects = () => {
                                             </div>
                                         </div>
 
-                                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                                            {project.description}
-                                        </p>
+                                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">{project.description}</p>
                                     </div>
 
                                     <div className="flex flex-col items-start gap-4 lg:items-end">
