@@ -9,8 +9,24 @@ import hearmeAiImg from '../../assets/hearme-ai.png';
 import makerspaceImg from '../../assets/makerspace.png';
 import gitwitImg from '../../assets/gitwit.png';
 import microservicesImg from '../../assets/microservices.png';
+import earthlinkAiImg from '../../assets/earthlink-ai.png';
+import ligmaImg from '../../assets/ligma.png';
 
 const projects = [
+    {
+        title: "EarthLink AI",
+        description: "An AI-powered environmental intelligence platform. Chat in plain language to instantly perform real-time map comparisons, analyze regions, and extract satellite insights without any code.",
+        tags: ["Next.js", "Python", "Tambo AI", "Mapbox"],
+        links: { github: "https://github.com/abdulrehmann231/EarthLink-AI/", demo: "https://earth-link-ai.vercel.app/" },
+        image: earthlinkAiImg
+    },
+    {
+        title: "LIGMA",
+        description: "A real-time collaborative canvas where AI automatically converts brainstorms into assignable tasks. Features include full event replays for missed sessions and instant summary exports designed to kickstart coding tools.",
+        tags: ["Next.js", "Fastify", "Yjs", "WebSockets", "Groq AI"],
+        links: { github: "https://github.com/mustafahk27/LIGMA", demo: "https://hopeful-curiosity-production-1c1a.up.railway.app/" },
+        image: ligmaImg
+    },
     {
         title: "Gitwit",
         description: "AI-powered developer tool connecting natural language to code. Accelerating software development workflows.",
