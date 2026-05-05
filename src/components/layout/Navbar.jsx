@@ -32,8 +32,8 @@ const Navbar = () => {
                         isScrolled ? 'surface' : 'bg-transparent'
                     }`}
                 >
-                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900">
-                        Abdul<span className="text-slate-500">Rehman</span>
+                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-blue-900">
+                        Abdul<span className="text-blue-500">Rehman</span>
                     </div>
 
                     <div className="hidden md:block">
@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
+                                    className="text-blue-600 hover:text-blue-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-blue-50 font-medium"
                                 >
                                     {item.name}
                                 </a>
@@ -51,10 +51,10 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
+                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-blue-500 hover:text-blue-900 hover:border-blue-300 transition-colors">
                             <Github size={18} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-blue-500 hover:text-blue-900 hover:border-blue-300 transition-colors">
                             <Linkedin size={18} />
                         </a>
                     </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-slate-500 hover:text-slate-900 p-2"
+                            className="text-blue-500 hover:text-blue-900 p-2"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -79,7 +79,7 @@ const Navbar = () => {
                                 key={item.name}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
+                                className="block px-4 py-3 rounded-2xl text-base font-medium text-blue-600 hover:text-blue-900 hover:bg-blue-50/80 transition-colors"
                             >
                                 {item.name}
                             </a>

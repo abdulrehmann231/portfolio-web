@@ -9,7 +9,7 @@ import Contact from './components/layout/Contact';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-primary text-slate-900 font-sans antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-primary text-blue-900 font-sans antialiased overflow-x-hidden">
       <Navbar />
       <main className="relative z-10">
         <Hero />

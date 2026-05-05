@@ -20,9 +20,9 @@ const About = () => {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                         <p>
-                            Hi, I'm <span className="text-slate-900 font-semibold">Abdulrehman</span>.
+                            Hi, I'm <span className="text-blue-900 font-semibold">Abdulrehman</span>.
                             <br />
-                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-slate-900 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
+                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-blue-900 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
                         </p>
                         <p>
                             I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I've been building RAG-based applications, AI chat systems, and subscription products.

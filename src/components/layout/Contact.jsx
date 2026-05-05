@@ -54,14 +54,14 @@ const Contact = () => {
                             </p>
                             
                             <div className="space-y-6">
-                                <a href="mailto:mabdulrehman951@gmail.com" className="flex items-center gap-4 text-slate-700 hover:text-slate-900 group transition-colors p-4 surface-strong rounded-2xl hover:translate-y-[-1px]">
-                                    <div className="p-3 bg-slate-50 rounded-xl text-slate-700 group-hover:scale-110 transition-transform">
+                                <a href="mailto:mabdulrehman951@gmail.com" className="flex items-center gap-4 text-blue-700 hover:text-blue-900 group transition-colors p-4 surface-strong rounded-2xl hover:translate-y-[-1px]">
+                                    <div className="p-3 bg-blue-50 rounded-xl text-blue-700 group-hover:scale-110 transition-transform">
                                         <Mail size={24} />
                                     </div>
                                     <span className="font-medium">mabdulrehman951@gmail.com</span>
                                 </a>
-                                <div className="flex items-center gap-4 text-slate-700 p-4 surface-strong rounded-2xl">
-                                    <div className="p-3 bg-slate-50 rounded-xl text-slate-700">
+                                <div className="flex items-center gap-4 text-blue-700 p-4 surface-strong rounded-2xl">
+                                    <div className="p-3 bg-blue-50 rounded-xl text-blue-700">
                                         <MapPin size={24} />
                                     </div>
                                     <span className="font-medium">Karachi, Pakistan</span>
@@ -69,9 +69,9 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6 surface-strong p-8 rounded-2xl border border-slate-200">
+                        <form onSubmit={handleSubmit} className="space-y-6 surface-strong p-8 rounded-2xl border border-blue-200">
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-slate-500 mb-2">Name</label>
+                                <label htmlFor="name" className="block text-sm font-medium text-blue-500 mb-2">Name</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -85,7 +85,7 @@ const Contact = () => {
                             </div>
                             
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-slate-500 mb-2">Email</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-blue-500 mb-2">Email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -99,7 +99,7 @@ const Contact = () => {
                             </div>
                             
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-slate-500 mb-2">Message</label>
+                                <label htmlFor="message" className="block text-sm font-medium text-blue-500 mb-2">Message</label>
                                 <textarea
                                     id="message"
                                     name="message"

@@ -21,11 +21,11 @@ const Hero = () => {
                             Software Engineer
                         </motion.div>
                         
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-slate-950 mb-6 leading-[0.95] tracking-tight">
+                        <h1 className="text-5xl md:text-7xl font-extrabold text-blue-950 mb-6 leading-[0.95] tracking-tight">
                             Designing software that feels
-                            <span className="block text-slate-600">clear, fast, and human.</span>
+                            <span className="block text-blue-600">clear, fast, and human.</span>
                         </h1>
-                        
+
                         <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-xl leading-relaxed">
                             I build full-stack products and AI-driven integrations with a restrained visual language, consistent typography, and production-ready detail.
                         </p>
@@ -47,13 +47,13 @@ const Hero = () => {
                             </a>
                         </div>
 
-                        <div className="mt-10 flex flex-wrap gap-6 text-sm uppercase tracking-[0.16em] text-slate-500">
+                        <div className="mt-10 flex flex-wrap gap-6 text-sm uppercase tracking-[0.16em] text-blue-500">
                             {[
                                 '3+ years building',
                                 '10+ launches shipped',
                                 'AI workflows integrated',
                             ].map((item) => (
-                                <div key={item} className="border-t border-slate-300 pt-3">
+                                <div key={item} className="border-t border-blue-300 pt-3">
                                     {item}
                                 </div>
                             ))}
