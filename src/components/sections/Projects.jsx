@@ -4,7 +4,6 @@ import researchCoreImg from '../../assets/research-core.png';
 import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
 import rainosAppImg from '../../assets/rainos-app.png';
-import rainosFrontendImg from '../../assets/rainos-frontend.png';
 import hearmeAiImg from '../../assets/hearme-ai.png';
 import makerspaceImg from '../../assets/makerspace.png';
 import gitwitImg from '../../assets/gitwit.png';
@@ -16,7 +15,7 @@ const projects = [
     {
         title: 'EarthLink AI',
         description:
-            'Satellite-grade environmental intelligence — ask in plain language and get map-based insights (NDVI, heat, region comparisons). Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend using Sentinel-2 data.',
+            'Environmental intelligence platform that turns plain English questions into rich map insights covering vegetation, heat zones and regional comparisons. Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend running on Sentinel 2 satellite data.',
         tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox'],
         links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
         image: earthlinkAiImg,
@@ -24,7 +23,7 @@ const projects = [
     {
         title: 'LIGMA',
         description:
-            'Real-time collaborative meeting whiteboard with sub-50ms Yjs sync, AI intent classification, and PDF export. Frontend (Next.js) + Fastify backend, Postgres and Groq/LLM-driven summaries.',
+            'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
         tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
         links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
         image: ligmaImg,
@@ -32,7 +31,7 @@ const projects = [
     {
         title: 'Gitwit',
         description:
-            'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
+            'Open source AI native cloud IDE with live previews, AI code generation and sandboxed execution. Monorepo built around a Next.js frontend and realtime backend services.',
         tags: ['React', 'AI', 'DevTools'],
         links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
         image: gitwitImg,
@@ -40,22 +39,15 @@ const projects = [
     {
         title: 'RainOS App',
         description:
-            'Dashboard for managing RainOS plugins, API keys and subscription workflows — the production admin interface for the RainOS platform.',
+            'Production admin dashboard for the RainOS platform where teams manage plugins, API keys and subscription workflows. Live and in active use by paying customers.',
         tags: ['React', 'Private Repo'],
         links: { github: '#', demo: 'https://app.getrainos.com/' },
         image: rainosAppImg,
     },
     {
-        title: 'RainOS Front-End',
-        description: 'Public marketing and product site for RainOS — the front-facing experience that showcases features, pricing and docs.',
-        tags: ['React', 'Open Source'],
-        links: { github: 'https://github.com/getRainOS/Rain-OS-Front-End', demo: 'https://www.getrainos.com/' },
-        image: rainosFrontendImg,
-    },
-    {
         title: 'Matt Brown Fine Art',
         description:
-            'Official gallery site and shop for Matt Brown Fine Art — showcases collections, prints and purchase options with a clean, visual layout.',
+            'Official gallery and shop for Matt Brown Fine Art presenting collections, prints and purchase options through a clean visual layout. Live site serving the artist and his customers.',
         tags: ['Private Repo', 'E-commerce'],
         links: { github: '#', demo: 'http://mbrownfa.com/' },
         image: mattBrownImg,
@@ -63,7 +55,7 @@ const projects = [
     {
         title: 'MakerSpaceApp',
         description:
-            'Booking and management app for MakerSpace Delft — schedule equipment, manage projects and users. Built with Node.js, Express and MongoDB.',
+            'Booking and management platform for MakerSpace Delft where members schedule equipment and run projects. Built on Node.js, Express and MongoDB and currently in production with an active member base.',
         tags: ['React', 'Node.js', 'Express', 'MongoDB'],
         links: { github: 'https://github.com/abdulrehmann231/MakerSpaceApp', demo: 'https://app.makerspacedelft.nl/' },
         image: makerspaceImg,
@@ -71,7 +63,7 @@ const projects = [
     {
         title: 'Eeko-AI',
         description:
-            'AI-powered agricultural webapp using NASA data and object-detection models (YOLOv5); includes disease and insect detection and LLaMA-based analysis — Next.js frontend with ML backends.',
+            'Agricultural webapp combining NASA satellite data with YOLOv5 detection for crop disease and insect identification along with LLaMA driven analysis. Next.js frontend wired to Python ML services.',
         tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5'],
         links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
         image: eekoAiImg,
@@ -79,7 +71,7 @@ const projects = [
     {
         title: 'ResearchCore',
         description:
-            'Document QA and summarization platform — upload papers or URLs and get RAG-grounded answers and concise summaries for research workflows.',
+            'Document QA and summarization platform where users upload papers or URLs and receive RAG grounded answers with concise summaries built for research workflows.',
         tags: ['Next.js', 'Firebase', 'Web Scraping', 'RAG'],
         links: { github: 'https://github.com/abdulrehmann231/Summarize-AI', demo: 'https://summarize-ai-three-blue.vercel.app/' },
         image: researchCoreImg,
@@ -87,7 +79,7 @@ const projects = [
     {
         title: 'HearMe-AI',
         description:
-            'Meeting summarization prototype — record or upload audio, transcribe with Deepgram/HuggingFace and generate concise summaries and email exports.',
+            'Meeting summarization tool that records or accepts audio uploads, transcribes through Deepgram and HuggingFace and generates concise summaries with email exports.',
         tags: ['Electron', 'Next.js', 'Groq API', 'Firebase'],
         links: { github: 'https://github.com/BurhanCantCode/HearMe-AI', demo: 'https://hear-me-ai-jvxh.vercel.app/' },
         image: hearmeAiImg,
@@ -95,7 +87,7 @@ const projects = [
     {
         title: 'MicroServices System',
         description:
-            'A set of Java microservices with Eureka service registry and MySQL storage, demonstrating service discovery and inter-service communication patterns.',
+            'Java microservices project showcasing service discovery and inter service communication using Spring Boot with a Eureka registry and MySQL storage.',
         tags: ['Spring Boot', 'Java', 'MySQL', 'Eureka', 'Private Repo'],
         links: { github: '#', demo: '#' },
         image: microservicesImg,
