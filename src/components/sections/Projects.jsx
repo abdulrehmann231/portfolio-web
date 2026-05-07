@@ -13,6 +13,14 @@ import ligmaImg from '../../assets/ligma.png';
 
 const projects = [
     {
+        title: 'Gitwit',
+        description:
+            'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
+        tags: ['React', 'AI', 'DevTools'],
+        links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
+        image: gitwitImg,
+    },
+    {
         title: 'EarthLink AI',
         description:
             'Environmental intelligence platform that turns plain English questions into rich map insights covering vegetation, heat zones and regional comparisons. Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend running on Sentinel 2 satellite data.',
@@ -29,7 +37,7 @@ const projects = [
         image: ligmaImg,
     },
     {
-        title: 'Gitwit',
+        title: 'Eeko-AI',
         description:
             'Open source AI native cloud IDE with live previews, AI code generation and sandboxed execution. Monorepo built around a Next.js frontend and realtime backend services.',
         tags: ['React', 'AI', 'DevTools'],
@@ -85,6 +93,22 @@ const projects = [
         image: hearmeAiImg,
     },
     {
+        title: 'MakerSpaceApp',
+        description:
+            'Booking and management app for MakerSpace Delft — schedule equipment, manage projects and users. Built with Node.js, Express and MongoDB.',
+        tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+        links: { github: 'https://github.com/abdulrehmann231/MakerSpaceApp', demo: 'https://app.makerspacedelft.nl/' },
+        image: makerspaceImg,
+    },
+    {
+        title: 'Matt Brown Fine Art',
+        description:
+            'Official gallery site and shop for Matt Brown Fine Art — showcases collections, prints and purchase options with a clean, visual layout.',
+        tags: ['Private Repo', 'E-commerce'],
+        links: { github: '#', demo: 'http://mbrownfa.com/' },
+        image: mattBrownImg,
+    },
+    {
         title: 'MicroServices System',
         description:
             'Java microservices project showcasing service discovery and inter service communication using Spring Boot with a Eureka registry and MySQL storage.',
@@ -110,57 +134,93 @@ const Projects = () => {
                         <div className="section-rule mx-auto" />
                     </div>
 
-                    <div className="max-w-5xl mx-auto divide-y divide-slate-200 border-y border-slate-200">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {projects.map((project, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                className="py-8 group"
+                                transition={{ delay: index * 0.05 }}
+                                viewport={{ once: true }}
+                                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300"
                             >
-                                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
-                                    {project.image && (
-                                        <div className="w-full lg:w-48 h-36 overflow-hidden rounded-md flex-shrink-0 mb-4 lg:mb-0">
-                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                                {/* Screenshot */}
+                                {project.image && (
+                                    <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        {/* Overlay with links on hover */}
+                                        <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                                            {project.links.github !== '#' && (
+                                                <a
+                                                    href={project.links.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-3 bg-white rounded-full text-slate-900 hover:bg-slate-100 transition-colors"
+                                                >
+                                                    <Github size={20} />
+                                                </a>
+                                            )}
+                                            {project.links.demo !== '#' && (
+                                                <a
+                                                    href={project.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-3 bg-white rounded-full text-slate-900 hover:bg-slate-100 transition-colors"
+                                                >
+                                                    <ExternalLink size={20} />
+                                                </a>
+                                            )}
                                         </div>
-                                    )}
+                                    </div>
+                                )}
 
-                                    <div className="flex-1 max-w-3xl">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <h3 className="text-xl font-bold text-slate-950 group-hover:text-slate-600 transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <div className="flex gap-3 lg:hidden">
-                                                <a href={project.links.github} className="text-slate-400 hover:text-slate-900 transition-colors">
+                                {/* Content below screenshot */}
+                                <div className="p-5">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <h3 className="text-lg font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <div className="flex gap-2">
+                                            {project.links.github !== '#' && (
+                                                <a
+                                                    href={project.links.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
+                                                >
                                                     <Github size={18} />
                                                 </a>
-                                                <a href={project.links.demo} className="text-slate-400 hover:text-slate-900 transition-colors">
+                                            )}
+                                            {project.links.demo !== '#' && (
+                                                <a
+                                                    href={project.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
+                                                >
                                                     <ExternalLink size={18} />
                                                 </a>
-                                            </div>
+                                            )}
                                         </div>
-
-                                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">{project.description}</p>
                                     </div>
 
-                                    <div className="flex flex-col items-start gap-4 lg:items-end">
-                                        <div className="hidden lg:flex gap-3">
-                                            <a href={project.links.github} className="text-slate-400 hover:text-slate-900 transition-colors">
-                                                <Github size={20} />
-                                            </a>
-                                            <a href={project.links.demo} className="text-slate-400 hover:text-slate-900 transition-colors">
-                                                <ExternalLink size={20} />
-                                            </a>
-                                        </div>
+                                    <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                                        {project.description}
+                                    </p>
 
-                                        <div className="flex flex-wrap gap-2">
-                                            {project.tags.map((tag, i) => (
-                                                <span key={i} className="text-xs font-medium px-2 py-1 bg-slate-50 text-slate-700 rounded-full border border-slate-200">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tags.map((tag, i) => (
+                                            <span
+                                                key={i}
+                                                className="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-600 rounded-full border border-slate-200"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
                             </motion.div>
