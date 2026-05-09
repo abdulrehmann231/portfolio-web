@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
-import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
-import rainosAppImg from '../../assets/rainos-app.png';
-import hearmeAiImg from '../../assets/hearme-ai.png';
 import makerspaceImg from '../../assets/makerspace.png';
 import gitwitImg from '../../assets/gitwit.png';
-import microservicesImg from '../../assets/microservices.png';
 import earthlinkAiImg from '../../assets/earthlink-ai.png';
 import ligmaImg from '../../assets/ligma.png';
 
@@ -39,38 +35,6 @@ const projects = [
     {
         title: 'Eeko-AI',
         description:
-            'Open source AI native cloud IDE with live previews, AI code generation and sandboxed execution. Monorepo built around a Next.js frontend and realtime backend services.',
-        tags: ['React', 'AI', 'DevTools'],
-        links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
-        image: gitwitImg,
-    },
-    {
-        title: 'RainOS App',
-        description:
-            'Production admin dashboard for the RainOS platform where teams manage plugins, API keys and subscription workflows. Live and in active use by paying customers.',
-        tags: ['React', 'Private Repo'],
-        links: { github: '#', demo: 'https://app.getrainos.com/' },
-        image: rainosAppImg,
-    },
-    {
-        title: 'Matt Brown Fine Art',
-        description:
-            'Official gallery and shop for Matt Brown Fine Art presenting collections, prints and purchase options through a clean visual layout. Live site serving the artist and his customers.',
-        tags: ['Private Repo', 'E-commerce'],
-        links: { github: '#', demo: 'http://mbrownfa.com/' },
-        image: mattBrownImg,
-    },
-    {
-        title: 'MakerSpaceApp',
-        description:
-            'Booking and management platform for MakerSpace Delft where members schedule equipment and run projects. Built on Node.js, Express and MongoDB and currently in production with an active member base.',
-        tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-        links: { github: 'https://github.com/abdulrehmann231/MakerSpaceApp', demo: 'https://app.makerspacedelft.nl/' },
-        image: makerspaceImg,
-    },
-    {
-        title: 'Eeko-AI',
-        description:
             'Agricultural webapp combining NASA satellite data with YOLOv5 detection for crop disease and insect identification along with LLaMA driven analysis. Next.js frontend wired to Python ML services.',
         tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5'],
         links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
@@ -85,36 +49,12 @@ const projects = [
         image: researchCoreImg,
     },
     {
-        title: 'HearMe-AI',
-        description:
-            'Meeting summarization tool that records or accepts audio uploads, transcribes through Deepgram and HuggingFace and generates concise summaries with email exports.',
-        tags: ['Electron', 'Next.js', 'Groq API', 'Firebase'],
-        links: { github: 'https://github.com/BurhanCantCode/HearMe-AI', demo: 'https://hear-me-ai-jvxh.vercel.app/' },
-        image: hearmeAiImg,
-    },
-    {
         title: 'MakerSpaceApp',
         description:
-            'Booking and management app for MakerSpace Delft — schedule equipment, manage projects and users. Built with Node.js, Express and MongoDB.',
+            'Booking and management platform for MakerSpace Delft where members schedule equipment and run projects. Built on Node.js, Express and MongoDB and currently in production with an active member base.',
         tags: ['React', 'Node.js', 'Express', 'MongoDB'],
         links: { github: 'https://github.com/abdulrehmann231/MakerSpaceApp', demo: 'https://app.makerspacedelft.nl/' },
         image: makerspaceImg,
-    },
-    {
-        title: 'Matt Brown Fine Art',
-        description:
-            'Official gallery site and shop for Matt Brown Fine Art — showcases collections, prints and purchase options with a clean, visual layout.',
-        tags: ['Private Repo', 'E-commerce'],
-        links: { github: '#', demo: 'http://mbrownfa.com/' },
-        image: mattBrownImg,
-    },
-    {
-        title: 'MicroServices System',
-        description:
-            'Java microservices project showcasing service discovery and inter service communication using Spring Boot with a Eureka registry and MySQL storage.',
-        tags: ['Spring Boot', 'Java', 'MySQL', 'Eureka', 'Private Repo'],
-        links: { github: '#', demo: '#' },
-        image: microservicesImg,
     },
 ];
 
