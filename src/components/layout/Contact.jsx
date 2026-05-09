@@ -17,12 +17,12 @@ const Contact = () => {
 
         const { name, email, message } = formData;
         const mailtoLink = `mailto:mabdulrehman951@gmail.com?subject=Contact from Portfolio - ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
-        
+
         window.location.href = mailtoLink;
-        
+
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        
+
         setTimeout(() => {
             setStatus('');
         }, 2000);
@@ -48,20 +48,20 @@ const Contact = () => {
                         <div>
                             <div className="section-kicker mb-4">Contact</div>
                             <h2 className="section-title text-3xl md:text-4xl font-extrabold mb-6">Let's Work Together</h2>
-                            <p className="text-slate-600 mb-10 text-lg leading-relaxed">
-                                I'm actively looking for new opportunities. Whether you have a project in mind or just want to discuss the latest in AI, 
+                            <p className="text-slate-600 dark:text-slate-300 mb-10 text-lg leading-relaxed">
+                                I'm actively looking for new opportunities. Whether you have a project in mind or just want to discuss the latest in AI,
                                 feel free to reach out!
                             </p>
-                            
+
                             <div className="space-y-6">
-                                <a href="mailto:mabdulrehman951@gmail.com" className="flex items-center gap-4 text-slate-700 hover:text-slate-900 group transition-colors p-4 surface-strong rounded-2xl hover:translate-y-[-1px]">
-                                    <div className="p-3 bg-slate-50 rounded-xl text-slate-700 group-hover:scale-110 transition-transform">
+                                <a href="mailto:mabdulrehman951@gmail.com" className="flex items-center gap-4 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white group transition-colors p-4 surface-strong rounded-2xl hover:translate-y-[-1px]">
+                                    <div className="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl text-slate-700 dark:text-slate-300 group-hover:scale-110 transition-transform">
                                         <Mail size={24} />
                                     </div>
                                     <span className="font-medium">mabdulrehman951@gmail.com</span>
                                 </a>
-                                <div className="flex items-center gap-4 text-slate-700 p-4 surface-strong rounded-2xl">
-                                    <div className="p-3 bg-slate-50 rounded-xl text-slate-700">
+                                <div className="flex items-center gap-4 text-slate-700 dark:text-slate-300 p-4 surface-strong rounded-2xl">
+                                    <div className="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl text-slate-700 dark:text-slate-300">
                                         <MapPin size={24} />
                                     </div>
                                     <span className="font-medium">Karachi, Pakistan</span>
@@ -69,9 +69,9 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6 surface-strong p-8 rounded-2xl border border-slate-200">
+                        <form onSubmit={handleSubmit} className="space-y-6 surface-strong p-8 rounded-2xl border border-slate-200 dark:border-slate-700">
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-slate-500 mb-2">Name</label>
+                                <label htmlFor="name" className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Name</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -83,9 +83,9 @@ const Contact = () => {
                                     placeholder="Your Name"
                                 />
                             </div>
-                            
+
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-slate-500 mb-2">Email</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -97,9 +97,9 @@ const Contact = () => {
                                     placeholder="your@email.com"
                                 />
                             </div>
-                            
+
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-slate-500 mb-2">Message</label>
+                                <label htmlFor="message" className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Message</label>
                                 <textarea
                                     id="message"
                                     name="message"

@@ -73,9 +73,9 @@ const Experience = () => {
                         <div className="section-rule mx-auto" />
                     </div>
 
-                    <div className="max-w-4xl mx-auto divide-y divide-slate-200 border-y border-slate-200">
+                    <div className="max-w-4xl mx-auto divide-y divide-slate-200 dark:divide-slate-700 border-y border-slate-200 dark:border-slate-700">
                         {experiences.map((exp, index) => (
-                            <motion.div 
+                            <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -84,25 +84,25 @@ const Experience = () => {
                             >
                                 <div className="flex flex-col md:flex-row md:items-start justify-between mb-5 gap-4">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-slate-950 group-hover:text-slate-600 transition-colors">{exp.title}</h3>
-                                        <div className="text-lg text-slate-500 font-medium flex items-center gap-2 mt-2 flex-wrap">
-                                            <Briefcase size={18} className="text-slate-700" />
+                                        <h3 className="text-2xl font-bold text-slate-950 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">{exp.title}</h3>
+                                        <div className="text-lg text-slate-500 dark:text-slate-400 font-medium flex items-center gap-2 mt-2 flex-wrap">
+                                            <Briefcase size={18} className="text-slate-700 dark:text-slate-300" />
                                             {exp.company}
-                                            <span className="text-xs bg-slate-50 border border-slate-200 px-2 py-1 rounded-full text-slate-700">
+                                            <span className="text-xs bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 px-2 py-1 rounded-full text-slate-700 dark:text-slate-300">
                                                 {exp.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="text-slate-500 font-medium flex items-center gap-2 bg-white self-start px-4 py-2 rounded-full border border-slate-200">
-                                        <Calendar size={16} className="text-slate-700" />
+                                    <div className="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-2 bg-white dark:bg-slate-800/50 self-start px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700">
+                                        <Calendar size={16} className="text-slate-700 dark:text-slate-300" />
                                         {exp.period}
                                     </div>
                                 </div>
-                                
+
                                 <ul className="space-y-3 pl-0 md:pl-1">
                                     {exp.description.map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-slate-600">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-2.5 flex-shrink-0" />
+                                        <li key={i} className="flex gap-3 text-slate-600 dark:text-slate-300">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-slate-100 mt-2.5 flex-shrink-0" />
                                             <span className="leading-relaxed">{item}</span>
                                         </li>
                                     ))}

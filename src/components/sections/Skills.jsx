@@ -16,12 +16,12 @@ const Skills = ({ className = "" }) => {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="surface p-6 rounded-2xl hover:translate-y-[-2px] transition-all duration-300 border-l-2 border-l-slate-900"
+          className="surface p-6 rounded-2xl hover:translate-y-[-2px] transition-all duration-300 border-l-2 border-l-slate-900 dark:border-l-slate-100"
         >
-          <h3 className="text-xl font-semibold text-slate-900 mb-4">{skillGroup.category}</h3>
+          <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">{skillGroup.category}</h3>
           <div className="flex flex-wrap gap-2">
             {skillGroup.items.map((item) => (
-              <span key={item} className="px-3 py-1 rounded-full text-sm bg-slate-50 text-slate-700 border border-slate-200">
+              <span key={item} className="px-3 py-1 rounded-full text-sm bg-slate-50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">
                 {item}
               </span>
             ))}
