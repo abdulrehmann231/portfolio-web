@@ -2,7 +2,6 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
-import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
 import Skills from './components/sections/Skills';
 import Contact from './components/layout/Contact';
@@ -15,8 +14,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
-        <Experience />
-        {/* Skills section visible only on mobile (below md breakpoint), shown after Experience */}
+        {/* Skills section visible only on mobile (below md breakpoint), shown after Projects */}
         <section className="md:hidden py-20 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
