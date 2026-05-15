@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
@@ -15,7 +16,7 @@ const projects = [
         title: 'Gitwit',
         description:
             'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
-        tags: ['React', 'AI', 'DevTools'],
+        tags: ['React', 'AI', 'DevTools', 'Agentic AI'],
         links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
         image: gitwitImg,
     },
@@ -23,15 +24,15 @@ const projects = [
         title: 'EarthLink AI',
         description:
             'Environmental intelligence platform that turns plain English questions into rich map insights covering vegetation, heat zones and regional comparisons. Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend running on Sentinel 2 satellite data.',
-        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox'],
+        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox', 'Agentic AI'],
         links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
         image: earthlinkAiImg,
     },
     {
-        title: 'LIGMA',
+        title: 'Draftly',
         description:
             'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
-        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
+        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI', 'Agentic AI'],
         links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
         image: ligmaImg,
     },
@@ -55,7 +56,7 @@ const projects = [
         title: 'Eeko-AI',
         description:
             'Agricultural webapp combining NASA satellite data with YOLOv5 detection for crop disease and insect identification along with LLaMA driven analysis. Next.js frontend wired to Python ML services.',
-        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5'],
+        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5', 'Agentic AI'],
         links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
         image: eekoAiImg,
     },
@@ -70,6 +71,15 @@ const projects = [
 ];
 
 const Projects = () => {
+    const [expandedDescriptions, setExpandedDescriptions] = useState({});
+
+    const toggleDescription = (index) => {
+        setExpandedDescriptions((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
+
     return (
         <section id="projects" className="py-20 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,9 +169,23 @@ const Projects = () => {
                                         </div>
                                     </div>
 
-                                    <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                                        {project.description}
-                                    </p>
+                                    <div className="mb-4">
+                                        <p
+                                            className={`text-slate-600 text-sm leading-relaxed ${
+                                                expandedDescriptions[index] ? '' : 'line-clamp-3'
+                                            }`}
+                                        >
+                                            {project.description}
+                                        </p>
+                                        {project.description.length > 150 && (
+                                            <button
+                                                onClick={() => toggleDescription(index)}
+                                                className="text-slate-500 hover:text-slate-700 text-xs font-medium mt-1 transition-colors"
+                                            >
+                                                {expandedDescriptions[index] ? 'Show less' : '... Show more'}
+                                            </button>
+                                        )}
+                                    </div>
 
                                     <div className="flex flex-wrap gap-2">
                                         {project.tags.map((tag, i) => (
