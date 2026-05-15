@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
@@ -70,6 +71,15 @@ const projects = [
 ];
 
 const Projects = () => {
+    const [expandedDescriptions, setExpandedDescriptions] = useState({});
+
+    const toggleDescription = (index) => {
+        setExpandedDescriptions((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
+
     return (
         <section id="projects" className="py-20 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,9 +169,23 @@ const Projects = () => {
                                         </div>
                                     </div>
 
-                                    <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                                        {project.description}
-                                    </p>
+                                    <div className="mb-4">
+                                        <p
+                                            className={`text-slate-600 text-sm leading-relaxed ${
+                                                expandedDescriptions[index] ? '' : 'line-clamp-3'
+                                            }`}
+                                        >
+                                            {project.description}
+                                        </p>
+                                        {project.description.length > 150 && (
+                                            <button
+                                                onClick={() => toggleDescription(index)}
+                                                className="text-slate-500 hover:text-slate-700 text-xs font-medium mt-1 transition-colors"
+                                            >
+                                                {expandedDescriptions[index] ? 'Show less' : '... Show more'}
+                                            </button>
+                                        )}
+                                    </div>
 
                                     <div className="flex flex-wrap gap-2">
                                         {project.tags.map((tag, i) => (
