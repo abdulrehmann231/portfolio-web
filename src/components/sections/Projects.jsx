@@ -28,7 +28,7 @@ const projects = [
         image: earthlinkAiImg,
     },
     {
-        title: 'LIGMA',
+        title: 'Draftly',
         description:
             'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
         tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
