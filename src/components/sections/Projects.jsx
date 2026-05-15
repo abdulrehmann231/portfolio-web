@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight, Sparkles } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
 import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
@@ -9,198 +9,218 @@ import gitwitImg from '../../assets/gitwit.png';
 import earthlinkAiImg from '../../assets/earthlink-ai.png';
 import ligmaImg from '../../assets/ligma.png';
 
-// Projects ordered by importance - Top 7 featured projects
-// Duplicates removed, prioritized by impact and technical complexity
 const projects = [
     {
         title: 'Gitwit',
-        description:
-            'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
+        description: 'An open-source AI-native cloud IDE with live previews, AI code generation, and sandboxed execution.',
         tags: ['React', 'AI', 'DevTools', 'Agentic AI'],
         links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
         image: gitwitImg,
+        featured: true,
     },
     {
         title: 'EarthLink AI',
-        description:
-            'Environmental intelligence platform that turns plain English questions into rich map insights covering vegetation, heat zones and regional comparisons. Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend running on Sentinel 2 satellite data.',
+        description: 'Environmental intelligence platform turning plain English into rich map insights using satellite data.',
         tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox', 'Agentic AI'],
         links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
         image: earthlinkAiImg,
+        featured: true,
     },
     {
         title: 'Draftly',
-        description:
-            'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
-        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI', 'Agentic AI'],
+        description: 'Realtime collaborative whiteboard with sub 50ms sync, AI task assignment, and PDF export.',
+        tags: ['Next.js', 'WebSockets', 'Groq AI', 'Agentic AI'],
         links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
         image: ligmaImg,
     },
     {
         title: 'RainOS App',
-        description:
-            'Production admin dashboard for the RainOS platform where teams manage plugins, API keys and subscription workflows. Live and in active use by paying customers.',
+        description: 'Production admin dashboard for plugin management and subscription workflows.',
         tags: ['React', 'Private Repo'],
         links: { github: '#', demo: 'https://app.getrainos.com/' },
         image: rainosAppImg,
     },
     {
-        title: 'Matt Brown Fine Art',
-        description:
-            'Official gallery and shop for Matt Brown Fine Art presenting collections, prints and purchase options through a clean visual layout. Live site serving the artist and his customers.',
-        tags: ['Private Repo', 'E-commerce'],
-        links: { github: '#', demo: 'http://mbrownfa.com/' },
-        image: mattBrownImg,
-    },
-    {
         title: 'Eeko-AI',
-        description:
-            'Agricultural webapp combining NASA satellite data with YOLOv5 detection for crop disease and insect identification along with LLaMA driven analysis. Next.js frontend wired to Python ML services.',
-        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5', 'Agentic AI'],
+        description: 'Agricultural webapp combining NASA data with YOLOv5 for crop disease detection.',
+        tags: ['Next.js', 'Python', 'YOLO v5', 'Agentic AI'],
         links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
         image: eekoAiImg,
     },
     {
         title: 'ResearchCore',
-        description:
-            'Document QA and summarization platform where users upload papers or URLs and receive RAG grounded answers with concise summaries built for research workflows.',
-        tags: ['Next.js', 'Firebase', 'Web Scraping', 'RAG'],
+        description: 'Document QA platform with RAG-grounded answers for research workflows.',
+        tags: ['Next.js', 'Firebase', 'RAG'],
         links: { github: 'https://github.com/abdulrehmann231/Summarize-AI', demo: 'https://summarize-ai-three-blue.vercel.app/' },
         image: researchCoreImg,
     },
 ];
 
-const Projects = () => {
-    const [expandedDescriptions, setExpandedDescriptions] = useState({});
-
-    const toggleDescription = (index) => {
-        setExpandedDescriptions((prev) => ({
-            ...prev,
-            [index]: !prev[index],
-        }));
-    };
+const ProjectCard = ({ project, index, isFeatured }) => {
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <section id="projects" className="py-20 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`group project-card ${isFeatured ? 'md:col-span-2 md:row-span-1' : ''}`}
+        >
+            {/* Image Container */}
+            <div className={`project-card-image relative ${isFeatured ? 'aspect-[2/1]' : 'aspect-video'}`}>
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Hover Content */}
+                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                    <div className="flex gap-2">
+                        {project.links.github !== '#' && (
+                            <a
+                                href={project.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-slate-900 font-medium text-sm hover:bg-slate-100 transition-colors"
+                            >
+                                <Github size={16} />
+                                Code
+                            </a>
+                        )}
+                        {project.links.demo !== '#' && (
+                            <a
+                                href={project.links.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-slate-900 font-medium text-sm hover:bg-slate-100 transition-colors"
+                            >
+                                <ExternalLink size={16} />
+                                Live Demo
+                            </a>
+                        )}
+                    </div>
+                </div>
+
+                {/* AI Badge */}
+                {project.tags.includes('Agentic AI') && (
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full text-white text-xs font-semibold shadow-lg">
+                        <Sparkles size={12} />
+                        AI Powered
+                    </div>
+                )}
+            </div>
+
+            {/* Content */}
+            <div className="p-5">
+                <div className="flex items-start justify-between mb-3">
+                    <h3 className={`font-bold text-slate-900 group-hover:text-indigo-600 transition-colors ${isFeatured ? 'text-xl' : 'text-lg'}`}>
+                        {project.title}
+                    </h3>
+                    <motion.div
+                        animate={{ rotate: isHovered ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <ArrowUpRight size={20} className="text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                    </motion.div>
+                </div>
+
+                <p className={`text-slate-600 leading-relaxed mb-4 ${isFeatured ? 'text-base' : 'text-sm line-clamp-2'}`}>
+                    {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, isFeatured ? 5 : 3).map((tag, i) => (
+                        <span
+                            key={i}
+                            className={`tag ${tag === 'Agentic AI' ? 'tag-accent' : ''}`}
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                    {project.tags.length > (isFeatured ? 5 : 3) && (
+                        <span className="tag">+{project.tags.length - (isFeatured ? 5 : 3)}</span>
+                    )}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+const Projects = () => {
+    const featuredProjects = projects.filter(p => p.featured);
+    const otherProjects = projects.filter(p => !p.featured);
+
+    return (
+        <section id="projects" className="py-24 relative">
+            <div className="absolute inset-0 dot-pattern opacity-30" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
+                    className="text-center mb-16"
                 >
-                    <div className="text-center mb-16">
-                        <div className="section-kicker mx-auto mb-4">Selected Work</div>
-                        <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">Featured Projects</h2>
-                        <div className="section-rule mx-auto" />
+                    <div className="section-kicker mx-auto mb-4">
+                        <Sparkles size={14} />
+                        Selected Work
                     </div>
+                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                        Featured Projects
+                    </h2>
+                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                        A selection of projects I've built — from AI-powered platforms to production SaaS applications.
+                    </p>
+                </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {projects.map((project, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                                viewport={{ once: true }}
-                                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300"
-                            >
-                                {/* Screenshot */}
-                                {project.image && (
-                                    <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                        {/* Overlay with links on hover */}
-                                        <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                                            {project.links.github !== '#' && (
-                                                <a
-                                                    href={project.links.github}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="p-3 bg-white rounded-full text-slate-900 hover:bg-slate-100 transition-colors"
-                                                >
-                                                    <Github size={20} />
-                                                </a>
-                                            )}
-                                            {project.links.demo !== '#' && (
-                                                <a
-                                                    href={project.links.demo}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="p-3 bg-white rounded-full text-slate-900 hover:bg-slate-100 transition-colors"
-                                                >
-                                                    <ExternalLink size={20} />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                )}
+                {/* Bento Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Featured Projects - Large Cards */}
+                    {featuredProjects.map((project, index) => (
+                        <ProjectCard
+                            key={project.title}
+                            project={project}
+                            index={index}
+                            isFeatured={true}
+                        />
+                    ))}
 
-                                {/* Content below screenshot */}
-                                <div className="p-5">
-                                    <div className="flex items-center justify-between mb-3">
-                                        <h3 className="text-lg font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
-                                            {project.title}
-                                        </h3>
-                                        <div className="flex gap-2">
-                                            {project.links.github !== '#' && (
-                                                <a
-                                                    href={project.links.github}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
-                                                >
-                                                    <Github size={18} />
-                                                </a>
-                                            )}
-                                            {project.links.demo !== '#' && (
-                                                <a
-                                                    href={project.links.demo}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
-                                                >
-                                                    <ExternalLink size={18} />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
+                    {/* Other Projects - Regular Cards */}
+                    {otherProjects.map((project, index) => (
+                        <ProjectCard
+                            key={project.title}
+                            project={project}
+                            index={index + featuredProjects.length}
+                            isFeatured={false}
+                        />
+                    ))}
+                </div>
 
-                                    <div className="mb-4">
-                                        <p
-                                            className={`text-slate-600 text-sm leading-relaxed ${
-                                                expandedDescriptions[index] ? '' : 'line-clamp-3'
-                                            }`}
-                                        >
-                                            {project.description}
-                                        </p>
-                                        {project.description.length > 150 && (
-                                            <button
-                                                onClick={() => toggleDescription(index)}
-                                                className="text-slate-500 hover:text-slate-700 text-xs font-medium mt-1 transition-colors"
-                                            >
-                                                {expandedDescriptions[index] ? 'Show less' : '... Show more'}
-                                            </button>
-                                        )}
-                                    </div>
-
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tags.map((tag, i) => (
-                                            <span
-                                                key={i}
-                                                className="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-600 rounded-full border border-slate-200"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                {/* View More Link */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-center mt-12"
+                >
+                    <a
+                        href="https://github.com/abdulrehmann231/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-slate-600 hover:text-indigo-600 font-medium transition-colors group"
+                    >
+                        View all projects on GitHub
+                        <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
                 </motion.div>
             </div>
         </section>

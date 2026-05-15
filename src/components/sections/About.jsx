@@ -1,47 +1,182 @@
 import { motion } from 'framer-motion';
-import Skills from './Skills';
+import { MapPin, GraduationCap, Calendar, Sparkles, Code2, Database, Cpu, Wrench } from 'lucide-react';
+
+const skills = [
+    {
+        category: "Languages",
+        icon: Code2,
+        items: ["TypeScript", "JavaScript", "Python", "Java", "C++", "SQL"],
+        color: "from-blue-500/10 to-cyan-500/10",
+        iconColor: "text-blue-600"
+    },
+    {
+        category: "Frameworks",
+        icon: Cpu,
+        items: ["React", "Next.js", "Node.js", "Express", "Spring Boot", "FastAPI"],
+        color: "from-violet-500/10 to-purple-500/10",
+        iconColor: "text-violet-600"
+    },
+    {
+        category: "AI & ML",
+        icon: Sparkles,
+        items: ["RAG", "LLMs", "YOLO v5", "Groq API", "HuggingFace"],
+        color: "from-amber-500/10 to-orange-500/10",
+        iconColor: "text-amber-600"
+    },
+    {
+        category: "Tools & DBs",
+        icon: Database,
+        items: ["PostgreSQL", "MongoDB", "Firebase", "Docker", "Git"],
+        color: "from-emerald-500/10 to-teal-500/10",
+        iconColor: "text-emerald-600"
+    },
+];
 
 const About = () => {
-  return (
-    <section id="about" className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-            >
-                <div className="text-center mb-16">
-                    <div className="section-kicker mx-auto mb-4">Profile</div>
-                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">About Me</h2>
-                    <div className="section-rule mx-auto" />
-                </div>
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
 
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
-                        <p>
-                            Hi, I'm <span className="text-slate-900 font-semibold">Abdulrehman</span>.
-                            <br />
-                            I build full-stack products that feel composed, scalable, and easy to use. I am currently a third-year Computer Science student at <span className="text-slate-900 font-semibold">FAST NUCES</span> (Expected Grad. 2027).
-                        </p>
-                        <p>
-                            I specialize in web development and AI-driven solutions, working with technologies like Next.js, React, Node.js, Python, Spring Boot, and modern databases. Recently, I've been building RAG-based applications, AI chat systems, and subscription products.
-                        </p>
-                        <p>
-                            I enjoy working across the full stack — from designing APIs and databases to creating smooth frontend experiences. My projects focus on solving real problems, whether it's automating workflows, enhancing search with AI, or building production-ready SaaS platforms.
-                        </p>
-                        <p>
-                            I'm always exploring new tools, improving my skills, and pushing ideas from concept to deployment.
-                        </p>
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
+    return (
+        <section id="about" className="py-24 relative">
+            <div className="absolute inset-0 grid-pattern opacity-30" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
+                    <div className="section-kicker mx-auto mb-4">
+                        <Sparkles size={14} />
+                        About Me
+                    </div>
+                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                        Engineer & Builder
+                    </h2>
+                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                        Turning ideas into production-ready software with clean code and thoughtful design.
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-5"
+                >
+                    {/* Main Bio Card */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="lg:col-span-7 bento-card p-8"
+                    >
+                        <div className="prose prose-slate max-w-none">
+                            <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                                Hi, I'm <span className="text-slate-900 font-semibold">Abdul Rehman</span> —
+                                a full-stack engineer who builds products that actually ship. I focus on
+                                clean architecture, thoughtful UX, and code that scales.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed mb-6">
+                                Currently working at <span className="font-semibold text-indigo-600">Gitwit</span> building
+                                AI-powered developer tools. Previously shipped products at startups and enterprises,
+                                from real-time collaboration tools to satellite-data platforms.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed">
+                                When I'm not coding, I'm exploring new AI models, contributing to open source,
+                                or turning coffee into production deployments.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Info Cards - Right Side */}
+                    <div className="lg:col-span-5 space-y-5">
+                        {/* Location & Education */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bento-card p-6"
+                        >
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">
+                                    <GraduationCap className="text-indigo-600" size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900">FAST NUCES</h3>
+                                    <p className="text-slate-500 text-sm">Computer Science</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2 text-slate-500 text-sm">
+                                <Calendar size={14} />
+                                Expected Graduation 2027
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            variants={itemVariants}
+                            className="bento-card-dark p-6"
+                        >
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                                    <MapPin className="text-white" size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-white">Karachi, Pakistan</h3>
+                                    <p className="text-slate-400 text-sm">Open to remote opportunities</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Quick Stats */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="grid grid-cols-2 gap-4"
+                        >
+                            <div className="stat-card">
+                                <div className="stat-number">3+</div>
+                                <div className="stat-label">Years Experience</div>
+                            </div>
+                            <div className="stat-card">
+                                <div className="stat-number">10+</div>
+                                <div className="stat-label">Projects Shipped</div>
+                            </div>
+                        </motion.div>
                     </div>
 
-                    {/* Skills visible only on desktop (md and up) */}
-                    <Skills className="hidden md:grid" />
-                </div>
-            </motion.div>
-        </div>
-    </section>
-  );
+                    {/* Skills Grid - Full Width */}
+                    {skills.map((skillGroup, index) => (
+                        <motion.div
+                            key={skillGroup.category}
+                            variants={itemVariants}
+                            className="lg:col-span-3 bento-card p-5 group"
+                        >
+                            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${skillGroup.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                                <skillGroup.icon className={skillGroup.iconColor} size={20} />
+                            </div>
+                            <h3 className="font-bold text-slate-900 mb-3">{skillGroup.category}</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {skillGroup.items.map((item) => (
+                                    <span key={item} className="tag text-xs">
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
 };
 
 export default About;
