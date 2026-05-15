@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,22 +16,47 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Navigation items - mix of routes and anchor links
+    // Handle hash scrolling after navigation
+    useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                const element = document.querySelector(location.hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [location]);
+
+    // Navigation items
     const navItems = [
-        { name: 'About', href: '/about', isRoute: true },
-        { name: 'Experience', href: '/about#experience', isRoute: true },
-        { name: 'Projects', href: location.pathname === '/' ? '#projects' : '/#projects', isRoute: location.pathname !== '/' },
-        { name: 'Contact', href: location.pathname === '/' ? '#contact' : '/#contact', isRoute: location.pathname !== '/' },
+        { name: 'About', path: '/about', hash: '' },
+        { name: 'Experience', path: '/about', hash: '#experience' },
+        { name: 'Projects', path: '/', hash: '#projects' },
+        { name: 'Contact', path: '/', hash: '#contact' },
     ];
 
-    const handleNavClick = (item) => {
+    const handleNavClick = (e, item) => {
+        e.preventDefault();
         setIsOpen(false);
-        // If it's a hash link on the current page, smooth scroll
-        if (!item.isRoute && item.href.startsWith('#')) {
-            const element = document.querySelector(item.href);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+
+        const targetPath = item.path + item.hash;
+
+        // If we're already on the target page, just scroll
+        if (location.pathname === item.path) {
+            if (item.hash) {
+                const element = document.querySelector(item.hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+        } else {
+            // Navigate to the new page (hash will be handled by useEffect)
+            navigate(targetPath);
         }
     };
 
@@ -53,25 +79,14 @@ const Navbar = () => {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
                             {navItems.map((item) => (
-                                item.isRoute ? (
-                                    <Link
-                                        key={item.name}
-                                        to={item.href}
-                                        onClick={() => handleNavClick(item)}
-                                        className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ) : (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        onClick={() => handleNavClick(item)}
-                                        className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
-                                    >
-                                        {item.name}
-                                    </a>
-                                )
+                                <a
+                                    key={item.name}
+                                    href={item.path + item.hash}
+                                    onClick={(e) => handleNavClick(e, item)}
+                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium cursor-pointer"
+                                >
+                                    {item.name}
+                                </a>
                             ))}
                         </div>
                     </div>
@@ -101,25 +116,14 @@ const Navbar = () => {
                 <div className="md:hidden absolute top-20 left-4 right-4 surface rounded-3xl p-4 animate-in slide-in-from-top-4 fade-in duration-200">
                     <div className="space-y-2">
                         {navItems.map((item) => (
-                            item.isRoute ? (
-                                <Link
-                                    key={item.name}
-                                    to={item.href}
-                                    onClick={() => handleNavClick(item)}
-                                    className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
-                                >
-                                    {item.name}
-                                </Link>
-                            ) : (
-                                <a
-                                    key={item.name}
-                                    href={item.href}
-                                    onClick={() => handleNavClick(item)}
-                                    className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
-                                >
-                                    {item.name}
-                                </a>
-                            )
+                            <a
+                                key={item.name}
+                                href={item.path + item.hash}
+                                onClick={(e) => handleNavClick(e, item)}
+                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors cursor-pointer"
+                            >
+                                {item.name}
+                            </a>
                         ))}
                     </div>
                 </div>
