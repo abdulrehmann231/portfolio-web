@@ -12,13 +12,13 @@ const Hero = () => {
                         transition={{ duration: 0.8 }}
                         className="text-left"
                     >
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             className="section-kicker mb-6"
                         >
-                            Software Engineer
+                            Software Engineer @ Gitwit
                         </motion.div>
                         
                         <h1 className="text-5xl md:text-7xl font-extrabold text-slate-950 mb-6 leading-[0.95] tracking-tight">

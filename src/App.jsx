@@ -14,8 +14,8 @@ function App() {
       <main className="relative z-10">
         <Hero />
         <About />
-        <Projects />
         <Experience />
+        <Projects />
         {/* Skills section visible only on mobile (below md breakpoint), shown after Experience */}
         <section className="md:hidden py-20 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
