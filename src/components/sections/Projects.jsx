@@ -15,7 +15,7 @@ const projects = [
         title: 'Gitwit',
         description:
             'An open-source AI-native cloud IDE and code platform with live previews, AI code generation, and sandboxed execution. Monorepo with Next.js frontend and realtime backend components.',
-        tags: ['React', 'AI', 'DevTools'],
+        tags: ['React', 'AI', 'DevTools', 'Agentic AI'],
         links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
         image: gitwitImg,
     },
@@ -23,7 +23,7 @@ const projects = [
         title: 'EarthLink AI',
         description:
             'Environmental intelligence platform that turns plain English questions into rich map insights covering vegetation, heat zones and regional comparisons. Built with Tambo AI, Google Gemini, Mapbox and a FastAPI backend running on Sentinel 2 satellite data.',
-        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox'],
+        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox', 'Agentic AI'],
         links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
         image: earthlinkAiImg,
     },
@@ -31,7 +31,7 @@ const projects = [
         title: 'Draftly',
         description:
             'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
-        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
+        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI', 'Agentic AI'],
         links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
         image: ligmaImg,
     },
@@ -55,7 +55,7 @@ const projects = [
         title: 'Eeko-AI',
         description:
             'Agricultural webapp combining NASA satellite data with YOLOv5 detection for crop disease and insect identification along with LLaMA driven analysis. Next.js frontend wired to Python ML services.',
-        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5'],
+        tags: ['Next.js', 'Python', 'FastAPI', 'YOLO v5', 'Agentic AI'],
         links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
         image: eekoAiImg,
     },
