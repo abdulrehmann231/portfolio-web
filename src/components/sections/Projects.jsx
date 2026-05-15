@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, ArrowUpRight, Cpu } from 'lucide-react';
+import { PiGithubLogoBold, PiArrowSquareOutBold, PiArrowUpRightBold, PiCpuBold } from 'react-icons/pi';
 import researchCoreImg from '../../assets/research-core.png';
 import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
@@ -88,9 +88,9 @@ const ProjectCard = ({ project, index, isFeatured }) => {
                                 href={project.links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-lg text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
                             >
-                                <Github size={16} />
+                                <PiGithubLogoBold size={16} />
                                 Code
                             </a>
                         )}
@@ -99,9 +99,9 @@ const ProjectCard = ({ project, index, isFeatured }) => {
                                 href={project.links.demo}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-lg text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
                             >
-                                <ExternalLink size={16} />
+                                <PiArrowSquareOutBold size={16} />
                                 Live Demo
                             </a>
                         )}
@@ -111,7 +111,7 @@ const ProjectCard = ({ project, index, isFeatured }) => {
                 {/* AI Badge */}
                 {project.tags.includes('Agentic AI') && (
                     <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 rounded-full text-white text-xs font-semibold">
-                        <Cpu size={12} />
+                        <PiCpuBold size={12} />
                         AI Powered
                     </div>
                 )}
@@ -120,14 +120,14 @@ const ProjectCard = ({ project, index, isFeatured }) => {
             {/* Content */}
             <div className="p-5">
                 <div className="flex items-start justify-between mb-3">
-                    <h3 className={`font-bold text-neutral-900 group-hover:text-neutral-600 transition-colors ${isFeatured ? 'text-xl' : 'text-lg'}`}>
+                    <h3 className={`font-semibold text-neutral-900 group-hover:text-neutral-600 transition-colors ${isFeatured ? 'text-xl' : 'text-lg'}`}>
                         {project.title}
                     </h3>
                     <motion.div
                         animate={{ rotate: isHovered ? 45 : 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <ArrowUpRight size={20} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
+                        <PiArrowUpRightBold size={20} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
                     </motion.div>
                 </div>
 
@@ -172,7 +172,7 @@ const Projects = () => {
                     <div className="section-kicker mx-auto mb-4">
                         Selected Work
                     </div>
-                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                    <h2 className="section-title text-3xl md:text-5xl font-bold mb-4">
                         Featured Projects
                     </h2>
                     <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
@@ -216,7 +216,7 @@ const Projects = () => {
                         className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 font-medium transition-colors group"
                     >
                         View all projects on GitHub
-                        <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <PiArrowUpRightBold size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                 </motion.div>
             </div>

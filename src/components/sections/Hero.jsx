@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Github, Linkedin, Code2, Cpu, Rocket } from 'lucide-react';
+import { PiArrowRightBold, PiEnvelopeSimpleBold, PiGithubLogoBold, PiLinkedinLogoBold, PiCodeBold, PiCpuBold, PiRocketLaunchBold } from 'react-icons/pi';
 
 const Hero = () => {
     const containerVariants = {
@@ -39,7 +39,7 @@ const Hero = () => {
                         variants={itemVariants}
                         className="lg:col-span-8 bento-card p-8 md:p-10"
                     >
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3 mb-6 flex-wrap">
                             <div className="section-kicker">
                                 Software Engineer @ Gitwit
                             </div>
@@ -49,9 +49,9 @@ const Hero = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-900 mb-5 leading-[1.1] tracking-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-5 leading-[1.1] tracking-tight">
                             I build software that
-                            <span className="block text-neutral-500">solves real problems.</span>
+                            <span className="block text-neutral-400">solves real problems.</span>
                         </h1>
 
                         <p className="text-lg text-neutral-600 mb-8 max-w-xl leading-relaxed">
@@ -62,10 +62,10 @@ const Hero = () => {
                         <div className="flex flex-wrap gap-3">
                             <a href="#projects" className="button-primary group">
                                 <span>View Projects</span>
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                <PiArrowRightBold size={18} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                             <a href="#contact" className="button-secondary">
-                                <Mail size={18} />
+                                <PiEnvelopeSimpleBold size={18} />
                                 <span>Contact Me</span>
                             </a>
                         </div>
@@ -77,17 +77,17 @@ const Hero = () => {
                         className="lg:col-span-4 bento-card-dark p-6 flex flex-col justify-between"
                     >
                         <div>
-                            <p className="text-neutral-400 text-sm font-medium mb-4 uppercase tracking-wider">Overview</p>
+                            <p className="text-neutral-400 text-sm font-medium mb-4 tracking-wide">Overview</p>
                             <div className="space-y-3">
-                                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
+                                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/5">
                                     <span className="text-neutral-400 text-sm">Experience</span>
                                     <span className="text-white font-semibold">3+ Years</span>
                                 </div>
-                                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
+                                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/5">
                                     <span className="text-neutral-400 text-sm">Projects Delivered</span>
                                     <span className="text-white font-semibold">10+</span>
                                 </div>
-                                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
+                                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/5">
                                     <span className="text-neutral-400 text-sm">AI Integrations</span>
                                     <span className="text-white font-semibold">5+</span>
                                 </div>
@@ -98,18 +98,18 @@ const Hero = () => {
                                 href="https://github.com/abdulrehmann231/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
+                                className="flex-1 flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
                             >
-                                <Github size={18} />
+                                <PiGithubLogoBold size={20} />
                                 <span className="text-sm font-medium">GitHub</span>
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
+                                className="flex-1 flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
                             >
-                                <Linkedin size={18} />
+                                <PiLinkedinLogoBold size={20} />
                                 <span className="text-sm font-medium">LinkedIn</span>
                             </a>
                         </div>
@@ -118,12 +118,12 @@ const Hero = () => {
                     {/* Tech Focus Cards */}
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-4 bento-card p-5 group cursor-default"
+                        className="lg:col-span-4 bento-card p-6 group cursor-default"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
-                            <Code2 className="text-neutral-700" size={24} />
+                            <PiCodeBold className="text-neutral-700" size={24} />
                         </div>
-                        <h3 className="font-bold text-neutral-900 mb-1.5">Full-Stack Development</h3>
+                        <h3 className="font-semibold text-neutral-900 mb-1.5 text-lg">Full-Stack Development</h3>
                         <p className="text-neutral-500 text-sm leading-relaxed">
                             React, Next.js, Node.js, Python, Spring Boot — end-to-end solutions.
                         </p>
@@ -131,12 +131,12 @@ const Hero = () => {
 
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-4 bento-card p-5 group cursor-default"
+                        className="lg:col-span-4 bento-card p-6 group cursor-default"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
-                            <Cpu className="text-neutral-700" size={24} />
+                            <PiCpuBold className="text-neutral-700" size={24} />
                         </div>
-                        <h3 className="font-bold text-neutral-900 mb-1.5">AI & Machine Learning</h3>
+                        <h3 className="font-semibold text-neutral-900 mb-1.5 text-lg">AI & Machine Learning</h3>
                         <p className="text-neutral-500 text-sm leading-relaxed">
                             RAG systems, LLM integrations, computer vision, intelligent automation.
                         </p>
@@ -144,12 +144,12 @@ const Hero = () => {
 
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-4 bento-card-accent p-5 group cursor-default"
+                        className="lg:col-span-4 bento-card-accent p-6 group cursor-default"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/15 transition-colors">
-                            <Rocket className="text-white" size={24} />
+                            <PiRocketLaunchBold className="text-white" size={24} />
                         </div>
-                        <h3 className="font-bold text-white mb-1.5">Production Ready</h3>
+                        <h3 className="font-semibold text-white mb-1.5 text-lg">Production Ready</h3>
                         <p className="text-neutral-400 text-sm leading-relaxed">
                             Shipping real products with real users. Focused on quality and reliability.
                         </p>

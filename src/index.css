@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,8 +8,8 @@
   --color-surface: #ffffff;
   --color-surface-strong: #ffffff;
   --color-border: rgba(0, 0, 0, 0.06);
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
 }
 
 html {
@@ -21,6 +21,10 @@ body {
   background: #fafafa;
   color: #171717;
   overflow-x: hidden;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
 }
 
@@ -37,7 +41,7 @@ body {
 .bento-card {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 24px;
   transition: all 0.3s ease;
   position: relative;
@@ -51,6 +55,7 @@ body {
 .bento-card-dark {
   background: #171717;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
   color: #ffffff;
 }
 
@@ -61,6 +66,7 @@ body {
 .bento-card-accent {
   background: #171717;
   border: none;
+  border-radius: 24px;
   color: #ffffff;
 }
 
@@ -86,16 +92,17 @@ body {
   background: #f5f5f5;
   color: #525252;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-family: var(--font-body);
 }
 
 .section-title {
   color: #171717;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  font-family: var(--font-sans);
 }
 
 .section-rule {
@@ -109,7 +116,7 @@ body {
 .surface {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border-radius: 20px;
 }
 
 .surface:hover {
@@ -119,7 +126,7 @@ body {
 .surface-strong {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 /* ===== BUTTONS ===== */
@@ -128,12 +135,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 0.875rem 1.75rem;
   background: #171717;
   color: #ffffff;
   font-weight: 600;
   font-size: 0.9375rem;
+  font-family: var(--font-body);
   transition: all 0.2s ease;
 }
 
@@ -147,12 +155,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 0.875rem 1.75rem;
   background: #ffffff;
   color: #171717;
   font-weight: 600;
   font-size: 0.9375rem;
+  font-family: var(--font-body);
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
@@ -165,12 +174,13 @@ body {
 /* ===== INPUTS ===== */
 .input-field {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #fafafa;
   padding: 0.875rem 1rem;
   color: #171717;
   font-size: 0.9375rem;
+  font-family: var(--font-body);
   outline: none;
   transition: all 0.2s ease;
 }
@@ -189,12 +199,13 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 0.375rem 0.75rem;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.04);
   color: #525252;
   font-size: 0.8125rem;
   font-weight: 500;
+  font-family: var(--font-body);
   transition: all 0.2s ease;
 }
 
@@ -217,7 +228,7 @@ body {
 .project-card {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -249,7 +260,7 @@ body {
 .stat-card {
   background: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 20px;
   text-align: center;
   transition: all 0.2s ease;
@@ -262,9 +273,10 @@ body {
 
 .stat-number {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #171717;
   line-height: 1;
+  font-family: var(--font-sans);
 }
 
 .stat-label {
@@ -272,13 +284,7 @@ body {
   color: #737373;
   margin-top: 0.5rem;
   font-weight: 500;
-}
-
-/* ===== CODE STYLING ===== */
-.code-text {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: #171717;
+  font-family: var(--font-body);
 }
 
 /* ===== SCROLLBAR ===== */

@@ -1,10 +1,10 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { PiGithubLogoBold, PiLinkedinLogoBold, PiEnvelopeSimpleBold } from 'react-icons/pi';
 
 const Footer = () => {
     const socialLinks = [
-        { icon: Github, href: 'https://github.com/abdulrehmann231/', label: 'GitHub' },
-        { icon: Linkedin, href: 'https://www.linkedin.com/in/abdulrehman-nasir-a86a87273', label: 'LinkedIn' },
-        { icon: Mail, href: 'mailto:mabdulrehman951@gmail.com', label: 'Email' },
+        { icon: PiGithubLogoBold, href: 'https://github.com/abdulrehmann231/', label: 'GitHub' },
+        { icon: PiLinkedinLogoBold, href: 'https://www.linkedin.com/in/abdulrehman-nasir-a86a87273', label: 'LinkedIn' },
+        { icon: PiEnvelopeSimpleBold, href: 'mailto:mabdulrehman951@gmail.com', label: 'Email' },
     ];
 
     return (
@@ -17,7 +17,7 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="flex flex-col items-center text-center">
                         {/* Logo */}
-                        <span className="font-bold text-xl text-neutral-900 mb-4">
+                        <span className="font-semibold text-xl text-neutral-900 mb-4">
                             Abdul<span className="text-neutral-400">Rehman</span>
                         </span>
 
@@ -37,7 +37,7 @@ const Footer = () => {
                                     className="w-11 h-11 rounded-xl bg-neutral-100 border border-neutral-100 flex items-center justify-center text-neutral-500 hover:text-neutral-900 hover:border-neutral-200 hover:bg-neutral-50 transition-all duration-200"
                                     aria-label={social.label}
                                 >
-                                    <social.icon size={18} />
+                                    <social.icon size={20} />
                                 </a>
                             ))}
                         </div>

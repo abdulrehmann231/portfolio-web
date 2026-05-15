@@ -1,25 +1,25 @@
 import { motion } from 'framer-motion';
-import { MapPin, GraduationCap, Calendar, Code2, Database, Cpu, Wrench } from 'lucide-react';
+import { PiMapPinBold, PiGraduationCapBold, PiCalendarBold, PiCodeBold, PiDatabaseBold, PiCpuBold, PiWrenchBold } from 'react-icons/pi';
 
 const skills = [
     {
         category: "Languages",
-        icon: Code2,
+        icon: PiCodeBold,
         items: ["TypeScript", "JavaScript", "Python", "Java", "C++", "SQL"],
     },
     {
         category: "Frameworks",
-        icon: Cpu,
+        icon: PiCpuBold,
         items: ["React", "Next.js", "Node.js", "Express", "Spring Boot", "FastAPI"],
     },
     {
         category: "AI & ML",
-        icon: Wrench,
+        icon: PiWrenchBold,
         items: ["RAG", "LLMs", "YOLO v5", "Groq API", "HuggingFace"],
     },
     {
         category: "Tools & DBs",
-        icon: Database,
+        icon: PiDatabaseBold,
         items: ["PostgreSQL", "MongoDB", "Firebase", "Docker", "Git"],
     },
 ];
@@ -53,7 +53,7 @@ const About = () => {
                     <div className="section-kicker mx-auto mb-4">
                         About Me
                     </div>
-                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                    <h2 className="section-title text-3xl md:text-5xl font-bold mb-4">
                         Background
                     </h2>
                     <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
@@ -73,7 +73,7 @@ const About = () => {
                         variants={itemVariants}
                         className="lg:col-span-7 bento-card p-8"
                     >
-                        <div className="prose prose-neutral max-w-none">
+                        <div className="max-w-none">
                             <p className="text-lg text-neutral-600 leading-relaxed mb-6">
                                 I'm <span className="text-neutral-900 font-semibold">Abdul Rehman</span>, a
                                 full-stack engineer who builds products that ship. I focus on
@@ -99,15 +99,15 @@ const About = () => {
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center">
-                                    <GraduationCap className="text-neutral-700" size={24} />
+                                    <PiGraduationCapBold className="text-neutral-700" size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-neutral-900">FAST NUCES</h3>
+                                    <h3 className="font-semibold text-neutral-900">FAST NUCES</h3>
                                     <p className="text-neutral-500 text-sm">Computer Science</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 text-neutral-500 text-sm">
-                                <Calendar size={14} />
+                                <PiCalendarBold size={14} />
                                 Expected Graduation 2027
                             </div>
                         </motion.div>
@@ -118,10 +118,10 @@ const About = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
-                                    <MapPin className="text-white" size={24} />
+                                    <PiMapPinBold className="text-white" size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white">Karachi, Pakistan</h3>
+                                    <h3 className="font-semibold text-white">Karachi, Pakistan</h3>
                                     <p className="text-neutral-400 text-sm">Open to remote work</p>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ const About = () => {
                             <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
                                 <skillGroup.icon className="text-neutral-700" size={20} />
                             </div>
-                            <h3 className="font-bold text-neutral-900 mb-3">{skillGroup.category}</h3>
+                            <h3 className="font-semibold text-neutral-900 mb-3">{skillGroup.category}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {skillGroup.items.map((item) => (
                                     <span key={item} className="tag text-xs">

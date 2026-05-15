@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, Building2 } from 'lucide-react';
+import { PiCalendarBold, PiMapPinBold, PiBuildingsBold } from 'react-icons/pi';
 
 const experiences = [
     {
@@ -73,7 +73,7 @@ const Experience = () => {
                     <div className="section-kicker mx-auto mb-4">
                         Career
                     </div>
-                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                    <h2 className="section-title text-3xl md:text-5xl font-bold mb-4">
                         Work Experience
                     </h2>
                     <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
@@ -98,11 +98,11 @@ const Experience = () => {
                                             ? 'bg-neutral-900'
                                             : 'bg-neutral-100'
                                     }`}>
-                                        <Building2 size={22} className={exp.current ? 'text-white' : 'text-neutral-600'} />
+                                        <PiBuildingsBold size={22} className={exp.current ? 'text-white' : 'text-neutral-600'} />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2 flex-wrap">
-                                            <h3 className="text-xl font-bold text-neutral-900">
+                                            <h3 className="text-xl font-semibold text-neutral-900">
                                                 {exp.title}
                                             </h3>
                                             {exp.current && (
@@ -115,14 +115,14 @@ const Experience = () => {
                                         <div className="flex items-center gap-3 mt-1.5 flex-wrap">
                                             <span className="text-neutral-600 font-medium">{exp.company}</span>
                                             <span className="tag text-xs py-0.5">
-                                                <MapPin size={10} className="mr-1" />
+                                                <PiMapPinBold size={10} className="mr-1" />
                                                 {exp.type}
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 text-neutral-500 text-sm font-medium bg-neutral-50 px-4 py-2 rounded-full border border-neutral-100 self-start">
-                                    <Calendar size={14} />
+                                    <PiCalendarBold size={14} />
                                     {exp.period}
                                 </div>
                             </div>

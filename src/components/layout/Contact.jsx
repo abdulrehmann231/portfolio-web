@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, MapPin, ArrowUpRight } from 'lucide-react';
+import { PiEnvelopeSimpleBold, PiPaperPlaneTiltBold, PiMapPinBold, PiArrowUpRightBold } from 'react-icons/pi';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ const Contact = () => {
                     <div className="section-kicker mx-auto mb-4">
                         Contact
                     </div>
-                    <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
+                    <h2 className="section-title text-3xl md:text-5xl font-bold mb-4">
                         Get in Touch
                     </h2>
                     <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
@@ -66,9 +66,9 @@ const Contact = () => {
                         {/* CTA Card */}
                         <div className="bento-card-accent p-8 text-center">
                             <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5">
-                                <Mail size={28} className="text-white" />
+                                <PiEnvelopeSimpleBold size={28} className="text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-3">
+                            <h3 className="text-2xl font-semibold text-white mb-3">
                                 Let's work together
                             </h3>
                             <p className="text-neutral-400 mb-6">
@@ -76,9 +76,9 @@ const Contact = () => {
                             </p>
                             <a
                                 href="mailto:mabdulrehman951@gmail.com"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-lg text-neutral-900 font-semibold hover:bg-neutral-100 transition-colors"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-xl text-neutral-900 font-semibold hover:bg-neutral-100 transition-colors"
                             >
-                                <Mail size={18} />
+                                <PiEnvelopeSimpleBold size={18} />
                                 Send Email
                             </a>
                         </div>
@@ -89,18 +89,18 @@ const Contact = () => {
                             className="bento-card p-5 flex items-center gap-4 group"
                         >
                             <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center group-hover:bg-neutral-200 transition-colors">
-                                <Mail className="text-neutral-700" size={22} />
+                                <PiEnvelopeSimpleBold className="text-neutral-700" size={22} />
                             </div>
                             <div className="flex-1">
                                 <p className="text-xs text-neutral-500 uppercase tracking-wider mb-0.5">Email</p>
                                 <p className="font-medium text-neutral-900">mabdulrehman951@gmail.com</p>
                             </div>
-                            <ArrowUpRight size={18} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
+                            <PiArrowUpRightBold size={18} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
                         </a>
 
                         <div className="bento-card p-5 flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center">
-                                <MapPin className="text-neutral-700" size={22} />
+                                <PiMapPinBold className="text-neutral-700" size={22} />
                             </div>
                             <div>
                                 <p className="text-xs text-neutral-500 uppercase tracking-wider mb-0.5">Location</p>
@@ -118,7 +118,7 @@ const Contact = () => {
                         className="lg:col-span-7"
                     >
                         <form onSubmit={handleSubmit} className="bento-card p-8">
-                            <h3 className="text-xl font-bold text-neutral-900 mb-6">Send a Message</h3>
+                            <h3 className="text-xl font-semibold text-neutral-900 mb-6">Send a Message</h3>
 
                             <div className="grid md:grid-cols-2 gap-5 mb-5">
                                 <div>
@@ -181,7 +181,7 @@ const Contact = () => {
                                 ) : (
                                     <>
                                         <span>Send Message</span>
-                                        <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                        <PiPaperPlaneTiltBold size={18} className="group-hover:translate-x-1 transition-transform" />
                                     </>
                                 )}
                             </button>
