@@ -1,34 +1,26 @@
 import { motion } from 'framer-motion';
-import { MapPin, GraduationCap, Calendar, Sparkles, Code2, Database, Cpu, Wrench } from 'lucide-react';
+import { MapPin, GraduationCap, Calendar, Code2, Database, Cpu, Wrench } from 'lucide-react';
 
 const skills = [
     {
         category: "Languages",
         icon: Code2,
         items: ["TypeScript", "JavaScript", "Python", "Java", "C++", "SQL"],
-        color: "from-blue-500/10 to-cyan-500/10",
-        iconColor: "text-blue-600"
     },
     {
         category: "Frameworks",
         icon: Cpu,
         items: ["React", "Next.js", "Node.js", "Express", "Spring Boot", "FastAPI"],
-        color: "from-violet-500/10 to-purple-500/10",
-        iconColor: "text-violet-600"
     },
     {
         category: "AI & ML",
-        icon: Sparkles,
+        icon: Wrench,
         items: ["RAG", "LLMs", "YOLO v5", "Groq API", "HuggingFace"],
-        color: "from-amber-500/10 to-orange-500/10",
-        iconColor: "text-amber-600"
     },
     {
         category: "Tools & DBs",
         icon: Database,
         items: ["PostgreSQL", "MongoDB", "Firebase", "Docker", "Git"],
-        color: "from-emerald-500/10 to-teal-500/10",
-        iconColor: "text-emerald-600"
     },
 ];
 
@@ -59,14 +51,13 @@ const About = () => {
                     className="text-center mb-16"
                 >
                     <div className="section-kicker mx-auto mb-4">
-                        <Sparkles size={14} />
                         About Me
                     </div>
                     <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
-                        Engineer & Builder
+                        Background
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        Turning ideas into production-ready software with clean code and thoughtful design.
+                    <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
+                        Full-stack engineer focused on building reliable, scalable software.
                     </p>
                 </motion.div>
 
@@ -82,41 +73,40 @@ const About = () => {
                         variants={itemVariants}
                         className="lg:col-span-7 bento-card p-8"
                     >
-                        <div className="prose prose-slate max-w-none">
-                            <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                                Hi, I'm <span className="text-slate-900 font-semibold">Abdul Rehman</span> —
-                                a full-stack engineer who builds products that actually ship. I focus on
-                                clean architecture, thoughtful UX, and code that scales.
+                        <div className="prose prose-neutral max-w-none">
+                            <p className="text-lg text-neutral-600 leading-relaxed mb-6">
+                                I'm <span className="text-neutral-900 font-semibold">Abdul Rehman</span>, a
+                                full-stack engineer who builds products that ship. I focus on
+                                clean architecture, practical solutions, and code that scales.
                             </p>
-                            <p className="text-slate-600 leading-relaxed mb-6">
-                                Currently working at <span className="font-semibold text-indigo-600">Gitwit</span> building
-                                AI-powered developer tools. Previously shipped products at startups and enterprises,
+                            <p className="text-neutral-600 leading-relaxed mb-6">
+                                Currently at <span className="font-semibold text-neutral-900">Gitwit</span> building
+                                AI-powered developer tools. Previously delivered projects at startups and enterprises,
                                 from real-time collaboration tools to satellite-data platforms.
                             </p>
-                            <p className="text-slate-600 leading-relaxed">
-                                When I'm not coding, I'm exploring new AI models, contributing to open source,
-                                or turning coffee into production deployments.
+                            <p className="text-neutral-600 leading-relaxed">
+                                I enjoy working across the stack — from designing APIs and databases to building
+                                responsive frontends. My focus is always on solving real problems with practical solutions.
                             </p>
                         </div>
                     </motion.div>
 
                     {/* Info Cards - Right Side */}
                     <div className="lg:col-span-5 space-y-5">
-                        {/* Location & Education */}
                         <motion.div
                             variants={itemVariants}
                             className="bento-card p-6"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">
-                                    <GraduationCap className="text-indigo-600" size={24} />
+                                <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center">
+                                    <GraduationCap className="text-neutral-700" size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900">FAST NUCES</h3>
-                                    <p className="text-slate-500 text-sm">Computer Science</p>
+                                    <h3 className="font-bold text-neutral-900">FAST NUCES</h3>
+                                    <p className="text-neutral-500 text-sm">Computer Science</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2 text-slate-500 text-sm">
+                            <div className="flex items-center gap-2 text-neutral-500 text-sm">
                                 <Calendar size={14} />
                                 Expected Graduation 2027
                             </div>
@@ -132,7 +122,7 @@ const About = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white">Karachi, Pakistan</h3>
-                                    <p className="text-slate-400 text-sm">Open to remote opportunities</p>
+                                    <p className="text-neutral-400 text-sm">Open to remote work</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -148,7 +138,7 @@ const About = () => {
                             </div>
                             <div className="stat-card">
                                 <div className="stat-number">10+</div>
-                                <div className="stat-label">Projects Shipped</div>
+                                <div className="stat-label">Projects Delivered</div>
                             </div>
                         </motion.div>
                     </div>
@@ -160,10 +150,10 @@ const About = () => {
                             variants={itemVariants}
                             className="lg:col-span-3 bento-card p-5 group"
                         >
-                            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${skillGroup.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                                <skillGroup.icon className={skillGroup.iconColor} size={20} />
+                            <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
+                                <skillGroup.icon className="text-neutral-700" size={20} />
                             </div>
-                            <h3 className="font-bold text-slate-900 mb-3">{skillGroup.category}</h3>
+                            <h3 className="font-bold text-neutral-900 mb-3">{skillGroup.category}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {skillGroup.items.map((item) => (
                                     <span key={item} className="tag text-xs">

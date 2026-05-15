@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, Building2, Sparkles } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Building2 } from 'lucide-react';
 
 const experiences = [
     {
@@ -71,14 +71,13 @@ const Experience = () => {
                     className="text-center mb-16"
                 >
                     <div className="section-kicker mx-auto mb-4">
-                        <Briefcase size={14} />
                         Career
                     </div>
                     <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
                         Work Experience
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        Building products at startups and enterprises — from AI tools to financial systems.
+                    <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
+                        Building products at startups and enterprises.
                     </p>
                 </motion.div>
 
@@ -90,31 +89,31 @@ const Experience = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             viewport={{ once: true }}
-                            className={`bento-card p-6 md:p-8 group ${exp.current ? 'ring-2 ring-indigo-500/20' : ''}`}
+                            className={`bento-card p-6 md:p-8 group ${exp.current ? 'border-neutral-300' : ''}`}
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
                                 <div className="flex items-start gap-4">
                                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 ${
                                         exp.current
-                                            ? 'bg-gradient-to-br from-indigo-500 to-purple-600'
-                                            : 'bg-gradient-to-br from-slate-100 to-slate-200'
+                                            ? 'bg-neutral-900'
+                                            : 'bg-neutral-100'
                                     }`}>
-                                        <Building2 size={22} className={exp.current ? 'text-white' : 'text-slate-600'} />
+                                        <Building2 size={22} className={exp.current ? 'text-white' : 'text-neutral-600'} />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2 flex-wrap">
-                                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                                            <h3 className="text-xl font-bold text-neutral-900">
                                                 {exp.title}
                                             </h3>
                                             {exp.current && (
-                                                <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                                                <span className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
                                                     <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                                                     Current
                                                 </span>
                                             )}
                                         </div>
                                         <div className="flex items-center gap-3 mt-1.5 flex-wrap">
-                                            <span className="text-slate-600 font-medium">{exp.company}</span>
+                                            <span className="text-neutral-600 font-medium">{exp.company}</span>
                                             <span className="tag text-xs py-0.5">
                                                 <MapPin size={10} className="mr-1" />
                                                 {exp.type}
@@ -122,7 +121,7 @@ const Experience = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-slate-500 text-sm font-medium bg-slate-50 px-4 py-2 rounded-full border border-slate-100 self-start">
+                                <div className="flex items-center gap-2 text-neutral-500 text-sm font-medium bg-neutral-50 px-4 py-2 rounded-full border border-neutral-100 self-start">
                                     <Calendar size={14} />
                                     {exp.period}
                                 </div>
@@ -130,8 +129,8 @@ const Experience = () => {
 
                             <ul className="space-y-2.5 ml-0 md:ml-16">
                                 {exp.description.map((item, i) => (
-                                    <li key={i} className="flex gap-3 text-slate-600">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mt-2 flex-shrink-0" />
+                                    <li key={i} className="flex gap-3 text-neutral-600">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2 flex-shrink-0" />
                                         <span className="leading-relaxed">{item}</span>
                                     </li>
                                 ))}

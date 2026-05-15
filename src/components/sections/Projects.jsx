@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight, Cpu } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
 import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
@@ -74,21 +74,21 @@ const ProjectCard = ({ project, index, isFeatured }) => {
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-neutral-900/70 opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
                 {/* Hover Content */}
-                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div className="flex gap-2">
                         {project.links.github !== '#' && (
                             <a
                                 href={project.links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-slate-900 font-medium text-sm hover:bg-slate-100 transition-colors"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-lg text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
                             >
                                 <Github size={16} />
                                 Code
@@ -99,7 +99,7 @@ const ProjectCard = ({ project, index, isFeatured }) => {
                                 href={project.links.demo}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl text-slate-900 font-medium text-sm hover:bg-slate-100 transition-colors"
+                                className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-lg text-neutral-900 font-medium text-sm hover:bg-neutral-100 transition-colors"
                             >
                                 <ExternalLink size={16} />
                                 Live Demo
@@ -110,8 +110,8 @@ const ProjectCard = ({ project, index, isFeatured }) => {
 
                 {/* AI Badge */}
                 {project.tags.includes('Agentic AI') && (
-                    <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full text-white text-xs font-semibold shadow-lg">
-                        <Sparkles size={12} />
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 rounded-full text-white text-xs font-semibold">
+                        <Cpu size={12} />
                         AI Powered
                     </div>
                 )}
@@ -120,18 +120,18 @@ const ProjectCard = ({ project, index, isFeatured }) => {
             {/* Content */}
             <div className="p-5">
                 <div className="flex items-start justify-between mb-3">
-                    <h3 className={`font-bold text-slate-900 group-hover:text-indigo-600 transition-colors ${isFeatured ? 'text-xl' : 'text-lg'}`}>
+                    <h3 className={`font-bold text-neutral-900 group-hover:text-neutral-600 transition-colors ${isFeatured ? 'text-xl' : 'text-lg'}`}>
                         {project.title}
                     </h3>
                     <motion.div
                         animate={{ rotate: isHovered ? 45 : 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <ArrowUpRight size={20} className="text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                        <ArrowUpRight size={20} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
                     </motion.div>
                 </div>
 
-                <p className={`text-slate-600 leading-relaxed mb-4 ${isFeatured ? 'text-base' : 'text-sm line-clamp-2'}`}>
+                <p className={`text-neutral-600 leading-relaxed mb-4 ${isFeatured ? 'text-base' : 'text-sm line-clamp-2'}`}>
                     {project.description}
                 </p>
 
@@ -170,20 +170,18 @@ const Projects = () => {
                     className="text-center mb-16"
                 >
                     <div className="section-kicker mx-auto mb-4">
-                        <Sparkles size={14} />
                         Selected Work
                     </div>
                     <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
                         Featured Projects
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        A selection of projects I've built — from AI-powered platforms to production SaaS applications.
+                    <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
+                        A selection of projects I've built — from AI platforms to production SaaS applications.
                     </p>
                 </motion.div>
 
                 {/* Bento Grid Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {/* Featured Projects - Large Cards */}
                     {featuredProjects.map((project, index) => (
                         <ProjectCard
                             key={project.title}
@@ -193,7 +191,6 @@ const Projects = () => {
                         />
                     ))}
 
-                    {/* Other Projects - Regular Cards */}
                     {otherProjects.map((project, index) => (
                         <ProjectCard
                             key={project.title}
@@ -216,7 +213,7 @@ const Projects = () => {
                         href="https://github.com/abdulrehmann231/"
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-slate-600 hover:text-indigo-600 font-medium transition-colors group"
+                        className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 font-medium transition-colors group"
                     >
                         View all projects on GitHub
                         <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

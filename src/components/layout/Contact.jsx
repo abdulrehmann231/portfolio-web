@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, MapPin, ArrowUpRight, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, Send, MapPin, ArrowUpRight } from 'lucide-react';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -34,7 +34,6 @@ const Contact = () => {
     return (
         <section id="contact" className="py-24 relative">
             <div className="absolute inset-0 grid-pattern opacity-30" />
-            <div className="glow glow-purple bottom-0 left-1/2 -translate-x-1/2 opacity-30" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
@@ -45,14 +44,13 @@ const Contact = () => {
                     className="text-center mb-16"
                 >
                     <div className="section-kicker mx-auto mb-4">
-                        <MessageSquare size={14} />
                         Contact
                     </div>
                     <h2 className="section-title text-3xl md:text-5xl font-extrabold mb-4">
-                        Let's Build Something
+                        Get in Touch
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        Have a project in mind? I'd love to hear about it. Let's connect and make it happen.
+                    <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
+                        Have a project in mind? Let's discuss how I can help.
                     </p>
                 </motion.div>
 
@@ -67,21 +65,21 @@ const Contact = () => {
                     >
                         {/* CTA Card */}
                         <div className="bento-card-accent p-8 text-center">
-                            <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5">
-                                <Sparkles size={28} className="text-white" />
+                            <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5">
+                                <Mail size={28} className="text-white" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-3">
-                                Ready to collaborate?
+                                Let's work together
                             </h3>
-                            <p className="text-white/80 mb-6">
-                                I'm currently open to new opportunities and exciting projects.
+                            <p className="text-neutral-400 mb-6">
+                                I'm currently available for freelance projects and full-time opportunities.
                             </p>
                             <a
                                 href="mailto:mabdulrehman951@gmail.com"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-xl text-slate-900 font-semibold hover:bg-slate-100 transition-colors"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-lg text-neutral-900 font-semibold hover:bg-neutral-100 transition-colors"
                             >
                                 <Mail size={18} />
-                                Get in Touch
+                                Send Email
                             </a>
                         </div>
 
@@ -90,23 +88,23 @@ const Contact = () => {
                             href="mailto:mabdulrehman951@gmail.com"
                             className="bento-card p-5 flex items-center gap-4 group"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <Mail className="text-indigo-600" size={22} />
+                            <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center group-hover:bg-neutral-200 transition-colors">
+                                <Mail className="text-neutral-700" size={22} />
                             </div>
                             <div className="flex-1">
-                                <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Email</p>
-                                <p className="font-medium text-slate-900">mabdulrehman951@gmail.com</p>
+                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-0.5">Email</p>
+                                <p className="font-medium text-neutral-900">mabdulrehman951@gmail.com</p>
                             </div>
-                            <ArrowUpRight size={18} className="text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                            <ArrowUpRight size={18} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
                         </a>
 
                         <div className="bento-card p-5 flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 flex items-center justify-center">
-                                <MapPin className="text-emerald-600" size={22} />
+                            <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center">
+                                <MapPin className="text-neutral-700" size={22} />
                             </div>
                             <div>
-                                <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Location</p>
-                                <p className="font-medium text-slate-900">Karachi, Pakistan</p>
+                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-0.5">Location</p>
+                                <p className="font-medium text-neutral-900">Karachi, Pakistan</p>
                             </div>
                         </div>
                     </motion.div>
@@ -120,11 +118,11 @@ const Contact = () => {
                         className="lg:col-span-7"
                     >
                         <form onSubmit={handleSubmit} className="bento-card p-8">
-                            <h3 className="text-xl font-bold text-slate-900 mb-6">Send a Message</h3>
+                            <h3 className="text-xl font-bold text-neutral-900 mb-6">Send a Message</h3>
 
                             <div className="grid md:grid-cols-2 gap-5 mb-5">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-slate-600 mb-2">
+                                    <label htmlFor="name" className="block text-sm font-medium text-neutral-600 mb-2">
                                         Name
                                     </label>
                                     <input
@@ -135,11 +133,11 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         className="input-field"
-                                        placeholder="John Doe"
+                                        placeholder="Your name"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-2">
+                                    <label htmlFor="email" className="block text-sm font-medium text-neutral-600 mb-2">
                                         Email
                                     </label>
                                     <input
@@ -150,13 +148,13 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="input-field"
-                                        placeholder="john@example.com"
+                                        placeholder="you@company.com"
                                     />
                                 </div>
                             </div>
 
                             <div className="mb-6">
-                                <label htmlFor="message" className="block text-sm font-medium text-slate-600 mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-neutral-600 mb-2">
                                     Message
                                 </label>
                                 <textarea

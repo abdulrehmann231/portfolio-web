@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Github, Linkedin, Sparkles, Code2, Zap, Globe } from 'lucide-react';
+import { ArrowRight, Mail, Github, Linkedin, Code2, Cpu, Rocket } from 'lucide-react';
 
 const Hero = () => {
     const containerVariants = {
@@ -24,10 +24,8 @@ const Hero = () => {
 
     return (
         <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 relative overflow-hidden">
-            {/* Background Elements */}
+            {/* Background */}
             <div className="absolute inset-0 grid-pattern opacity-50" />
-            <div className="glow top-20 -left-20 opacity-60" />
-            <div className="glow glow-purple bottom-20 -right-20 opacity-40" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
                 <motion.div
@@ -39,27 +37,26 @@ const Hero = () => {
                     {/* Main Hero Card - Spans 8 columns */}
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-8 bento-card p-8 md:p-10 relative"
+                        className="lg:col-span-8 bento-card p-8 md:p-10"
                     >
                         <div className="flex items-center gap-3 mb-6">
                             <div className="section-kicker">
-                                <Sparkles size={14} />
                                 Software Engineer @ Gitwit
                             </div>
-                            <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                            <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
                                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                                Available for work
+                                Open to work
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-5 leading-[1.1] tracking-tight">
-                            Building software that
-                            <span className="block gradient-text-color">feels like magic.</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-900 mb-5 leading-[1.1] tracking-tight">
+                            I build software that
+                            <span className="block text-neutral-500">solves real problems.</span>
                         </h1>
 
-                        <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed">
-                            Full-stack engineer crafting AI-driven products with precision.
-                            I turn complex problems into elegant, production-ready solutions.
+                        <p className="text-lg text-neutral-600 mb-8 max-w-xl leading-relaxed">
+                            Full-stack engineer specializing in AI-driven products and scalable web applications.
+                            I ship clean, production-ready code that delivers results.
                         </p>
 
                         <div className="flex flex-wrap gap-3">
@@ -69,7 +66,7 @@ const Hero = () => {
                             </a>
                             <a href="#contact" className="button-secondary">
                                 <Mail size={18} />
-                                <span>Get in Touch</span>
+                                <span>Contact Me</span>
                             </a>
                         </div>
                     </motion.div>
@@ -80,19 +77,19 @@ const Hero = () => {
                         className="lg:col-span-4 bento-card-dark p-6 flex flex-col justify-between"
                     >
                         <div>
-                            <p className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">Quick Stats</p>
-                            <div className="space-y-4">
+                            <p className="text-neutral-400 text-sm font-medium mb-4 uppercase tracking-wider">Overview</p>
+                            <div className="space-y-3">
                                 <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-slate-300 text-sm">Experience</span>
-                                    <span className="text-white font-bold text-lg">3+ Years</span>
+                                    <span className="text-neutral-400 text-sm">Experience</span>
+                                    <span className="text-white font-semibold">3+ Years</span>
                                 </div>
                                 <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-slate-300 text-sm">Projects Shipped</span>
-                                    <span className="text-white font-bold text-lg">10+</span>
+                                    <span className="text-neutral-400 text-sm">Projects Delivered</span>
+                                    <span className="text-white font-semibold">10+</span>
                                 </div>
                                 <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-slate-300 text-sm">AI Integrations</span>
-                                    <span className="text-white font-bold text-lg">5+</span>
+                                    <span className="text-neutral-400 text-sm">AI Integrations</span>
+                                    <span className="text-white font-semibold">5+</span>
                                 </div>
                             </div>
                         </div>
@@ -118,17 +115,17 @@ const Hero = () => {
                         </div>
                     </motion.div>
 
-                    {/* Tech Focus Cards - 3 cards spanning full width */}
+                    {/* Tech Focus Cards */}
                     <motion.div
                         variants={itemVariants}
                         className="lg:col-span-4 bento-card p-5 group cursor-default"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Code2 className="text-indigo-600" size={24} />
+                        <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
+                            <Code2 className="text-neutral-700" size={24} />
                         </div>
-                        <h3 className="font-bold text-slate-900 mb-1.5">Full-Stack Development</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed">
-                            React, Next.js, Node.js, Python, Spring Boot — end-to-end product development.
+                        <h3 className="font-bold text-neutral-900 mb-1.5">Full-Stack Development</h3>
+                        <p className="text-neutral-500 text-sm leading-relaxed">
+                            React, Next.js, Node.js, Python, Spring Boot — end-to-end solutions.
                         </p>
                     </motion.div>
 
@@ -136,12 +133,12 @@ const Hero = () => {
                         variants={itemVariants}
                         className="lg:col-span-4 bento-card p-5 group cursor-default"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Sparkles className="text-violet-600" size={24} />
+                        <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center mb-4 group-hover:bg-neutral-200 transition-colors">
+                            <Cpu className="text-neutral-700" size={24} />
                         </div>
-                        <h3 className="font-bold text-slate-900 mb-1.5">AI & Machine Learning</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed">
-                            RAG systems, LLM integrations, YOLO, Agentic AI — intelligent solutions.
+                        <h3 className="font-bold text-neutral-900 mb-1.5">AI & Machine Learning</h3>
+                        <p className="text-neutral-500 text-sm leading-relaxed">
+                            RAG systems, LLM integrations, computer vision, intelligent automation.
                         </p>
                     </motion.div>
 
@@ -149,12 +146,12 @@ const Hero = () => {
                         variants={itemVariants}
                         className="lg:col-span-4 bento-card-accent p-5 group cursor-default"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Zap className="text-white" size={24} />
+                        <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/15 transition-colors">
+                            <Rocket className="text-white" size={24} />
                         </div>
                         <h3 className="font-bold text-white mb-1.5">Production Ready</h3>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                            Shipping real products used by real customers. Quality over quantity.
+                        <p className="text-neutral-400 text-sm leading-relaxed">
+                            Shipping real products with real users. Focused on quality and reliability.
                         </p>
                     </motion.div>
                 </motion.div>
