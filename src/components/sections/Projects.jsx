@@ -6,7 +6,7 @@ import eekoAiImg from '../../assets/eeko-ai.png';
 import rainosAppImg from '../../assets/rainos-app.png';
 import gitwitImg from '../../assets/gitwit.png';
 import earthlinkAiImg from '../../assets/earthlink-ai.png';
-import ligmaImg from '../../assets/ligma.png';
+import draftlyImg from '../../assets/ligma.png';
 
 // Projects ordered by importance - Top 7 featured projects
 // Duplicates removed, prioritized by impact and technical complexity
@@ -28,12 +28,12 @@ const projects = [
         image: earthlinkAiImg,
     },
     {
-        title: 'LIGMA',
+        title: 'Draftly',
         description:
             'Realtime collaborative meeting whiteboard with sub 50ms Yjs sync that turns brainstormed ideas into assignable tasks for team members along with AI intent classification and PDF export. Built on a Next.js frontend with a Fastify backend, Postgres and Groq powered summaries.',
         tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'Groq AI'],
         links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
-        image: ligmaImg,
+        image: draftlyImg,
     },
     {
         title: 'RainOS App',
