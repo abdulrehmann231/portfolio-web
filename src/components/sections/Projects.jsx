@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import researchCoreImg from '../../assets/research-core.png';
+import mattBrownImg from '../../assets/matt-brown.png';
 import eekoAiImg from '../../assets/eeko-ai.png';
 import rainosAppImg from '../../assets/rainos-app.png';
 import gitwitImg from '../../assets/gitwit.png';
 import earthlinkAiImg from '../../assets/earthlink-ai.png';
 import ligmaImg from '../../assets/ligma.png';
 
-// Projects ordered by importance - Top 6 featured projects
+// Projects ordered by importance - Top 7 featured projects
 // Duplicates removed, prioritized by impact and technical complexity
 const projects = [
     {
@@ -41,6 +42,14 @@ const projects = [
         tags: ['React', 'Private Repo'],
         links: { github: '#', demo: 'https://app.getrainos.com/' },
         image: rainosAppImg,
+    },
+    {
+        title: 'Matt Brown Fine Art',
+        description:
+            'Official gallery and shop for Matt Brown Fine Art presenting collections, prints and purchase options through a clean visual layout. Live site serving the artist and his customers.',
+        tags: ['Private Repo', 'E-commerce'],
+        links: { github: '#', demo: 'http://mbrownfa.com/' },
+        image: mattBrownImg,
     },
     {
         title: 'Eeko-AI',
