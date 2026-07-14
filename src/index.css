@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #fafafa;
   --color-secondary: #ffffff;
@@ -18,16 +20,94 @@
   }
 }
 
+/* ---- Semantic theme tokens (light) ---- */
+:root {
+  --page-bg-start: #ffffff;
+  --page-bg-end: #fafafa;
+  --text-main: #0f172a;
+
+  --surface-bg: #ffffff;
+  --surface-border: rgba(15, 23, 42, 0.12);
+  --surface-border-strong: rgba(15, 23, 42, 0.18);
+
+  --kicker-bg: #ffffff;
+  --rule-bg: #0f172a;
+
+  --btn-primary-bg: #0f172a;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #111827;
+
+  --input-bg: #ffffff;
+  --input-border: rgba(15, 23, 42, 0.14);
+  --input-border-focus: rgba(15, 23, 42, 0.28);
+  --input-placeholder: rgba(15, 23, 42, 0.42);
+  --input-focus-ring: rgba(15, 23, 42, 0.08);
+
+  --selection-bg: rgba(245, 158, 11, 0.25);
+  --selection-text: #0f172a;
+}
+
+/* ---- Dark theme ---- */
+.dark {
+  --page-bg-start: #0b1120;
+  --page-bg-end: #0f172a;
+  --text-main: #f1f5f9;
+
+  --surface-bg: #1e293b;
+  --surface-border: rgba(148, 163, 184, 0.16);
+  --surface-border-strong: rgba(148, 163, 184, 0.30);
+
+  --kicker-bg: #1e293b;
+  --rule-bg: #f1f5f9;
+
+  --btn-primary-bg: #f1f5f9;
+  --btn-primary-text: #0f172a;
+  --btn-primary-hover: #ffffff;
+
+  --input-bg: #1e293b;
+  --input-border: rgba(148, 163, 184, 0.22);
+  --input-border-focus: rgba(148, 163, 184, 0.45);
+  --input-placeholder: rgba(148, 163, 184, 0.5);
+  --input-focus-ring: rgba(148, 163, 184, 0.15);
+
+  --selection-text: #f8fafc;
+
+  /* Remap the @theme brand tokens so bg-primary / .glass adapt automatically */
+  --color-primary: #0f172a;
+  --color-secondary: #1e293b;
+  --color-surface: #1e293b;
+  --color-surface-strong: #1e293b;
+  --color-border: rgba(148, 163, 184, 0.16);
+
+  /* Remap Tailwind's slate palette so existing text-/bg-/border-slate-* utilities
+     flip to a dark-friendly scale without touching every component. */
+  --color-slate-50: #0f172a;
+  --color-slate-100: #1e293b;
+  --color-slate-200: #334155;
+  --color-slate-300: #475569;
+  --color-slate-400: #64748b;
+  --color-slate-500: #94a3b8;
+  --color-slate-600: #94a3b8;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #f1f5f9;
+  --color-slate-950: #f8fafc;
+
+  /* bg-white surfaces become an elevated dark panel */
+  --color-white: #1e293b;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-  color: #0f172a;
+  background: linear-gradient(180deg, var(--page-bg-start) 0%, var(--page-bg-end) 100%);
+  color: var(--text-main);
   overflow-x: hidden;
   font-family: var(--font-sans);
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 #root {
@@ -35,20 +115,20 @@ body {
 }
 
 ::selection {
-  background: rgba(245, 158, 11, 0.25);
-  color: #0f172a;
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 .glass {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
   box-shadow: none;
   backdrop-filter: none;
 }
 
 .glass-hover:hover {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.18);
+  background: var(--surface-bg);
+  border-color: var(--surface-border-strong);
   box-shadow: none;
 }
 
@@ -58,9 +138,9 @@ body {
   gap: 0.5rem;
   padding: 0.45rem 0.8rem;
   border-radius: 9999px;
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--kicker-bg);
+  color: var(--text-main);
+  border: 1px solid var(--surface-border);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -68,7 +148,7 @@ body {
 }
 
 .section-title {
-  color: #0f172a;
+  color: var(--text-main);
   letter-spacing: -0.05em;
 }
 
@@ -76,19 +156,19 @@ body {
   width: 5rem;
   height: 0.25rem;
   border-radius: 9999px;
-  background: #0f172a;
+  background: var(--rule-bg);
 }
 
 .surface {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
   box-shadow: none;
   backdrop-filter: none;
 }
 
 .surface-strong {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
   box-shadow: none;
 }
 
@@ -99,15 +179,15 @@ body {
   gap: 0.625rem;
   border-radius: 9999px;
   padding: 0.95rem 1.5rem;
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-weight: 700;
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
   box-shadow: none;
 }
 
 .button-primary:hover {
-  background: #111827;
+  background: var(--btn-primary-hover);
   transform: translateY(-1px);
 }
 
@@ -118,15 +198,15 @@ body {
   gap: 0.625rem;
   border-radius: 9999px;
   padding: 0.95rem 1.5rem;
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--surface-bg);
+  color: var(--text-main);
   font-weight: 700;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--surface-border);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .button-secondary:hover {
-  border-color: rgba(15, 23, 42, 0.22);
+  border-color: var(--surface-border-strong);
   box-shadow: none;
   transform: translateY(-1px);
 }
@@ -134,20 +214,20 @@ body {
 .input-field {
   width: 100%;
   border-radius: 1rem;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: #ffffff;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
   padding: 0.9rem 1rem;
-  color: #0f172a;
+  color: var(--text-main);
   outline: none;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .input-field::placeholder {
-  color: rgba(15, 23, 42, 0.42);
+  color: var(--input-placeholder);
 }
 
 .input-field:focus {
-  border-color: rgba(15, 23, 42, 0.28);
-  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
-  background: #ffffff;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 4px var(--input-focus-ring);
+  background: var(--input-bg);
 }
