@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +33,8 @@ const Navbar = () => {
                         isScrolled ? 'surface' : 'bg-transparent'
                     }`}
                 >
-                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900">
-                        Abdul<span className="text-slate-500">Rehman</span>
+                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900 dark:text-white">
+                        Abdul<span className="text-slate-500 dark:text-slate-400">Rehman</span>
                     </div>
 
                     <div className="hidden md:block">
@@ -42,7 +43,7 @@ const Navbar = () => {
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
+                                    className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium"
                                 >
                                     {item.name}
                                 </a>
@@ -51,18 +52,20 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
+                        <ThemeToggle />
+                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:border-slate-300 transition-colors">
                             <Github size={18} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:border-slate-300 transition-colors">
                             <Linkedin size={18} />
                         </a>
                     </div>
 
-                    <div className="md:hidden">
+                    <div className="md:hidden flex items-center gap-2">
+                        <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-slate-500 hover:text-slate-900 p-2"
+                            className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white p-2"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -79,7 +82,7 @@ const Navbar = () => {
                                 key={item.name}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
+                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800 transition-colors"
                             >
                                 {item.name}
                             </a>

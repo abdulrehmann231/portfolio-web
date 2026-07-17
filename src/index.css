@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #fafafa;
   --color-secondary: #ffffff;
@@ -28,6 +30,7 @@ body {
   color: #0f172a;
   overflow-x: hidden;
   font-family: var(--font-sans);
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 #root {
@@ -37,6 +40,16 @@ body {
 ::selection {
   background: rgba(245, 158, 11, 0.25);
   color: #0f172a;
+}
+
+.dark body {
+  background: linear-gradient(180deg, #020617 0%, #0b1120 100%);
+  color: #e2e8f0;
+}
+
+.dark ::selection {
+  background: rgba(245, 158, 11, 0.30);
+  color: #f8fafc;
 }
 
 .glass {
@@ -150,4 +163,75 @@ body {
   border-color: rgba(15, 23, 42, 0.28);
   box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
   background: #ffffff;
+}
+
+/* ---------- Dark theme overrides ---------- */
+
+.dark .glass {
+  background: #0f172a;
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+.dark .glass-hover:hover {
+  background: #111c34;
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+.dark .section-kicker {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.16);
+}
+
+.dark .section-title {
+  color: #f8fafc;
+}
+
+.dark .section-rule {
+  background: #e2e8f0;
+}
+
+.dark .surface {
+  background: #0f172a;
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+.dark .surface-strong {
+  background: #111c34;
+  border-color: rgba(148, 163, 184, 0.16);
+}
+
+.dark .button-primary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.dark .button-primary:hover {
+  background: #f8fafc;
+}
+
+.dark .button-secondary {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+.dark .button-secondary:hover {
+  border-color: rgba(148, 163, 184, 0.30);
+}
+
+.dark .input-field {
+  background: #0b1324;
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+.dark .input-field::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+.dark .input-field:focus {
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.12);
+  background: #0b1324;
 }

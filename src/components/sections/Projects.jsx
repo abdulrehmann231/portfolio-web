@@ -103,11 +103,11 @@ const Projects = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.05 }}
                                 viewport={{ once: true }}
-                                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300"
+                                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-lg dark:hover:shadow-black/40 transition-all duration-300"
                             >
                                 {/* Screenshot */}
                                 {project.image && (
-                                    <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+                                    <div className="relative w-full aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
                                         <img
                                             src={project.image}
                                             alt={project.title}
@@ -142,7 +142,7 @@ const Projects = () => {
                                 {/* Content below screenshot */}
                                 <div className="p-5">
                                     <div className="flex items-center justify-between mb-3">
-                                        <h3 className="text-lg font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
                                             {project.title}
                                         </h3>
                                         <div className="flex gap-2">
@@ -151,7 +151,7 @@ const Projects = () => {
                                                     href={project.links.github}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
+                                                    className="text-slate-400 hover:text-slate-900 dark:text-slate-500 dark:hover:text-white transition-colors"
                                                 >
                                                     <Github size={18} />
                                                 </a>
@@ -161,7 +161,7 @@ const Projects = () => {
                                                     href={project.links.demo}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-slate-400 hover:text-slate-900 transition-colors"
+                                                    className="text-slate-400 hover:text-slate-900 dark:text-slate-500 dark:hover:text-white transition-colors"
                                                 >
                                                     <ExternalLink size={18} />
                                                 </a>
@@ -171,7 +171,7 @@ const Projects = () => {
 
                                     <div className="mb-4">
                                         <p
-                                            className={`text-slate-600 text-sm leading-relaxed ${
+                                            className={`text-slate-600 dark:text-slate-400 text-sm leading-relaxed ${
                                                 expandedDescriptions[index] ? '' : 'line-clamp-3'
                                             }`}
                                         >
@@ -180,7 +180,7 @@ const Projects = () => {
                                         {project.description.length > 150 && (
                                             <button
                                                 onClick={() => toggleDescription(index)}
-                                                className="text-slate-500 hover:text-slate-700 text-xs font-medium mt-1 transition-colors"
+                                                className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-medium mt-1 transition-colors"
                                             >
                                                 {expandedDescriptions[index] ? 'Show less' : '... Show more'}
                                             </button>
@@ -191,7 +191,7 @@ const Projects = () => {
                                         {project.tags.map((tag, i) => (
                                             <span
                                                 key={i}
-                                                className="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-600 rounded-full border border-slate-200"
+                                                className="text-xs font-medium px-2.5 py-1 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700"
                                             >
                                                 {tag}
                                             </span>
