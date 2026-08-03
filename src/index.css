@@ -22,12 +22,51 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ---------------------------------------------------------------------------
+   Dark theme
+   Tailwind v4 compiles every color utility to `var(--color-*)`, so remapping
+   those variables (plus the few custom classes that use literal colors) under
+   `html.dark` re-themes the entire site — including hover/group-hover variants.
+   --------------------------------------------------------------------------- */
+html.dark {
+  /* Text: dark-on-light becomes light-on-dark */
+  --color-slate-950: oklch(98.5% 0.002 247.858);
+  --color-slate-900: oklch(96% 0.005 247.858);
+  --color-slate-700: oklch(86% 0.015 252.894);
+  --color-slate-600: oklch(80% 0.02 256.788);
+  --color-slate-500: oklch(70% 0.03 256.788);
+  --color-slate-400: oklch(62% 0.035 257.417);
+
+  /* Surfaces, hovers and borders: light becomes dark */
+  --color-white: oklch(22% 0.02 264.695);
+  --color-slate-50: oklch(18.5% 0.02 264.695);
+  --color-slate-100: oklch(30% 0.02 264.695);
+  --color-slate-200: oklch(32% 0.02 264.695);
+  --color-slate-300: oklch(42% 0.02 264.695);
+
+  /* App-level theme tokens */
+  --color-primary: oklch(15% 0.02 264.695);
+  --color-secondary: oklch(20% 0.02 264.695);
+  --color-accent: #f8fafc;
+  --color-surface: oklch(22% 0.02 264.695);
+  --color-surface-strong: oklch(26% 0.02 264.695);
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  color-scheme: dark;
+}
+
 body {
   min-height: 100vh;
   background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
   color: #0f172a;
   overflow-x: hidden;
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background: linear-gradient(180deg, #0b1120 0%, #020617 100%);
+  color: #e2e8f0;
 }
 
 #root {
@@ -150,4 +189,85 @@ body {
   border-color: rgba(15, 23, 42, 0.28);
   box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
   background: #ffffff;
+}
+
+/* --- Dark-theme overrides for classes that use literal colors --- */
+.surface,
+.surface-strong,
+.glass,
+.section-kicker,
+.button-primary,
+.button-secondary,
+.input-field {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark ::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #f8fafc;
+}
+
+html.dark .glass-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+html.dark .section-kicker {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark .section-title {
+  color: #f8fafc;
+}
+
+html.dark .section-rule {
+  background: #e2e8f0;
+}
+
+html.dark .surface,
+html.dark .surface-strong {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .button-primary {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+html.dark .button-primary:hover {
+  background: #e2e8f0;
+}
+
+html.dark .button-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+html.dark .button-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+html.dark .input-field {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f1f5f9;
+}
+
+html.dark .input-field::placeholder {
+  color: rgba(226, 232, 240, 0.45);
+}
+
+html.dark .input-field:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Keep image hover overlays dark so their white icons stay legible. */
+html.dark .bg-slate-900\/60 {
+  background-color: rgba(2, 6, 23, 0.7);
 }
