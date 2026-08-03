@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +58,11 @@ const Navbar = () => {
                         <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
                             <Linkedin size={18} />
                         </a>
+                        <ThemeToggle />
                     </div>
 
-                    <div className="md:hidden">
+                    <div className="md:hidden flex items-center gap-2">
+                        <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-slate-500 hover:text-slate-900 p-2"
