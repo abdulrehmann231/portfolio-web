@@ -1,9 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Sun, Moon } from 'lucide-react';
+
+const getInitialTheme = () => {
+    if (typeof window === 'undefined') return 'light';
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const ThemeToggle = ({ theme, onToggle, className = '' }) => (
+    <button
+        onClick={onToggle}
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+        title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+        className={`p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors ${className}`}
+    >
+        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+);
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [theme, setTheme] = useState(getInitialTheme);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,6 +31,13 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
     const navItems = [
         { name: 'About', href: '#about' },
@@ -51,6 +77,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
+                        <ThemeToggle theme={theme} onToggle={toggleTheme} />
                         <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
                             <Github size={18} />
                         </a>
@@ -60,6 +87,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="md:hidden flex items-center gap-2">
+                        <ThemeToggle theme={theme} onToggle={toggleTheme} />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-slate-500 hover:text-slate-900 p-2"
