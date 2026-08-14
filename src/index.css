@@ -330,6 +330,60 @@ html.dark .input-field { background: rgba(255,255,255,0.03); }
 .link-underline:hover { color: var(--color-ink); }
 .link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
 
+/* ===========================================================================
+   Custom cursor (dot + trailing ring). Only active when JS adds
+   `.custom-cursor` to <html> (fine pointer, motion allowed).
+   =========================================================================== */
+.cursor-dot,
+.cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 9999px;
+  will-change: transform;
+}
+html.custom-cursor .cursor-dot,
+html.custom-cursor .cursor-ring { display: block; }
+
+/* Hide the native cursor everywhere the custom one is active. */
+html.custom-cursor,
+html.custom-cursor * { cursor: none !important; }
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--color-accentink);
+  opacity: 0.5;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Hover over interactive elements: ring grows and fills, dot fades. */
+html.cursor-hover .cursor-ring {
+  width: 52px;
+  height: 52px;
+  opacity: 0.9;
+  background: var(--color-accentsoft);
+  border-color: var(--color-accent);
+}
+html.cursor-hover .cursor-dot { opacity: 0; }
+
+/* Press feedback. */
+html.cursor-down .cursor-ring { width: 26px; height: 26px; opacity: 1; }
+
+/* Pointer left the window. */
+html.cursor-hidden .cursor-dot,
+html.cursor-hidden .cursor-ring { opacity: 0; }
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; scroll-behavior: auto !important; }
 }

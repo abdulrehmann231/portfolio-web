@@ -5,10 +5,13 @@ import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
 import Contact from './components/layout/Contact';
+import CustomCursor from './components/ui/CustomCursor';
 
 function App() {
   return (
     <div className="relative min-h-screen bg-bg text-ink font-sans antialiased overflow-x-hidden">
+      <CustomCursor />
+
       {/* Ambient background */}
       <div className="bg-canvas" aria-hidden="true">
         <div className="bg-grid" />

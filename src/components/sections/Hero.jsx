@@ -8,7 +8,7 @@ const stats = [
     { value: '4', label: 'Teams worked with' },
 ];
 
-const stack = ['Next.js', 'React', 'Node.js', 'Python', 'Spring Boot', 'RAG / LLMs'];
+const stack = ['LLMs & RAG', 'AI Agents', 'MCP', 'Vector Search', 'Python / FastAPI', 'Next.js'];
 
 const container = {
     hidden: {},
@@ -133,7 +133,7 @@ const Hero = () => {
                     transition={{ delay: 0.6 }}
                     className="mt-16 lg:mt-20 pt-8 border-t border-line flex flex-wrap items-center gap-x-6 gap-y-3"
                 >
-                    <span className="font-mono text-xs text-faint uppercase tracking-widest">Working with</span>
+                    <span className="font-mono text-xs text-faint uppercase tracking-widest">Specializing in</span>
                     {stack.map((tech) => (
                         <span key={tech} className="font-mono text-sm text-muted">{tech}</span>
                     ))}
