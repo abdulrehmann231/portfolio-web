@@ -1,33 +1,50 @@
+import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+
 const Footer = () => {
     return (
-        <footer className="border-t border-slate-200/80 py-12 relative overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-full bg-slate-950/[0.02] -z-10" />
-             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="text-center md:text-left">
-                    <div className="font-extrabold text-xl tracking-tight mb-2 text-slate-900">
-                        Abdul<span className="text-slate-500">Rehman</span>
+        <footer className="relative border-t border-line py-14 mt-8">
+            <div className="container-page">
+                <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+                    <div className="max-w-sm">
+                        <a href="#home" className="inline-flex items-center gap-2 font-display font-bold text-lg tracking-tight text-ink">
+                            <span className="grid place-items-center w-8 h-8 rounded-lg bg-accent text-black font-mono text-sm">AR</span>
+                            Abdul<span className="text-faint -ml-2">Rehman</span>
+                        </a>
+                        <p className="mt-4 text-sm text-muted leading-relaxed">
+                            Full-stack &amp; AI engineer building useful software with clear structure and
+                            disciplined execution.
+                        </p>
                     </div>
-                    <p className="text-slate-500 text-sm">
-                        Building useful software with clear structure and disciplined execution.
-                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-10">
+                        <div>
+                            <div className="font-mono text-xs text-faint uppercase tracking-widest mb-3">Navigate</div>
+                            <div className="flex flex-col gap-2 text-sm">
+                                <a href="#about" className="link-underline w-fit">About</a>
+                                <a href="#projects" className="link-underline w-fit">Projects</a>
+                                <a href="#experience" className="link-underline w-fit">Experience</a>
+                                <a href="#contact" className="link-underline w-fit">Contact</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="font-mono text-xs text-faint uppercase tracking-widest mb-3">Elsewhere</div>
+                            <div className="flex gap-3">
+                                <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn"><Github size={17} /></a>
+                                <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="icon-btn"><Linkedin size={17} /></a>
+                                <a href="mailto:mabdulrehman951@gmail.com" className="icon-btn"><Mail size={17} /></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="flex items-center gap-8">
-                    <a href="https://github.com/abdulrehmann231/" className="text-slate-500 hover:text-slate-900 transition-colors">
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" className="text-slate-500 hover:text-slate-900 transition-colors">
-                        LinkedIn
-                    </a>
-                    <a href="mailto:mabdulrehman951@gmail.com" className="text-slate-500 hover:text-slate-900 transition-colors">
-                        Email
+                <div className="mt-12 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="font-mono text-xs text-faint">
+                        © {new Date().getFullYear()} Abdul Rehman · Built with React &amp; Tailwind
+                    </p>
+                    <a href="#home" className="inline-flex items-center gap-2 font-mono text-xs text-muted hover:text-ink transition-colors">
+                        Back to top <ArrowUp size={14} />
                     </a>
                 </div>
-            </div>
-            
-            <div className="text-center mt-12 text-slate-500 text-sm">
-                © {new Date().getFullYear()} Abdul Rehman. All rights reserved.
             </div>
         </footer>
     );
