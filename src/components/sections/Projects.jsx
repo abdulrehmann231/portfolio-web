@@ -20,7 +20,7 @@ const projects = [
     },
     {
         title: 'EarthLink AI',
-        blurb: 'AI-native geospatial platform on Tambo AI — an agentic loop orchestrates 14 tools and 6 living UI components, turning plain-English prompts into map actions (proximity search, extremes, comparisons, heatmaps). NDVI, land-surface temperature and greenness derived from Sentinel-2 via a FastAPI + Google Earth Engine pipeline.',
+        blurb: 'AI-native geospatial platform on Tambo AI where an agentic loop orchestrates 14 tools and 6 living UI components, turning plain-English prompts into map actions (proximity search, extremes, comparisons, heatmaps). NDVI, land-surface temperature and greenness derived from Sentinel-2 via a FastAPI + Google Earth Engine pipeline.',
         tags: ['Next.js', 'Python', 'FastAPI', 'Tambo AI', 'Mapbox'],
         links: { github: 'https://github.com/abdulrehmann231/earthlink-ai', demo: 'https://earthlink-ai.vercel.app' },
         image: earthlinkAiImg,
@@ -56,7 +56,7 @@ const projects = [
     },
     {
         title: 'ResearchCore',
-        blurb: 'Document QA & summarization — upload papers or URLs and get RAG-grounded answers with summaries.',
+        blurb: 'Document QA & summarization. Upload papers or URLs and get RAG-grounded answers with summaries.',
         tags: ['Next.js', 'Firebase', 'RAG'],
         links: { github: 'https://github.com/abdulrehmann231/Summarize-AI', demo: 'https://summarize-ai-three-blue.vercel.app/' },
         image: researchCoreImg,
@@ -130,7 +130,7 @@ const Projects = () => {
                     <SectionHeading
                         kicker="02 / Work"
                         title="Selected projects."
-                        description="A mix of open source, client work, and AI experiments — most are live."
+                        description="A mix of open source, client work, and AI experiments. Most are live."
                     />
                     <a
                         href="https://github.com/abdulrehmann231/"

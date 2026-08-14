@@ -37,7 +37,7 @@ const About = () => {
 
         {/* Bento grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-auto">
-          {/* Bio — spans 2 cols */}
+          {/* Bio - spans 2 cols */}
           <Card className="md:col-span-2" i={0}>
             <div className="flex items-center gap-2 mb-4">
               <Sparkles size={16} className="accent-ink" />
@@ -45,13 +45,13 @@ const About = () => {
             </div>
             <div className="space-y-4 text-muted leading-relaxed">
               <p>
-                Hi, I'm <span className="text-ink font-semibold">Abdul Rehman</span> — a full-stack developer
+                Hi, I'm <span className="text-ink font-semibold">Abdul Rehman</span>, a full-stack developer
                 who enjoys the whole journey, from designing APIs and databases to crafting smooth,
                 thoughtful frontends. I'm currently a third-year Computer Science student at{' '}
                 <span className="text-ink font-semibold">FAST NUCES</span>.
               </p>
               <p>
-                Lately I've been deep in <span className="text-ink">AI-driven products</span> — building
+                Lately I've been deep in <span className="text-ink">AI-driven products</span>: building
                 RAG-based apps, agentic developer tools, and subscription SaaS platforms with Next.js,
                 Node.js, Python and Spring Boot. My focus is always the same: solve a real problem and
                 ship it to production.
@@ -103,7 +103,7 @@ const About = () => {
             <p className="mt-2 text-sm text-muted">Full-stack &amp; AI projects shipped to production.</p>
           </Card>
 
-          {/* Skills — full width */}
+          {/* Skills - full width */}
           <Card className="md:col-span-3" i={5}>
             <div className="flex items-center gap-2 mb-6">
               <span className="font-mono text-xs uppercase tracking-widest text-faint">Tech stack</span>

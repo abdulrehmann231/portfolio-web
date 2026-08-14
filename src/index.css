@@ -5,7 +5,7 @@
    Design tokens
    Base = light theme. Dark theme overrides the same `--color-*` vars under
    `html.dark`, so every Tailwind color utility (which compiles to
-   `var(--color-*)`) re-themes automatically — including hover variants.
+   `var(--color-*)`) re-themes automatically, including hover variants.
    =========================================================================== */
 @theme {
   /* Surfaces & ink */

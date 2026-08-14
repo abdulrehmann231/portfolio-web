@@ -6,7 +6,7 @@ const experiences = [
     {
         title: 'Software Engineer',
         company: 'Gitwit',
-        period: 'Jun 2025 — Present',
+        period: 'Jun 2025 - Present',
         type: 'Remote',
         description: [
             "Built Gitwit's browser-based AI coding agent (similar to Cursor), enabling natural-language-driven code generation and editing directly in the browser.",
@@ -17,7 +17,7 @@ const experiences = [
     {
         title: 'AI Engineer',
         company: 'Background Agents (backgrounder.dev)',
-        period: '2025 — Present',
+        period: '2025 - Present',
         type: 'Remote',
         description: [
             'Built MCP (Model Context Protocol) server integrations and tool-connection layers in TypeScript, letting AI coding agents connect with any MCP-compatible external service.',
@@ -28,17 +28,17 @@ const experiences = [
     {
         title: 'Full-Stack AI Engineer',
         company: 'Softject',
-        period: 'Aug 2025 — Jul 2026',
+        period: 'Aug 2025 - Jul 2026',
         type: 'Hybrid · Part-time',
         description: [
-            'Built AI agents, automation workflows and RAG-based features — document ingestion, embeddings, vector search and LLM-powered responses — across Next.js, Node.js, Python/FastAPI and PostgreSQL.',
-            'Previously AI Engineer Intern (Jun–Aug 2025) and Full-Stack Developer (Jan–Jun 2025), building web applications with Next.js and full-stack technologies.',
+            'Built AI agents, automation workflows and RAG-based features (document ingestion, embeddings, vector search and LLM-powered responses) across Next.js, Node.js, Python/FastAPI and PostgreSQL.',
+            'Previously AI Engineer Intern (Jun-Aug 2025) and Full-Stack Developer (Jan-Jun 2025), building web applications with Next.js and full-stack technologies.',
         ],
     },
     {
         title: 'Backend Intern',
         company: 'Central Depository Company of Pakistan',
-        period: 'Jul 2024 — Sep 2024',
+        period: 'Jul 2024 - Sep 2024',
         type: 'Onsite · Karachi',
         description: [
             'Developed REST APIs and backend microservices with Spring Boot, using SQL databases and JWT-based authentication to secure inter-service communication.',
@@ -53,7 +53,7 @@ const Experience = () => {
                 <SectionHeading
                     kicker="03 / Journey"
                     title="Where I've worked."
-                    description="Three years across startups, agencies and enterprise — remote and onsite."
+                    description="Three years across startups, agencies and enterprise, both remote and onsite."
                 />
 
                 <div className="mt-14 relative max-w-3xl">

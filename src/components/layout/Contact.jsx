@@ -11,7 +11,7 @@ const Contact = () => {
         e.preventDefault();
         setStatus('sending');
         const { name, email, message } = formData;
-        const mailtoLink = `mailto:mabdulrehman951@gmail.com?subject=Portfolio contact — ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+        const mailtoLink = `mailto:mabdulrehman951@gmail.com?subject=Portfolio contact from ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
         window.location.href = mailtoLink;
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });

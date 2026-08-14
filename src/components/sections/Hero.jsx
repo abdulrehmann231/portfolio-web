@@ -4,7 +4,7 @@ import profileImg from '../../assets/profile.png';
 
 const stats = [
     { value: '3+', label: 'Years building' },
-    { value: '15+', label: 'Products shipped' },
+    { value: '10+', label: 'Products shipped' },
     { value: '4', label: 'Teams worked with' },
 ];
 
@@ -52,7 +52,7 @@ const Hero = () => {
                             className="mt-7 text-lg text-muted max-w-xl leading-relaxed"
                         >
                             Software engineer &amp; CS student at FAST NUCES. I ship production-ready web
-                            apps and AI integrations — from RAG systems and agentic tools to SaaS platforms
+                            apps and AI integrations, from RAG systems and agentic tools to SaaS platforms
                             used by real customers.
                         </motion.p>
 
@@ -114,7 +114,7 @@ const Hero = () => {
                                 </div>
                             </div>
 
-                            {/* Current role — aligned below the portrait */}
+                            {/* Current role - aligned below the portrait */}
                             <div className="relative mt-4 card border border-line2 px-4 py-3 flex items-center justify-between gap-3">
                                 <div className="min-w-0">
                                     <div className="font-mono text-xs text-faint uppercase tracking-widest">Current role</div>
