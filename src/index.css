@@ -1,273 +1,389 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+/* ===========================================================================
+   Design tokens
+   Base = light theme. Dark theme overrides the same `--color-*` vars under
+   `html.dark`, so every Tailwind color utility (which compiles to
+   `var(--color-*)`) re-themes automatically, including hover variants.
+   =========================================================================== */
 @theme {
-  --color-primary: #fafafa;
-  --color-secondary: #ffffff;
-  --color-accent: #0f172a;
+  /* Surfaces & ink */
+  --color-bg: #f6f6f3;
+  --color-bg2: #ffffff;
+  --color-ink: #17171a;
+  --color-muted: #5a5a63;
+  --color-faint: #9a9aa3;
+  --color-line: rgba(20, 20, 24, 0.10);
+  --color-line2: rgba(20, 20, 24, 0.16);
   --color-surface: #ffffff;
-  --color-surface-strong: #ffffff;
-  --color-border: rgba(15, 23, 42, 0.12);
-  --font-sans: 'Inter', sans-serif;
+  --color-surface2: #ffffff;
 
-  --animate-float: float 8s ease-in-out infinite;
+  /* Accent (lime / chartreuse signature) */
+  --color-accent: #77b814;      /* solid accent for fills/dots (readable on light) */
+  --color-accentink: #4d7c0f;   /* readable accent text on page bg */
+  --color-accentsoft: rgba(132, 204, 22, 0.14);
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Motion */
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-pulse-dot: pulseDot 2.4s ease-in-out infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--color-accentsoft); }
+    50% { opacity: 0.75; box-shadow: 0 0 0 6px transparent; }
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* ---------------------------------------------------------------------------
-   Dark theme
-   Tailwind v4 compiles every color utility to `var(--color-*)`, so remapping
-   those variables (plus the few custom classes that use literal colors) under
-   `html.dark` re-themes the entire site — including hover/group-hover variants.
-   --------------------------------------------------------------------------- */
 html.dark {
-  /* Text: dark-on-light becomes light-on-dark */
-  --color-slate-950: oklch(98.5% 0.002 247.858);
-  --color-slate-900: oklch(96% 0.005 247.858);
-  --color-slate-700: oklch(86% 0.015 252.894);
-  --color-slate-600: oklch(80% 0.02 256.788);
-  --color-slate-500: oklch(70% 0.03 256.788);
-  --color-slate-400: oklch(62% 0.035 257.417);
+  --color-bg: #08080a;
+  --color-bg2: #0f0f13;
+  --color-ink: #f3f3f5;
+  --color-muted: #a4a4ad;
+  --color-faint: #6d6d77;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --color-line2: rgba(255, 255, 255, 0.17);
+  --color-surface: rgba(255, 255, 255, 0.028);
+  --color-surface2: rgba(255, 255, 255, 0.05);
 
-  /* Surfaces, hovers and borders: light becomes dark */
-  --color-white: oklch(22% 0.02 264.695);
-  --color-slate-50: oklch(18.5% 0.02 264.695);
-  --color-slate-100: oklch(30% 0.02 264.695);
-  --color-slate-200: oklch(32% 0.02 264.695);
-  --color-slate-300: oklch(42% 0.02 264.695);
-
-  /* App-level theme tokens */
-  --color-primary: oklch(15% 0.02 264.695);
-  --color-secondary: oklch(20% 0.02 264.695);
-  --color-accent: #f8fafc;
-  --color-surface: oklch(22% 0.02 264.695);
-  --color-surface-strong: oklch(26% 0.02 264.695);
-  --color-border: rgba(255, 255, 255, 0.12);
+  --color-accent: #bef264;
+  --color-accentink: #cdfa5b;
+  --color-accentsoft: rgba(190, 242, 100, 0.14);
 
   color-scheme: dark;
 }
 
+/* ===========================================================================
+   Base
+   =========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-  color: #0f172a;
-  overflow-x: hidden;
+  background: var(--color-bg);
+  color: var(--color-ink);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-html.dark body {
-  background: linear-gradient(180deg, #0b1120 0%, #020617 100%);
-  color: #e2e8f0;
-}
-
-#root {
-  min-height: 100vh;
-}
+#root { min-height: 100vh; }
 
 ::selection {
-  background: rgba(245, 158, 11, 0.25);
-  color: #0f172a;
+  background: var(--color-accent);
+  color: #0a0a0a;
 }
 
-.glass {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  box-shadow: none;
-  backdrop-filter: none;
+/* Ambient background layers ------------------------------------------------ */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-
-.glass-hover:hover {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.18);
-  box-shadow: none;
+.bg-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.55;
 }
+.bg-glow--a {
+  top: -12rem; left: 50%; transform: translateX(-55%);
+  width: 46rem; height: 46rem;
+  background: radial-gradient(circle at center, rgba(132, 204, 22, 0.32), transparent 62%);
+}
+.bg-glow--b {
+  top: 40%; right: -14rem;
+  width: 34rem; height: 34rem;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.16), transparent 65%);
+}
+html.dark .bg-glow--a { opacity: 0.4; }
+html.dark .bg-glow--b { opacity: 0.5; }
 
-.section-kicker {
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 20%, transparent 75%);
+  opacity: 0.6;
+}
+.bg-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+html.dark .bg-grain { opacity: 0.05; }
+
+/* ===========================================================================
+   Reusable components
+   =========================================================================== */
+.container-page {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) { .container-page { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .container-page { padding-inline: 2rem; } }
+
+/* Monospace kicker/eyebrow */
+.kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.8rem;
-  border-radius: 9999px;
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--color-accentink);
+}
+.kicker::before {
+  content: "";
+  width: 0.4rem; height: 0.4rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent);
 }
 
+/* Section heading */
 .section-title {
-  color: #0f172a;
-  letter-spacing: -0.05em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  line-height: 1.02;
+}
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-ink) 0%, var(--color-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.accent-ink { color: var(--color-accentink); }
+
+/* Cards */
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(6px);
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.card-hover:hover {
+  border-color: var(--color-line2);
+  transform: translateY(-3px);
+}
+html.dark .card-hover:hover {
+  background: rgba(255, 255, 255, 0.045);
 }
 
-.section-rule {
-  width: 5rem;
-  height: 0.25rem;
-  border-radius: 9999px;
-  background: #0f172a;
+/* Chips / tags */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.28rem 0.6rem;
+  border-radius: 0.5rem;
+  background: var(--color-surface2);
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+  transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.chip-accent {
+  color: var(--color-accentink);
+  border-color: color-mix(in oklab, var(--color-accent) 40%, transparent);
+  background: var(--color-accentsoft);
 }
 
-.surface {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-.surface-strong {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  box-shadow: none;
-}
-
-.button-primary {
+/* Buttons */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  border-radius: 9999px;
-  padding: 0.95rem 1.5rem;
-  background: #0f172a;
-  color: #ffffff;
-  font-weight: 700;
-  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-  box-shadow: none;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.75rem;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: #0a0a0a;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 0 0 var(--color-accentsoft);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -12px color-mix(in oklab, var(--color-accent) 70%, transparent);
+}
+.btn-ghost {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-line2);
+}
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  color: var(--color-accentink);
 }
 
-.button-primary:hover {
-  background: #111827;
-  transform: translateY(-1px);
-}
-
-.button-secondary {
+/* Icon button */
+.icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  border-radius: 9999px;
-  padding: 0.95rem 1.5rem;
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 700;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 0.7rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+.icon-btn:hover {
+  color: var(--color-accentink);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
-.button-secondary:hover {
-  border-color: rgba(15, 23, 42, 0.22);
-  box-shadow: none;
-  transform: translateY(-1px);
-}
-
+/* Inputs */
 .input-field {
   width: 100%;
-  border-radius: 1rem;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: #ffffff;
-  padding: 0.9rem 1rem;
-  color: #0f172a;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-line2);
+  background: var(--color-bg2);
+  padding: 0.85rem 1rem;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
   outline: none;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
-
-.input-field::placeholder {
-  color: rgba(15, 23, 42, 0.42);
-}
-
+html.dark .input-field { background: rgba(255,255,255,0.03); }
+.input-field::placeholder { color: var(--color-faint); }
 .input-field:focus {
-  border-color: rgba(15, 23, 42, 0.28);
-  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
-  background: #ffffff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accentsoft);
 }
 
-/* --- Dark-theme overrides for classes that use literal colors --- */
-.surface,
-.surface-strong,
-.glass,
-.section-kicker,
-.button-primary,
-.button-secondary,
-.input-field {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Availability badge */
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+}
+.badge-live .dot,
+.dot-live {
+  width: 0.5rem; height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  animation: var(--animate-pulse-dot);
 }
 
-html.dark ::selection {
-  background: rgba(56, 189, 248, 0.35);
-  color: #f8fafc;
+/* Fancy underline link */
+.link-underline {
+  position: relative;
+  color: var(--color-muted);
+  transition: color 180ms ease;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 240ms ease;
+}
+.link-underline:hover { color: var(--color-ink); }
+.link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* ===========================================================================
+   Custom cursor (dot + trailing ring). Only active when JS adds
+   `.custom-cursor` to <html> (fine pointer, motion allowed).
+   =========================================================================== */
+.cursor-dot,
+.cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 9999px;
+  will-change: transform;
+}
+html.custom-cursor .cursor-dot,
+html.custom-cursor .cursor-ring { display: block; }
+
+/* Hide the native cursor everywhere the custom one is active. */
+html.custom-cursor,
+html.custom-cursor * { cursor: none !important; }
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--color-accentink);
+  opacity: 0.5;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease;
 }
 
-html.dark .glass-hover:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.16);
+/* Hover over interactive elements: ring grows and fills, dot fades. */
+html.cursor-hover .cursor-ring {
+  width: 52px;
+  height: 52px;
+  opacity: 0.9;
+  background: var(--color-accentsoft);
+  border-color: var(--color-accent);
 }
+html.cursor-hover .cursor-dot { opacity: 0; }
 
-html.dark .section-kicker {
-  background: rgba(255, 255, 255, 0.05);
-  color: #e2e8f0;
-  border-color: rgba(255, 255, 255, 0.12);
-}
+/* Press feedback. */
+html.cursor-down .cursor-ring { width: 26px; height: 26px; opacity: 1; }
 
-html.dark .section-title {
-  color: #f8fafc;
-}
+/* Pointer left the window. */
+html.cursor-hidden .cursor-dot,
+html.cursor-hidden .cursor-ring { opacity: 0; }
 
-html.dark .section-rule {
-  background: #e2e8f0;
-}
-
-html.dark .surface,
-html.dark .surface-strong {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-html.dark .button-primary {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-html.dark .button-primary:hover {
-  background: #e2e8f0;
-}
-
-html.dark .button-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  color: #f1f5f9;
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-html.dark .button-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-html.dark .input-field {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: #f1f5f9;
-}
-
-html.dark .input-field::placeholder {
-  color: rgba(226, 232, 240, 0.45);
-}
-
-html.dark .input-field:focus {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* Keep image hover overlays dark so their white icons stay legible. */
-html.dark .bg-slate-900\/60 {
-  background-color: rgba(2, 6, 23, 0.7);
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; scroll-behavior: auto !important; }
 }

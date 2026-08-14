@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Sun, Moon } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Sun, Moon, ArrowUpRight } from 'lucide-react';
 
 const getInitialTheme = () => {
     if (typeof window === 'undefined') return 'light';
@@ -8,16 +8,23 @@ const getInitialTheme = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-const ThemeToggle = ({ theme, onToggle, className = '' }) => (
+const ThemeToggle = ({ theme, onToggle }) => (
     <button
         onClick={onToggle}
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
         title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-        className={`p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors ${className}`}
+        className="icon-btn"
     >
-        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
     </button>
 );
+
+const navItems = [
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
+];
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +32,8 @@ const Navbar = () => {
     const [theme, setTheme] = useState(getInitialTheme);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 12);
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -39,50 +45,46 @@ const Navbar = () => {
 
     const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
-    const navItems = [
-        { name: 'About', href: '#about' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
-    ];
-
     return (
-        <nav 
-            className={`fixed w-full z-50 transition-all duration-300 ${
-                isScrolled ? 'py-3' : 'py-5'
-            }`}
-        >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300">
-                <div 
-                    className={`flex items-center justify-between h-16 rounded-full transition-all duration-300 px-5 md:px-6 ${
-                        isScrolled ? 'surface' : 'bg-transparent'
+        <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'}`}>
+            <div className="container-page">
+                <div
+                    className={`flex items-center justify-between h-14 rounded-2xl px-3 sm:px-5 transition-all duration-300 ${
+                        isScrolled ? 'card border border-line shadow-sm' : 'border border-transparent'
                     }`}
                 >
-                    <div className="flex-shrink-0 font-extrabold text-xl tracking-tight text-slate-900">
-                        Abdul<span className="text-slate-500">Rehman</span>
+                    <a href="#home" className="flex items-center gap-2 font-display font-bold text-lg tracking-tight text-ink">
+                        <span className="grid place-items-center w-8 h-8 rounded-lg bg-accent text-black font-mono text-sm">
+                            AR
+                        </span>
+                        <span className="hidden sm:inline">
+                            Abdul<span className="text-faint">Rehman</span>
+                        </span>
+                    </a>
+
+                    <div className="hidden md:flex items-center gap-1">
+                        {navItems.map((item) => (
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="font-mono text-sm text-muted hover:text-ink px-3 py-2 rounded-lg hover:bg-surface2 transition-colors"
+                            >
+                                {item.name}
+                            </a>
+                        ))}
                     </div>
 
-                    <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-8">
-                            {navItems.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.href}
-                                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
-                                >
-                                    {item.name}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden md:flex items-center gap-2">
                         <ThemeToggle theme={theme} onToggle={toggleTheme} />
-                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
-                            <Github size={18} />
+                        <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn">
+                            <Github size={17} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="p-2 surface rounded-full text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">
-                            <Linkedin size={18} />
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-tobaria" target="_blank" rel="noreferrer" className="icon-btn">
+                            <Linkedin size={17} />
+                        </a>
+                        <a href="#contact" className="btn btn-primary ml-1 !px-4 !py-2 text-sm">
+                            Let's talk
+                            <ArrowUpRight size={16} />
                         </a>
                     </div>
 
@@ -90,9 +92,10 @@ const Navbar = () => {
                         <ThemeToggle theme={theme} onToggle={toggleTheme} />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-slate-500 hover:text-slate-900 p-2"
+                            aria-label="Toggle menu"
+                            className="icon-btn"
                         >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isOpen ? <X size={18} /> : <Menu size={18} />}
                         </button>
                     </div>
                 </div>
@@ -100,18 +103,28 @@ const Navbar = () => {
 
             {/* Mobile menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-20 left-4 right-4 surface rounded-3xl p-4 animate-in slide-in-from-top-4 fade-in duration-200">
-                    <div className="space-y-2">
-                        {navItems.map((item) => (
+                <div className="md:hidden container-page mt-3">
+                    <div className="card border border-line p-3">
+                        <div className="space-y-1">
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block px-4 py-3 rounded-xl font-mono text-sm text-muted hover:text-ink hover:bg-surface2 transition-colors"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
                             <a
-                                key={item.name}
-                                href={item.href}
+                                href="#contact"
                                 onClick={() => setIsOpen(false)}
-                                className="block px-4 py-3 rounded-2xl text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 transition-colors"
+                                className="btn btn-primary w-full mt-2"
                             >
-                                {item.name}
+                                Let's talk
+                                <ArrowUpRight size={16} />
                             </a>
-                        ))}
+                        </div>
                     </div>
                 </div>
             )}
