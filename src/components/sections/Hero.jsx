@@ -5,7 +5,7 @@ import profileImg from '../../assets/profile.png';
 const stats = [
     { value: '3+', label: 'Years building' },
     { value: '15+', label: 'Products shipped' },
-    { value: '5', label: 'Teams worked with' },
+    { value: '4', label: 'Teams worked with' },
 ];
 
 const stack = ['Next.js', 'React', 'Node.js', 'Python', 'Spring Boot', 'RAG / LLMs'];
@@ -114,10 +114,13 @@ const Hero = () => {
                                 </div>
                             </div>
 
-                            {/* Floating role tag */}
-                            <div className="absolute -bottom-4 -left-4 card border border-line2 px-4 py-3 backdrop-blur-md animate-float hidden sm:block">
-                                <div className="font-mono text-xs text-faint">role</div>
-                                <div className="font-display font-semibold text-ink text-sm">Software Engineer @ Gitwit</div>
+                            {/* Current role — aligned below the portrait */}
+                            <div className="relative mt-4 card border border-line2 px-4 py-3 flex items-center justify-between gap-3">
+                                <div className="min-w-0">
+                                    <div className="font-mono text-xs text-faint uppercase tracking-widest">Current role</div>
+                                    <div className="font-display font-semibold text-ink text-sm truncate">Software Engineer @ Gitwit</div>
+                                </div>
+                                <span className="dot-live shrink-0" aria-hidden="true" />
                             </div>
                         </div>
                     </motion.div>

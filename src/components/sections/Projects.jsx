@@ -20,17 +20,17 @@ const projects = [
     },
     {
         title: 'EarthLink AI',
-        blurb: 'Turns plain-English questions into rich map insights on vegetation and heat zones using Gemini, Mapbox and Sentinel-2 data.',
-        tags: ['Next.js', 'Python', 'Tambo AI', 'Mapbox'],
-        links: { github: 'https://github.com/abdulrehmann231/EarthLink-AI/', demo: 'https://earth-link-ai.vercel.app/' },
+        blurb: 'AI-native geospatial platform on Tambo AI — an agentic loop orchestrates 14 tools and 6 living UI components, turning plain-English prompts into map actions (proximity search, extremes, comparisons, heatmaps). NDVI, land-surface temperature and greenness derived from Sentinel-2 via a FastAPI + Google Earth Engine pipeline.',
+        tags: ['Next.js', 'Python', 'FastAPI', 'Tambo AI', 'Mapbox'],
+        links: { github: 'https://github.com/abdulrehmann231/earthlink-ai', demo: 'https://earthlink-ai.vercel.app' },
         image: earthlinkAiImg,
         featured: true,
     },
     {
         title: 'Draftly',
-        blurb: 'Realtime collaborative whiteboard with sub-50ms Yjs sync, AI intent classification and PDF export.',
-        tags: ['Next.js', 'Fastify', 'Yjs', 'Groq AI'],
-        links: { github: 'https://github.com/mustafahk27/LIGMA', demo: 'https://hopeful-curiosity-production-1c1a.up.railway.app/' },
+        blurb: 'Real-time collaborative meeting whiteboard with sub-50ms sync using Yjs CRDTs over WebSockets. AI intent classification and Groq-powered summaries turn freeform whiteboard sessions into structured, shareable notes.',
+        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'PostgreSQL'],
+        links: { github: 'https://github.com/abdulrehmann231/draftly', demo: 'https://draftly-app.vercel.app' },
         image: ligmaImg,
     },
     {
