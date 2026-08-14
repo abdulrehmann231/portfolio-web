@@ -30,7 +30,7 @@ const Footer = () => {
                             <div className="font-mono text-xs text-faint uppercase tracking-widest mb-3">Elsewhere</div>
                             <div className="flex gap-3">
                                 <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn"><Github size={17} /></a>
-                                <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="icon-btn"><Linkedin size={17} /></a>
+                                <a href="https://www.linkedin.com/in/abdulrehman-nasir-tobaria" target="_blank" rel="noreferrer" className="icon-btn"><Linkedin size={17} /></a>
                                 <a href="mailto:mabdulrehman951@gmail.com" className="icon-btn"><Mail size={17} /></a>
                             </div>
                         </div>

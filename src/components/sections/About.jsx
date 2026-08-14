@@ -82,7 +82,7 @@ const About = () => {
             <p className="text-ink font-semibold">B.S. Computer Science</p>
             <p className="text-sm text-muted">FAST NUCES · Karachi</p>
             <div className="mt-4 flex items-center gap-4 font-mono text-sm">
-              <span className="text-ink">CGPA <span className="accent-ink">3.58</span></span>
+              <span className="text-ink">CGPA <span className="accent-ink">3.4</span></span>
               <span className="text-faint">Grad. 2027</span>
             </div>
           </Card>

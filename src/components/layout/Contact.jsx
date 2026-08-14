@@ -71,7 +71,7 @@ const Contact = () => {
                                 <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn">
                                     <Github size={18} />
                                 </a>
-                                <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="icon-btn">
+                                <a href="https://www.linkedin.com/in/abdulrehman-nasir-tobaria" target="_blank" rel="noreferrer" className="icon-btn">
                                     <Linkedin size={18} />
                                 </a>
                             </div>

@@ -79,7 +79,7 @@ const Navbar = () => {
                         <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn">
                             <Github size={17} />
                         </a>
-                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-a86a87273" target="_blank" rel="noreferrer" className="icon-btn">
+                        <a href="https://www.linkedin.com/in/abdulrehman-nasir-tobaria" target="_blank" rel="noreferrer" className="icon-btn">
                             <Linkedin size={17} />
                         </a>
                         <a href="#contact" className="btn btn-primary ml-1 !px-4 !py-2 text-sm">

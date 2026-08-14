@@ -18,7 +18,7 @@ const experiences = [
         title: 'AI Engineer',
         company: 'Background Agents (backgrounder.dev)',
         period: '2025 — Present',
-        type: 'Remote · Apprenticeship',
+        type: 'Remote',
         description: [
             'Built MCP (Model Context Protocol) server integrations and tool-connection layers in TypeScript, letting AI coding agents connect with any MCP-compatible external service.',
             'Designed a token gateway service and custom API endpoints for secure, authenticated access to AI agent operations across sandboxed environments.',
