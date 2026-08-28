@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Sun, Moon, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Sun, Moon, ArrowUpRight, Download } from 'lucide-react';
+
+const RESUME_URL = '/Abdul-Rehman-Resume.pdf';
 
 const getInitialTheme = () => {
     if (typeof window === 'undefined') return 'light';
@@ -76,6 +78,9 @@ const Navbar = () => {
 
                     <div className="hidden md:flex items-center gap-2">
                         <ThemeToggle theme={theme} onToggle={toggleTheme} />
+                        <a href={RESUME_URL} download aria-label="Download résumé" title="Download résumé" className="icon-btn">
+                            <Download size={17} />
+                        </a>
                         <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn">
                             <Github size={17} />
                         </a>
@@ -116,6 +121,15 @@ const Navbar = () => {
                                     {item.name}
                                 </a>
                             ))}
+                            <a
+                                href={RESUME_URL}
+                                download
+                                onClick={() => setIsOpen(false)}
+                                className="btn btn-ghost w-full mt-2"
+                            >
+                                Download résumé
+                                <Download size={16} />
+                            </a>
                             <a
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}

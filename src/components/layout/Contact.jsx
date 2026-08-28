@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Mail, Send, MapPin, Github, Linkedin, ArrowUpRight, Download, Clock } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
+
+const RESUME_URL = '/Abdul-Rehman-Resume.pdf';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -24,7 +26,7 @@ const Contact = () => {
         <section id="contact" className="py-24 md:py-32 relative">
             <div className="container-page">
                 <SectionHeading
-                    kicker="04 / Contact"
+                    kicker="05 / Contact"
                     title="Let's build something."
                     align="center"
                     description="I'm actively looking for new opportunities. Have a project, a role, or just want to talk AI? Reach out."
@@ -39,6 +41,20 @@ const Contact = () => {
                 >
                     {/* Left info */}
                     <div className="lg:col-span-2 flex flex-col gap-4">
+                        {/* Availability */}
+                        <div className="card p-6 flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <span className="dot-live shrink-0" aria-hidden="true" />
+                                <div>
+                                    <div className="text-ink font-medium">Available for work</div>
+                                    <div className="text-xs text-muted">Full-time · Contract · Remote</div>
+                                </div>
+                            </div>
+                            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-faint">
+                                <Clock size={13} /> ~24h reply
+                            </span>
+                        </div>
+
                         <a
                             href="mailto:mabdulrehman951@gmail.com"
                             className="card card-hover p-6 group flex items-center gap-4"
@@ -62,6 +78,22 @@ const Contact = () => {
                                 <div className="text-ink font-medium">Karachi, Pakistan · Remote</div>
                             </div>
                         </div>
+
+                        {/* Résumé download */}
+                        <a
+                            href={RESUME_URL}
+                            download
+                            className="card card-hover p-6 group flex items-center gap-4"
+                        >
+                            <div className="icon-btn !w-11 !h-11 pointer-events-none">
+                                <Download size={18} />
+                            </div>
+                            <div className="min-w-0">
+                                <div className="font-mono text-xs text-faint uppercase tracking-widest">Résumé</div>
+                                <div className="text-ink font-medium">Download PDF</div>
+                            </div>
+                            <ArrowUpRight size={16} className="ml-auto text-faint group-hover:text-accentink transition-colors" />
+                        </a>
 
                         <div className="card p-6 flex-1 flex flex-col justify-between gap-6">
                             <p className="text-muted text-sm leading-relaxed">
