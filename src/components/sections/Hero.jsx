@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Mail, Github, Linkedin, Download } from 'lucide-react';
 import profileImg from '../../assets/profile.png';
+
+const RESUME_URL = '/Abdul-Rehman-Resume.pdf';
 
 const stats = [
     { value: '3+', label: 'Years building' },
@@ -65,6 +67,10 @@ const Hero = () => {
                                 Get in touch
                                 <Mail size={17} />
                             </a>
+                            <a href={RESUME_URL} download className="btn btn-ghost">
+                                Résumé
+                                <Download size={16} />
+                            </a>
                             <div className="flex items-center gap-2 sm:ml-1">
                                 <a href="https://github.com/abdulrehmann231/" target="_blank" rel="noreferrer" className="icon-btn">
                                     <Github size={17} />
@@ -94,24 +100,56 @@ const Hero = () => {
                         className="lg:col-span-5 relative"
                     >
                         <div className="relative mx-auto max-w-sm">
-                            {/* Glow behind */}
+                            {/* Layered ambient background behind the portrait */}
                             <div
-                                className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-60"
-                                style={{ background: 'radial-gradient(circle at 30% 20%, var(--color-accentsoft), transparent 70%)' }}
+                                className="absolute -inset-6 rounded-[2.5rem] blur-3xl opacity-70"
+                                style={{ background: 'radial-gradient(circle at 30% 15%, var(--color-accentsoft), transparent 70%)' }}
+                                aria-hidden="true"
                             />
-                            <div className="card border border-line2 p-3 relative overflow-hidden">
-                                <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-surface2">
-                                    <img
-                                        src={profileImg}
-                                        alt="Abdul Rehman"
-                                        className="w-full h-full object-cover"
-                                    />
+                            <div
+                                className="absolute -inset-6 rounded-[2.5rem] blur-2xl opacity-40"
+                                style={{ background: 'radial-gradient(circle at 80% 90%, rgba(56,189,248,0.22), transparent 65%)' }}
+                                aria-hidden="true"
+                            />
+                            {/* Dotted texture frame */}
+                            <div
+                                className="absolute -inset-3 rounded-[2rem] opacity-40"
+                                style={{
+                                    backgroundImage: 'radial-gradient(var(--color-line2) 1px, transparent 1px)',
+                                    backgroundSize: '14px 14px',
+                                    WebkitMaskImage: 'radial-gradient(ellipse at center, #000 55%, transparent 78%)',
+                                    maskImage: 'radial-gradient(ellipse at center, #000 55%, transparent 78%)',
+                                }}
+                                aria-hidden="true"
+                            />
+
+                            {/* Gradient-border portrait */}
+                            <div
+                                className="relative rounded-[1.6rem] p-px"
+                                style={{ background: 'linear-gradient(150deg, color-mix(in oklab, var(--color-accent) 55%, transparent), transparent 45%, color-mix(in oklab, var(--color-accent) 22%, transparent))' }}
+                            >
+                                <div className="card border-0 p-3 relative overflow-hidden !rounded-[1.55rem]">
+                                    <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-surface2 relative">
+                                        <img
+                                            src={profileImg}
+                                            alt="Abdul Rehman"
+                                            className="w-full h-full object-cover"
+                                        />
+                                        {/* Soft bottom fade for depth */}
+                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/25 to-transparent" />
+                                    </div>
+                                    {/* Terminal-style caption */}
+                                    <div className="mt-3 px-2 pb-1 flex items-center justify-between font-mono text-xs">
+                                        <span className="text-faint">~/abdulrehman</span>
+                                        <span className="accent-ink">$ whoami</span>
+                                    </div>
                                 </div>
-                                {/* Terminal-style caption */}
-                                <div className="mt-3 px-2 pb-1 flex items-center justify-between font-mono text-xs">
-                                    <span className="text-faint">~/abdulrehman</span>
-                                    <span className="accent-ink">$ whoami</span>
-                                </div>
+                            </div>
+
+                            {/* Floating accent badge */}
+                            <div className="absolute -top-3 -right-3 z-10 hidden sm:flex items-center gap-1.5 card border border-line2 px-3 py-1.5 shadow-sm">
+                                <span className="dot-live shrink-0" aria-hidden="true" />
+                                <span className="font-mono text-[11px] text-ink">Open to work</span>
                             </div>
 
                             {/* Current role - aligned below the portrait */}

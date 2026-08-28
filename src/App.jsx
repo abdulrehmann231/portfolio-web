@@ -4,10 +4,15 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
+import Collaborations from './components/sections/Collaborations';
 import Contact from './components/layout/Contact';
 import CustomCursor from './components/ui/CustomCursor';
+import ProjectDetail from './components/pages/ProjectDetail';
+import useHashRoute from './hooks/useHashRoute';
 
 function App() {
+  const route = useHashRoute();
+
   return (
     <div className="relative min-h-screen bg-bg text-ink font-sans antialiased overflow-x-hidden">
       <CustomCursor />
@@ -22,11 +27,18 @@ function App() {
 
       <Navbar />
       <main className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
+        {route.name === 'project' ? (
+          <ProjectDetail slug={route.slug} />
+        ) : (
+          <>
+            <Hero />
+            <About />
+            <Projects />
+            <Experience />
+            <Collaborations />
+            <Contact />
+          </>
+        )}
       </main>
       <Footer />
     </div>

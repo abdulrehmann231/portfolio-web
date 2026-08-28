@@ -23,7 +23,9 @@ const Footer = () => {
                                 <a href="#about" className="link-underline w-fit">About</a>
                                 <a href="#projects" className="link-underline w-fit">Projects</a>
                                 <a href="#experience" className="link-underline w-fit">Experience</a>
+                                <a href="#work" className="link-underline w-fit">Collaboration</a>
                                 <a href="#contact" className="link-underline w-fit">Contact</a>
+                                <a href="/Abdul-Rehman-Resume.pdf" download className="link-underline w-fit">Résumé</a>
                             </div>
                         </div>
                         <div>

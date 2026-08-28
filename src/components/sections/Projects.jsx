@@ -1,124 +1,120 @@
 import { motion } from 'framer-motion';
-import { Github, ArrowUpRight } from 'lucide-react';
+import { Github, ArrowUpRight, Target, Sparkles, Lock, ArrowRight } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
-import researchCoreImg from '../../assets/research-core.png';
-import mattBrownImg from '../../assets/matt-brown.png';
-import eekoAiImg from '../../assets/eeko-ai.png';
-import rainosAppImg from '../../assets/rainos-app.png';
-import gitwitImg from '../../assets/gitwit.png';
-import earthlinkAiImg from '../../assets/earthlink-ai.png';
-import ligmaImg from '../../assets/ligma.png';
+import BrowserFrame from '../ui/BrowserFrame';
+import { projects } from '../../data/projects';
 
-const projects = [
-    {
-        title: 'Gitwit',
-        blurb: 'Open-source AI-native cloud IDE with live previews, AI code generation and sandboxed execution.',
-        tags: ['React', 'AI', 'DevTools', 'Agentic'],
-        links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
-        image: gitwitImg,
-        featured: true,
-    },
-    {
-        title: 'EarthLink AI',
-        blurb: 'AI-native geospatial platform on Tambo AI where an agentic loop orchestrates 14 tools and 6 living UI components, turning plain-English prompts into map actions (proximity search, extremes, comparisons, heatmaps). NDVI, land-surface temperature and greenness derived from Sentinel-2 via a FastAPI + Google Earth Engine pipeline.',
-        tags: ['Next.js', 'Python', 'FastAPI', 'Tambo AI', 'Mapbox'],
-        links: { github: 'https://github.com/abdulrehmann231/earthlink-ai', demo: 'https://earthlink-ai.vercel.app' },
-        image: earthlinkAiImg,
-        featured: true,
-    },
-    {
-        title: 'Draftly',
-        blurb: 'Real-time collaborative meeting whiteboard with sub-50ms sync using Yjs CRDTs over WebSockets. AI intent classification and Groq-powered summaries turn freeform whiteboard sessions into structured, shareable notes.',
-        tags: ['Next.js', 'Fastify', 'Yjs', 'WebSockets', 'PostgreSQL'],
-        links: { github: 'https://github.com/abdulrehmann231/draftly', demo: 'https://draftly-app.vercel.app' },
-        image: ligmaImg,
-    },
-    {
-        title: 'RainOS App',
-        blurb: 'Production admin dashboard where teams manage plugins, API keys and subscriptions. Live with paying customers.',
-        tags: ['React', 'SaaS', 'Private'],
-        links: { github: '#', demo: 'https://app.getrainos.com/' },
-        image: rainosAppImg,
-    },
-    {
-        title: 'Eeko-AI',
-        blurb: 'Agri webapp pairing NASA satellite data with YOLOv5 detection and LLaMA analysis for crop disease ID.',
-        tags: ['Next.js', 'FastAPI', 'YOLO v5'],
-        links: { github: 'https://github.com/saim-x/eeko-ai-webapp', demo: 'https://eeko-ai.vercel.app/' },
-        image: eekoAiImg,
-    },
-    {
-        title: 'Matt Brown Fine Art',
-        blurb: 'Official gallery & shop presenting collections, prints and purchase options. Live client site.',
-        tags: ['E-commerce', 'Private'],
-        links: { github: '#', demo: 'http://mbrownfa.com/' },
-        image: mattBrownImg,
-    },
-    {
-        title: 'ResearchCore',
-        blurb: 'Document QA & summarization. Upload papers or URLs and get RAG-grounded answers with summaries.',
-        tags: ['Next.js', 'Firebase', 'RAG'],
-        links: { github: 'https://github.com/abdulrehmann231/Summarize-AI', demo: 'https://summarize-ai-three-blue.vercel.app/' },
-        image: researchCoreImg,
-    },
-];
+const prettyUrl = (url) => {
+    if (!url || url === '#') return '';
+    try {
+        const u = new URL(url);
+        return u.host.replace(/^www\./, '') + (u.pathname !== '/' ? u.pathname.replace(/\/$/, '') : '');
+    } catch {
+        return url;
+    }
+};
 
-const ProjectCard = ({ project, index }) => {
-    const primary = project.links.demo !== '#' ? project.links.demo : project.links.github;
+const ProjectRow = ({ project, index }) => {
+    const flipped = index % 2 === 1;
+    const href = `#/project/${project.slug}`;
+
     return (
-        <motion.a
-            href={primary}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 24 }}
+        <motion.article
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-            viewport={{ once: true, margin: '-40px' }}
-            className="card card-hover group flex flex-col overflow-hidden"
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '-60px' }}
+            className="card card-hover group overflow-hidden"
         >
-            {/* Image */}
-            <div className="relative aspect-video overflow-hidden bg-surface2 rounded-t-[1.25rem]">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-3 left-3 font-mono text-xs px-2 py-1 rounded-md bg-black/45 text-white/90 backdrop-blur-sm">
-                    {String(index + 1).padStart(2, '0')}
+            <a href={href} className="grid lg:grid-cols-2 gap-0 items-stretch">
+                {/* Media */}
+                <div className={`relative p-5 sm:p-7 flex items-center bg-surface2/40 ${flipped ? 'lg:order-2' : ''}`}>
+                    <span className="absolute top-5 left-5 z-10 font-mono text-xs px-2 py-1 rounded-md bg-black/55 text-white/90 backdrop-blur-sm">
+                        {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <BrowserFrame
+                        src={project.image}
+                        alt={project.title}
+                        url={prettyUrl(project.links.demo)}
+                        className="w-full transition-transform duration-500 group-hover:-translate-y-1"
+                        imgClassName="aspect-[16/10]"
+                    />
                 </div>
-            </div>
 
-            {/* Body */}
-            <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-display text-lg font-semibold text-ink group-hover:text-accentink transition-colors">
-                        {project.title}
-                    </h3>
-                    <div className="flex items-center gap-2 shrink-0 text-faint">
-                        {project.links.github !== '#' && (
-                            <span
-                                onClick={(e) => { e.preventDefault(); window.open(project.links.github, '_blank', 'noopener'); }}
-                                className="hover:text-ink transition-colors cursor-pointer"
-                                aria-label="GitHub"
-                            >
-                                <Github size={17} />
+                {/* Content */}
+                <div className={`p-6 sm:p-8 flex flex-col justify-center ${flipped ? 'lg:order-1' : ''}`}>
+                    <div className="flex items-center gap-2 mb-3">
+                        <span className="kicker !text-faint before:!bg-faint before:!shadow-none">{project.year}</span>
+                        <span className="text-faint">·</span>
+                        <span className="font-mono text-xs text-faint">{project.role}</span>
+                        {project.isPrivate && (
+                            <span className="inline-flex items-center gap-1 chip !py-0.5 ml-1">
+                                <Lock size={11} /> Private
                             </span>
                         )}
-                        <ArrowUpRight size={17} className="group-hover:text-accentink group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+
+                    <h3 className="font-display text-2xl sm:text-3xl font-semibold text-ink group-hover:text-accentink transition-colors">
+                        {project.title}
+                    </h3>
+                    <p className="mt-1.5 text-muted">{project.tagline}</p>
+
+                    <div className="mt-5 space-y-3.5">
+                        <div className="flex gap-3">
+                            <span className="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-accentsoft text-accentink">
+                                <Target size={14} />
+                            </span>
+                            <div>
+                                <div className="font-mono text-[11px] uppercase tracking-widest text-faint">Goal</div>
+                                <p className="text-sm text-muted leading-relaxed">{project.goal}</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-3">
+                            <span className="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-accentsoft text-accentink">
+                                <Sparkles size={14} />
+                            </span>
+                            <div>
+                                <div className="font-mono text-[11px] uppercase tracking-widest text-faint">Impact</div>
+                                <p className="text-sm text-muted leading-relaxed">{project.impact}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                            <span key={tag} className="chip">{tag}</span>
+                        ))}
+                    </div>
+
+                    <div className="mt-6 flex items-center gap-4">
+                        <span className="inline-flex items-center gap-1.5 font-mono text-sm text-ink group-hover:text-accentink transition-colors">
+                            View project
+                            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                        </span>
+                        {project.links.github !== '#' && (
+                            <span
+                                role="link"
+                                tabIndex={0}
+                                onClick={(e) => { e.preventDefault(); window.open(project.links.github, '_blank', 'noopener'); }}
+                                className="inline-flex items-center gap-1.5 font-mono text-sm text-faint hover:text-ink transition-colors cursor-pointer"
+                            >
+                                <Github size={15} /> Code
+                            </span>
+                        )}
+                        {project.links.demo !== '#' && (
+                            <span
+                                role="link"
+                                tabIndex={0}
+                                onClick={(e) => { e.preventDefault(); window.open(project.links.demo, '_blank', 'noopener'); }}
+                                className="inline-flex items-center gap-1.5 font-mono text-sm text-faint hover:text-ink transition-colors cursor-pointer"
+                            >
+                                <ArrowUpRight size={15} /> Live
+                            </span>
+                        )}
                     </div>
                 </div>
-
-                <p className="mt-2 text-sm text-muted leading-relaxed flex-1">{project.blurb}</p>
-
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                        <span key={tag} className="chip">{tag}</span>
-                    ))}
-                </div>
-            </div>
-        </motion.a>
+            </a>
+        </motion.article>
     );
 };
 
@@ -130,7 +126,7 @@ const Projects = () => {
                     <SectionHeading
                         kicker="02 / Work"
                         title="Selected projects."
-                        description="A mix of open source, client work, and AI experiments. Most are live."
+                        description="Each one framed by its goal and the impact it shipped. Click through for details, screens and a live demo."
                     />
                     <a
                         href="https://github.com/abdulrehmann231/"
@@ -143,9 +139,9 @@ const Projects = () => {
                     </a>
                 </div>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="mt-12 flex flex-col gap-6">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.title} project={project} index={index} />
+                        <ProjectRow key={project.slug} project={project} index={index} />
                     ))}
                 </div>
             </div>
