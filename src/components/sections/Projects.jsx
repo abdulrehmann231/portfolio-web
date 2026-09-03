@@ -17,6 +17,8 @@ const prettyUrl = (url) => {
 const ProjectRow = ({ project, index }) => {
     const flipped = index % 2 === 1;
     const href = `#/project/${project.slug}`;
+    const hasGithub = project.links.github && project.links.github !== '#';
+    const hasDemo = project.links.demo && project.links.demo !== '#';
 
     return (
         <motion.article
@@ -24,9 +26,11 @@ const ProjectRow = ({ project, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: '-60px' }}
-            className="card card-hover group overflow-hidden"
+            className="card card-hover group overflow-hidden relative"
         >
-            <a href={href} className="grid lg:grid-cols-2 gap-0 items-stretch">
+            {/* Whole card links to the project detail page (stretched behind the content) */}
+            <a href={href} aria-label={`View ${project.title} project`} className="absolute inset-0 z-[1]" />
+            <div className="grid lg:grid-cols-2 gap-0 items-stretch">
                 {/* Media */}
                 <div className={`relative p-5 sm:p-7 flex items-center bg-surface2/40 ${flipped ? 'lg:order-2' : ''}`}>
                     <span className="absolute top-5 left-5 z-10 font-mono text-xs px-2 py-1 rounded-md bg-black/55 text-white/90 backdrop-blur-sm">
@@ -86,34 +90,36 @@ const ProjectRow = ({ project, index }) => {
                         ))}
                     </div>
 
-                    <div className="mt-6 flex items-center gap-4">
+                    <div className="mt-6 flex items-center gap-4 relative z-[2]">
                         <span className="inline-flex items-center gap-1.5 font-mono text-sm text-ink group-hover:text-accentink transition-colors">
                             View project
                             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                         </span>
-                        {project.links.github !== '#' && (
-                            <span
-                                role="link"
-                                tabIndex={0}
-                                onClick={(e) => { e.preventDefault(); window.open(project.links.github, '_blank', 'noopener'); }}
+                        {hasGithub && (
+                            <a
+                                href={project.links.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="inline-flex items-center gap-1.5 font-mono text-sm text-faint hover:text-ink transition-colors cursor-pointer"
                             >
                                 <Github size={15} /> Code
-                            </span>
+                            </a>
                         )}
-                        {project.links.demo !== '#' && (
-                            <span
-                                role="link"
-                                tabIndex={0}
-                                onClick={(e) => { e.preventDefault(); window.open(project.links.demo, '_blank', 'noopener'); }}
+                        {hasDemo && (
+                            <a
+                                href={project.links.demo}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="inline-flex items-center gap-1.5 font-mono text-sm text-faint hover:text-ink transition-colors cursor-pointer"
                             >
                                 <ArrowUpRight size={15} /> Live
-                            </span>
+                            </a>
                         )}
                     </div>
                 </div>
-            </a>
+            </div>
         </motion.article>
     );
 };
