@@ -1,12 +1,13 @@
 import mattBrownImg from '../assets/matt-brown.png';
 import eekoAiImg from '../assets/eeko-ai.png';
 import backgrounderImg from '../assets/backgrounder.png';
-import smartclusiveImg from '../assets/smartclusive.svg';
+import smartclusiveImg from '../assets/smartclusive.png';
 import gitwitImg from '../assets/gitwit.png';
 import earthlinkAiImg from '../assets/earthlink-ai.png';
 import ligmaImg from '../assets/ligma.png';
 
 // Single source of truth for the Projects grid and the /project/:slug detail pages.
+// Order: flagship / most recent AI work first, simpler client work last.
 export const projects = [
     {
         slug: 'gitwit',
@@ -19,6 +20,21 @@ export const projects = [
         links: { github: 'https://github.com/jamesmurdza/gitwit/', demo: 'https://gitwit.dev/' },
         image: gitwitImg,
         gallery: [gitwitImg],
+        year: '2025',
+        role: 'Software Engineer',
+        featured: true,
+    },
+    {
+        slug: 'backgrounder',
+        title: 'Backgrounder.dev',
+        tagline: 'Run AI coding agents in isolated sandboxes.',
+        goal: 'Give developers building blocks to run AI coding agents in secure, isolated sandboxes wired directly to their GitHub repositories — usable standalone or embedded in their own products.',
+        impact: 'Open-source framework and a hosted web app that spins up agents in Daytona sandboxes, with a published set of npm packages for agent configuration, MCP integrations, sandboxed git/jobs/terminal operations and a TypeScript SDK.',
+        tags: ['Next.js', 'TypeScript', 'AI', 'Agentic'],
+        stack: ['Next.js', 'TypeScript', 'Node.js', 'Electron', 'Daytona Sandboxes', 'PostgreSQL', 'Prisma', 'MCP'],
+        links: { github: 'https://github.com/jamesmurdza/background-agents', demo: 'https://backgrounder.dev/' },
+        image: backgrounderImg,
+        gallery: [backgrounderImg],
         year: '2025',
         role: 'Software Engineer',
         featured: true,
@@ -54,21 +70,6 @@ export const projects = [
         featured: true,
     },
     {
-        slug: 'backgrounder',
-        title: 'Backgrounder.dev',
-        tagline: 'Run AI coding agents in isolated sandboxes.',
-        goal: 'Give developers building blocks to run AI coding agents in secure, isolated sandboxes wired directly to their GitHub repositories — usable standalone or embedded in their own products.',
-        impact: 'Open-source framework and a hosted web app that spins up agents in Daytona sandboxes, with a published set of npm packages for agent configuration, MCP integrations, sandboxed git/jobs/terminal operations and a TypeScript SDK.',
-        tags: ['Next.js', 'TypeScript', 'AI', 'Agentic'],
-        stack: ['Next.js', 'TypeScript', 'Node.js', 'Electron', 'Daytona Sandboxes', 'PostgreSQL', 'Prisma', 'MCP'],
-        links: { github: 'https://github.com/jamesmurdza/background-agents', demo: 'https://backgrounder.dev/' },
-        image: backgrounderImg,
-        gallery: [backgrounderImg],
-        year: '2025',
-        role: 'Software Engineer',
-        featured: true,
-    },
-    {
         slug: 'eeko-ai',
         title: 'Eeko-AI',
         tagline: 'AI crop-disease detection for agriculture.',
@@ -81,6 +82,20 @@ export const projects = [
         gallery: [eekoAiImg],
         year: '2024',
         role: 'Full-stack & AI Engineer',
+    },
+    {
+        slug: 'smartclusive',
+        title: 'Smartclusive',
+        tagline: 'Learn English vocabulary through ASL.',
+        goal: 'Help Indonesian students build English vocabulary through American Sign Language — turning a standard webcam into an inclusive, kinetic learning tool for Deaf, hard-of-hearing and hearing learners alike.',
+        impact: 'Real-time, letter-by-letter ASL recognition gives live feedback as students sign words, with mastery tracking, gamified quizzes and captioned lessons — built on lightweight open-source vision models suited to low-resource classrooms.',
+        tags: ['React', 'Python', 'Computer Vision', 'Accessibility'],
+        stack: ['React', 'Vite', 'Python', 'Flask', 'MediaPipe', 'scikit-learn'],
+        links: { github: 'https://github.com/abdulrehmann231/smartclusive', demo: 'https://smartclusive-1.onrender.com/' },
+        image: smartclusiveImg,
+        gallery: [smartclusiveImg],
+        year: '2024',
+        role: 'Full-stack & ML Engineer',
     },
     {
         slug: 'matt-brown-fine-art',
@@ -96,20 +111,6 @@ export const projects = [
         year: '2024',
         role: 'Web Developer',
         isPrivate: true,
-    },
-    {
-        slug: 'smartclusive',
-        title: 'Smartclusive',
-        tagline: 'Learn English vocabulary through ASL.',
-        goal: 'Help Indonesian students build English vocabulary through American Sign Language — turning a standard webcam into an inclusive, kinetic learning tool for Deaf, hard-of-hearing and hearing learners alike.',
-        impact: 'Real-time, letter-by-letter ASL recognition gives live feedback as students sign words, with mastery tracking, gamified quizzes and captioned lessons — built on lightweight open-source vision models suited to low-resource classrooms.',
-        tags: ['React', 'Python', 'Computer Vision', 'Accessibility'],
-        stack: ['React', 'Vite', 'Python', 'Flask', 'MediaPipe', 'scikit-learn'],
-        links: { github: 'https://github.com/abdulrehmann231/smartclusive', demo: '#' },
-        image: smartclusiveImg,
-        gallery: [smartclusiveImg],
-        year: '2024',
-        role: 'Full-stack & ML Engineer',
     },
 ];
 
