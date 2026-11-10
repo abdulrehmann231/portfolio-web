@@ -4,6 +4,19 @@ import SectionHeading from '../ui/SectionHeading';
 
 const experiences = [
     {
+        title: 'AI Engineer',
+        company: 'Background Agents (backgrounder.dev)',
+        period: 'May 2026 - Present',
+        type: 'Remote',
+        description: [
+            "Built a system that keeps all model credentials (user API keys, shared pool keys, Claude/ChatGPT subscription tokens) out of AI-agent sandboxes. Sandboxes only see a placeholder, which Daytona's outbound proxy swaps for the real key, restricted to each provider's hosts and only during a metered turn. This closed off key leaks and usage that skipped billing.",
+            'Published this as the npm package @background-agents/sandbox-secrets: secrets named by a hash of their value so rotated keys never collide, create-or-reuse that is safe under concurrency, last-used tracking with a daily cleanup cron, and a keepalive secret plus a proxy self-check so secrets keep working after sandbox restarts.',
+            'Built the MCP layer (Smithery registry, GitHub App MCP, a Gmail MCP server that enforces tool policies, with Google OAuth) across Claude Code, Codex, Copilot, Kilo, Goose and Droid, plus scheduled and webhook-triggered agent jobs.',
+            'Designed usage-based billing end to end: per-turn token metering, a ledger that cannot bill a turn twice, Stripe credit top-ups and usage analytics by repo, chat and agent.',
+            'Core engineer on the product team, with the 2nd-most commits on the platform after the founder: 316 commits and ~63k lines of production code.',
+        ],
+    },
+    {
         title: 'Software Engineer',
         company: 'Gitwit',
         period: 'Jun 2025 - Present',
@@ -12,17 +25,6 @@ const experiences = [
             "Built Gitwit's browser-based AI coding agent (similar to Cursor), enabling natural-language-driven code generation and editing directly in the browser.",
             'Built and integrated E2B sandbox templates to run code live with real-time preview, streamlining developer workflows.',
             'Developed GitHub integrations enabling seamless repository connectivity for AI-driven code modifications.',
-        ],
-    },
-    {
-        title: 'AI Engineer',
-        company: 'Background Agents (backgrounder.dev)',
-        period: '2025 - Present',
-        type: 'Remote',
-        description: [
-            'Built MCP (Model Context Protocol) server integrations and tool-connection layers in TypeScript, letting AI coding agents connect with any MCP-compatible external service.',
-            'Designed a token gateway service and custom API endpoints for secure, authenticated access to AI agent operations across sandboxed environments.',
-            'Contributed to an open-source AI agent platform (4,200+ commits, Apache-2.0) powering isolated sandbox execution, WebSocket terminals and Claude Code integration.',
         ],
     },
     {
