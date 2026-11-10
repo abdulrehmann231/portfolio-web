@@ -1,0 +1,106 @@
+% Source for public/Abdul-Rehman-Resume.pdf
+% Build: tectonic resume/resume.tex && cp resume/resume.pdf public/Abdul-Rehman-Resume.pdf
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+
+\renewcommand{\familydefault}{cmr}
+\fontfamily{cmr}\selectfont
+\pagestyle{empty}
+\newcommand{\SECBEFORE}{8pt}\newcommand{\SECAFTER}{4.5pt}\newcommand{\LISTTOP}{2pt}\newcommand{\ITEMGAP}{1pt}
+\newcommand{\ROLEBEFORE}{0pt}\newcommand{\ROLEAFTER}{1.5pt}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\vspace{-4pt}\titlerule]
+\titlespacing*{\section}{0pt}{\SECBEFORE}{\SECAFTER}
+
+\setlist[itemize]{leftmargin=13.9pt, labelsep=5pt, label=$\bullet$, itemsep=0pt, topsep=\LISTTOP, parsep=\ITEMGAP, partopsep=0pt}
+
+% \role{Title --- Org}{Dates}{Subtitle}
+\newcommand{\role}[3]{%
+  \vspace{\ROLEBEFORE}\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \\
+  \end{tabular*}\vspace{\ROLEAFTER}}
+
+\newcommand{\project}[4]{%
+  \vspace{-1pt}\textbf{#1} \ $|$ \ \textit{#2}\\
+  Live: \href{#3}{#3} \qquad GitHub: \href{#4}{#4}\vspace{1pt}}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\bfseries Abdul Rehman M. Nasir}\\[4pt]
+  \small Karachi, Pakistan \ $|$ \
+  \href{mailto:mabdulrehman951@gmail.com}{mabdulrehman951@gmail.com} \ $|$ \
+  \href{https://abdulrehmann.com}{abdulrehmann.com} \ $|$ \
+  \href{https://www.linkedin.com/in/abdulrehman-nasir-tobaria}{linkedin.com/in/abdulrehman-nasir-tobaria} \ $|$ \
+  \href{https://github.com/abdulrehmann231}{github.com/abdulrehmann231}
+\end{center}
+\vspace{-6pt}
+
+\section{Experience}
+
+\role{AI Engineer --- Background Agents (backgrounder.dev)}{May 2026 -- Present}{Remote}
+\begin{itemize}
+  \item Built credential isolation for AI-agent sandboxes: user API keys, shared pool keys and Claude/ChatGPT tokens sit behind Daytona secrets, swapped in by the egress proxy only for each provider's hosts during a metered turn.
+  \item Published it as the npm package \texttt{@background-agents/sandbox-secrets} (hash-named secrets, race-safe create-or-reuse, stale-secret cleanup cron, proxy keepalive across sandbox restarts).
+  \item Built MCP integrations (Smithery, GitHub App, policy-enforcing Gmail server) and usage-based billing with token metering and Stripe credits; 2nd-largest contributor to the platform (316 commits).
+\end{itemize}
+
+\role{Software Engineer --- Gitwit}{Jun 2025 -- Present}{Remote}
+\begin{itemize}
+  \item Built Gitwit's browser-based AI coding agent (similar to Cursor), enabling natural-language-driven code generation and editing directly in the browser.
+  \item Built and integrated E2B sandbox templates to run code live with real-time preview, streamlining developer workflows.
+  \item Developed GitHub integrations enabling seamless repository connectivity for AI-driven code modifications.
+\end{itemize}
+
+\role{Full Stack AI Engineer --- Softject}{Aug 2025 -- July 2026}{Part-time \ $|$ \ Hybrid}
+\begin{itemize}
+  \item Built AI agents, automation workflows, and RAG-based features (document ingestion, embeddings, vector search, LLM-powered responses) integrated across Next.js, Node.js, Python/FastAPI, and PostgreSQL.
+  \item Previously AI Engineer Intern (Jun--Aug 2025) and Full Stack Developer (Jan--Jun 2025), building web applications with Next.js and full-stack technologies.
+\end{itemize}
+
+\role{Backend Intern --- Central Depository Company of Pakistan}{Jul 2024 -- Sep 2024}{Onsite --- Karachi}
+\begin{itemize}
+  \item Developed REST APIs and backend microservices using Spring Boot, with SQL databases and JWT-based authentication securing inter-service communication.
+\end{itemize}
+
+\section{Projects}
+
+\project{EarthLink AI}{Next.js, Python, FastAPI, Tambo AI, Mapbox}{https://earthlink-ai.vercel.app}{https://github.com/abdulrehmann231/earthlink-ai}
+\begin{itemize}
+  \item Built an AI-native geospatial platform on Tambo AI where an agentic loop orchestrates 14 tools and 6 living UI components, turning plain-English prompts into map actions (proximity search, extremes, comparisons, heatmaps) within a single turn.
+  \item Derived NDVI, land-surface temperature, and greenness metrics from Harmonized Sentinel-2 Level-2A surface reflectance through a FastAPI + Google Earth Engine pipeline, rendered live via Next.js 16 and Mapbox GL.
+\end{itemize}
+
+\project{Draftly}{Next.js, Fastify, Yjs, WebSockets, PostgreSQL}{https://draftly-app.vercel.app}{https://github.com/abdulrehmann231/draftly}
+\begin{itemize}
+  \item Engineered a real-time collaborative meeting whiteboard achieving sub-50ms synchronization using Yjs CRDTs over WebSockets.
+  \item Added AI intent classification and Groq-powered meeting summaries to turn freeform whiteboard sessions into structured, shareable notes.
+\end{itemize}
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}p{1.36in}X@{}}
+  \textbf{Languages} & TypeScript, JavaScript, Python, C\#, Java, C++, C \\[1.2pt]
+  \textbf{Frameworks} & Node.js, Express.js, React, Next.js, FastAPI, Spring Boot, .NET Framework \\[1.2pt]
+  \textbf{Libraries \& Tools} & MCP (Model Context Protocol), Daytona, Tailwind CSS, Bootstrap, PassportJS, NumPy, Pandas, LangChain, Yjs, Docker, Linux, Git \\[1.2pt]
+  \textbf{AI \& Databases} & RAG, HuggingFace, OpenRouter, PostgreSQL, MongoDB, Firebase, Supabase, Pinecone, Mapbox \\[1.2pt]
+\end{tabularx}
+
+\section{Education}
+\role{FAST NUCES Pakistan --- B.S. in Computer Science}{Expected 2027}{Karachi, Pakistan}
+\begin{itemize}
+  \item Certification: Full Stack Web Development --- Node.js, Express.js, REST APIs, PostgreSQL, PassportJS
+\end{itemize}
+
+\end{document}
