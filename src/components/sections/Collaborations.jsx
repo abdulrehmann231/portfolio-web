@@ -3,8 +3,8 @@ import { ArrowUpRight, GitPullRequest, Users } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 
 const workedWith = [
+    { name: 'Background Agents', role: 'AI Engineer', period: '2026 — Present', url: 'https://backgrounder.dev' },
     { name: 'Gitwit', role: 'Software Engineer', period: '2025 — Present', url: 'https://gitwit.dev/' },
-    { name: 'Background Agents', role: 'AI Engineer', period: '2025 — Present', url: 'https://backgrounder.dev' },
     { name: 'Softject', role: 'Full-Stack AI Engineer', period: '2025', url: null },
     { name: 'Head-starter AI', role: 'Full-Stack Developer', period: '2024', url: null },
     { name: 'Central Depository Co.', role: 'Backend Intern', period: '2024', url: null },
@@ -13,16 +13,16 @@ const workedWith = [
 
 const contributedTo = [
     {
+        name: 'Background Agents',
+        desc: 'Apache-2.0 platform for running AI coding agents in Daytona sandboxes. I built its credential isolation (sandbox-secrets), MCP integrations and billing.',
+        tag: '2nd-top contributor',
+        url: 'https://github.com/jamesmurdza/background-agents',
+    },
+    {
         name: 'Gitwit',
         desc: 'Open-source AI-native cloud IDE with live previews, AI code generation and sandboxed execution.',
         tag: 'AI · DevTools',
         url: 'https://github.com/jamesmurdza/gitwit/',
-    },
-    {
-        name: 'AI Agent Platform',
-        desc: 'Apache-2.0 platform powering isolated sandbox execution, WebSocket terminals and Claude Code integration.',
-        tag: '4,200+ commits',
-        url: 'https://backgrounder.dev',
     },
     {
         name: 'EarthLink AI',
